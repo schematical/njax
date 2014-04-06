@@ -1,12 +1,27 @@
 {
-  "name": "application-name",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
-  "dependencies": {
-    "express": "3.4.7",
-    "hjs": "*"
-  }
+    "name": "njax",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "express": "4.*",
+        "hjs": "git://git@github.com:schematical/hjs.git#master",
+        "underscore": "*",
+        "mkdirp": "*",
+        "async": "*",
+        "request": "*",
+        "mongoose": "3.8.5",
+        "oauth2orize": "0.x.x",
+        "passport": "~0.1.12",
+        "passport-local": "0.1.x",
+        "passport-local-mongoose": "*",
+        "passport-http": "0.2.x",
+        "passport-http-bearer": "0.2.x",
+        "passport-oauth2-client-password": "0.1.x",
+        "serve-static":"*",
+        "morgan": "~1.0.0",
+        "body-parser": "~1.0.0"
+    }
 }

@@ -1,13 +1,13 @@
 {
     "name": "njax",
     "version": "0.0.1",
-    "private": true,
+    "private": false,
     "scripts": {
-        "start": "node app.js"
+        "start": "node index.js"
     },
     "dependencies": {
         "express": "4.*",
-        "hjs": "git://git@github.com:schematical/hjs.git#master",
+        "hjs": "git://git@github.com:schematical/hjs.git",
         "underscore": "*",
         "mkdirp": "*",
         "async": "*",

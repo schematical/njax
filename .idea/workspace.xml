@@ -3,23 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="6d098d82-e198-4695-aa05-4a38ddf4f0b7" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../boosely/node_modules/njax-bootstrap/public/templates/_theme_meta.hjs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/model/account.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/auth.js" afterPath="$PROJECT_DIR$/lib/routes/auth.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/njax.js" afterPath="$PROJECT_DIR$/lib/njax.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="njax.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396821677211" ignored="false" />
-    <file path="/package.json" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396811562677" ignored="false" />
+    <file path="/package.json" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396829966727" ignored="false" />
     <file path="/app.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396813492393" ignored="false" />
-    <file path="/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396819748074" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396818532304" ignored="false" />
+    <file path="/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396862701714" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396863114254" ignored="false" />
     <file path="/njax.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396829836432" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/lib/routes/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396815176273" ignored="false" />
-    <file path="/auth.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396829791587" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/public/templates/auth.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396820004145" ignored="false" />
-    <file path="/auth.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396820002159" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/lib/routes/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396830444134" ignored="false" />
+    <file path="/auth.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396864716665" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/auth.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396864737836" ignored="false" />
+    <file path="/auth.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396863610717" ignored="false" />
     <file path="/middleware.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396818024769" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/node_modules/njax-bootstrap/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396819960764" ignored="false" />
     <file path="/express.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396819358478" ignored="false" />
@@ -28,7 +27,7 @@
     <file path="$PROJECT_DIR$/../boosely/node_modules/njax-bootstrap/public/templates/_theme_footer.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396819716316" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/node_modules/njax-bootstrap/public/templates/_theme_header.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396819929987" ignored="false" />
     <file path="$PROJECT_DIR$/../generator-njax/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396824506582" ignored="false" />
-    <file path="$PROJECT_DIR$/../generator-njax/.idea/workspace.xml" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396829841570" ignored="false" />
+    <file path="$PROJECT_DIR$/../generator-njax/.idea/workspace.xml" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396872989569" ignored="false" />
     <file path="$PROJECT_DIR$/../generator-njax/package.json" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396822212475" ignored="false" />
     <file path="$PROJECT_DIR$/../generator-njax/.gitignore" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396822212475" ignored="false" />
     <file path="$PROJECT_DIR$/../generator-njax/app/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396825487712" ignored="false" />
@@ -37,9 +36,19 @@
     <file path="/account.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396828061429" ignored="false" />
     <file path="$PROJECT_DIR$/../generator-njax/app/templates/_routes.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396825396498" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/lib/routes/account.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396825555479" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/node_modules/njax/lib/routes/auth.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396829791587" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/public/templates/register.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396829770756" ignored="false" />
-    <file path="/register.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396829770756" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/node_modules/njax/lib/routes/auth.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396864717766" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/register.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396864534436" ignored="false" />
+    <file path="/register.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396864402509" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/package.json" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396829956356" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/css/base-admin-2.css" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396862090723" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/_meta.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396862210130" ignored="false" />
+    <file path="/a.dummy" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396862222405" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/_meta.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396862237425" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/_navbar.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396864217796" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/index.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396862455444" ignored="false" />
+    <file path="/index.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396862437450" ignored="false" />
+    <file path="/_navbar.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396864100415" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/README.md" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396872999294" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,19 +68,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="njax.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="njax.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/njax.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="33" selection-start="479" selection-end="479" vertical-scroll-proportion="0.42404008">
+            <state line="43" column="31" selection-start="1220" selection-end="1220" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="_footer.hjs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/templates/_footer.hjs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="6" selection-start="7" selection-end="7" vertical-scroll-proportion="-0.625">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="28" selection-start="113" selection-end="113" vertical-scroll-proportion="-3.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/routes/auth.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="64" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
+            <state line="36" column="30" selection-start="990" selection-end="990" vertical-scroll-proportion="0.7245409">
               <folding />
             </state>
           </provider>
@@ -117,13 +144,13 @@
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/lib/modules/bootstrap/public/templates/_meta.hjs" />
         <option value="$PROJECT_DIR$/lib/routes/middleware.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/node_modules/hjs/lib/express.js" />
-        <option value="$PROJECT_DIR$/public/templates/_footer.hjs" />
         <option value="$PROJECT_DIR$/public/templates/_header.hjs" />
         <option value="$PROJECT_DIR$/lib/model/account.js" />
-        <option value="$PROJECT_DIR$/lib/routes/auth.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/public/templates/_footer.hjs" />
         <option value="$PROJECT_DIR$/lib/njax.js" />
+        <option value="$PROJECT_DIR$/lib/routes/auth.js" />
       </list>
     </option>
   </component>
@@ -191,6 +218,24 @@
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -221,24 +266,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="njax" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="njax" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -397,12 +424,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/lib/routes/auth.js</url>
-          <line>29</line>
+          <line>40</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/lib/routes/auth.js</url>
-          <line>31</line>
+          <line>42</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -431,26 +458,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/templates/_footer.hjs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="6" selection-start="7" selection-end="7" vertical-scroll-proportion="-0.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/hjs/lib/express.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="64" column="35" selection-start="1760" selection-end="1760" vertical-scroll-proportion="0.7266436">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="63" selection-start="233" selection-end="233" vertical-scroll-proportion="0.24368231">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -482,16 +495,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes/auth.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="64" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
+        <state line="5" column="28" selection-start="113" selection-end="113" vertical-scroll-proportion="-3.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/templates/_footer.hjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="6" selection-start="7" selection-end="7" vertical-scroll-proportion="-0.625">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/njax.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="33" selection-start="479" selection-end="479" vertical-scroll-proportion="0.42404008">
+        <state line="43" column="31" selection-start="1220" selection-end="1220" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/routes/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="30" selection-start="990" selection-end="990" vertical-scroll-proportion="0.7245409">
           <folding />
         </state>
       </provider>

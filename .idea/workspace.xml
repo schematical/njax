@@ -2,23 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d098d82-e198-4695-aa05-4a38ddf4f0b7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../boosely/node_modules/njax-bootstrap/public/templates/_theme_meta.hjs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/routes/edit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/model/account.js" afterPath="$PROJECT_DIR$/lib/model/account.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/auth.js" afterPath="$PROJECT_DIR$/lib/routes/auth.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/index.js" afterPath="$PROJECT_DIR$/lib/routes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/njax.js" afterPath="$PROJECT_DIR$/lib/njax.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="njax.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396821677211" ignored="false" />
+    <file path="/Dummy.txt" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396914327203" ignored="false" />
     <file path="/package.json" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396829966727" ignored="false" />
     <file path="/app.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396813492393" ignored="false" />
-    <file path="/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396862701714" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396863114254" ignored="false" />
-    <file path="/njax.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396829836432" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/lib/routes/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396830444134" ignored="false" />
-    <file path="/auth.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396864716665" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/public/templates/auth.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396864737836" ignored="false" />
-    <file path="/auth.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396863610717" ignored="false" />
+    <file path="/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396959670457" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396916322288" ignored="false" />
+    <file path="/njax.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396957365138" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/lib/routes/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396959751562" ignored="false" />
+    <file path="/auth.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396954888169" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/auth.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396954961480" ignored="false" />
+    <file path="/auth.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396954959414" ignored="false" />
     <file path="/middleware.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396818024769" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/node_modules/njax-bootstrap/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396819960764" ignored="false" />
     <file path="/express.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396819358478" ignored="false" />
@@ -27,7 +30,7 @@
     <file path="$PROJECT_DIR$/../boosely/node_modules/njax-bootstrap/public/templates/_theme_footer.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396819716316" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/node_modules/njax-bootstrap/public/templates/_theme_header.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396819929987" ignored="false" />
     <file path="$PROJECT_DIR$/../generator-njax/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396824506582" ignored="false" />
-    <file path="$PROJECT_DIR$/../generator-njax/.idea/workspace.xml" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396872989569" ignored="false" />
+    <file path="$PROJECT_DIR$/../generator-njax/.idea/workspace.xml" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396873544215" ignored="false" />
     <file path="$PROJECT_DIR$/../generator-njax/package.json" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396822212475" ignored="false" />
     <file path="$PROJECT_DIR$/../generator-njax/.gitignore" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396822212475" ignored="false" />
     <file path="$PROJECT_DIR$/../generator-njax/app/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396825487712" ignored="false" />
@@ -36,7 +39,7 @@
     <file path="/account.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396828061429" ignored="false" />
     <file path="$PROJECT_DIR$/../generator-njax/app/templates/_routes.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396825396498" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/lib/routes/account.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396825555479" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/node_modules/njax/lib/routes/auth.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396864717766" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/node_modules/njax/lib/routes/auth.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396955253433" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/public/templates/register.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396864534436" ignored="false" />
     <file path="/register.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396864402509" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/package.json" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396829956356" ignored="false" />
@@ -44,11 +47,25 @@
     <file path="$PROJECT_DIR$/../boosely/public/templates/_meta.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396862210130" ignored="false" />
     <file path="/a.dummy" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396862222405" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/public/templates/_meta.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396862237425" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/public/templates/_navbar.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396864217796" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/public/templates/index.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396862455444" ignored="false" />
-    <file path="/index.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396862437450" ignored="false" />
-    <file path="/_navbar.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396864100415" ignored="false" />
-    <file path="$PROJECT_DIR$/../boosely/README.md" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396872999294" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/_navbar.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396955200423" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/index.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396915981937" ignored="false" />
+    <file path="/index.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396915980982" ignored="false" />
+    <file path="/_navbar.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396955199986" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/README.md" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396873542733" ignored="false" />
+    <file path="/README.md" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396873524674" ignored="false" />
+    <file path="/_account.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396917615026" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/_account.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396918221979" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/theme/theme/css/custom.css" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396916604087" ignored="false" />
+    <file path="/custom.css" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396917478839" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/templates/edit.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396953010737" ignored="false" />
+    <file path="/edit.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396953010032" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/public/css/custom.css" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396917653899" ignored="false" />
+    <file path="/edit.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396952953661" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/lib/model/iaccount.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396952434203" ignored="false" />
+    <file path="/iaccount.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396952417986" ignored="false" />
+    <file path="/basic.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396954755247" ignored="false" />
+    <file path="$PROJECT_DIR$/../boosely/node_modules/njax/node_modules/passport-local-mongoose/lib/passport-local-mongoose.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396957249926" ignored="false" />
+    <file path="/passport-local-mongoose.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396957153559" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,10 +85,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="njax.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="njax.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/njax.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="31" selection-start="1220" selection-end="1220" vertical-scroll-proportion="0.0">
+            <state line="39" column="46" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.56962025">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="0" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -89,16 +115,25 @@
       <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="28" selection-start="113" selection-end="113" vertical-scroll-proportion="-3.125">
+            <state line="26" column="28" selection-start="768" selection-end="768" vertical-scroll-proportion="-16.25">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="auth.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/routes/auth.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="30" selection-start="990" selection-end="990" vertical-scroll-proportion="0.7245409">
+            <state line="29" column="36" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_header.hjs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/templates/_header.hjs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="4" selection-start="370" selection-end="370" vertical-scroll-proportion="-11.25">
               <folding />
             </state>
           </provider>
@@ -107,7 +142,7 @@
       <file leaf-file-name="account.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/model/account.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="30" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
+            <state line="22" column="0" selection-start="639" selection-end="952" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -146,11 +181,15 @@
         <option value="$PROJECT_DIR$/lib/routes/middleware.js" />
         <option value="$PROJECT_DIR$/node_modules/hjs/lib/express.js" />
         <option value="$PROJECT_DIR$/public/templates/_header.hjs" />
+        <option value="$PROJECT_DIR$/public/templates/_footer.hjs" />
+        <option value="$PROJECT_DIR$/lib/routes/index.js" />
+        <option value="$PROJECT_DIR$/lib/routes/edit.js" />
+        <option value="$PROJECT_DIR$/../boosely/lib/routes/edit.js" />
         <option value="$PROJECT_DIR$/lib/model/account.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/public/templates/_footer.hjs" />
-        <option value="$PROJECT_DIR$/lib/njax.js" />
+        <option value="$PROJECT_DIR$/node_modules/passport-http/lib/passport-http/strategies/basic.js" />
         <option value="$PROJECT_DIR$/lib/routes/auth.js" />
+        <option value="$PROJECT_DIR$/lib/njax.js" />
       </list>
     </option>
   </component>
@@ -247,6 +286,60 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="passport-local-mongoose" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="passport-local-mongoose" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -266,6 +359,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -340,26 +451,26 @@
     <frame x="64" y="764" width="1303" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -437,18 +548,21 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/lib/routes/middleware.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="12" column="22" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../boosely/node_modules/njax-bootstrap/public/templates/_theme_meta.hjs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="85" selection-start="398" selection-end="398" vertical-scroll-proportion="-4.375">
-          <folding />
-        </state>
+        <state line="7" column="85" selection-start="398" selection-end="398" vertical-scroll-proportion="-4.375" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../boosely/public/templates/index.hjs">
@@ -462,7 +576,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="64" column="35" selection-start="1760" selection-end="1760" vertical-scroll-proportion="0.7266436">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -481,27 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/templates/_header.hjs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="4" selection-start="370" selection-end="370" vertical-scroll-proportion="-11.25">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/model/account.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="30" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="28" selection-start="113" selection-end="113" vertical-scroll-proportion="-3.125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/templates/_footer.hjs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="6" selection-start="7" selection-end="7" vertical-scroll-proportion="-0.625">
@@ -509,16 +602,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/njax.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="31" selection-start="1220" selection-end="1220" vertical-scroll-proportion="0.0">
+        <state line="26" column="28" selection-start="768" selection-end="768" vertical-scroll-proportion="-16.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/templates/_header.hjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="4" selection-start="370" selection-end="370" vertical-scroll-proportion="-11.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/passport-local-mongoose/lib/passport-local-mongoose.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="51" selection-start="4082" selection-end="4095" vertical-scroll-proportion="0.3888889">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/model/account.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="639" selection-end="952" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/routes/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="30" selection-start="990" selection-end="990" vertical-scroll-proportion="0.7245409">
+        <state line="29" column="36" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/passport-http/lib/passport-http/strategies/basic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="27" selection-start="2387" selection-end="2387" vertical-scroll-proportion="0.46075085">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/njax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="46" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.56962025">
           <folding />
         </state>
       </provider>

@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d098d82-e198-4695-aa05-4a38ddf4f0b7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/routes/edit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/model/account.js" afterPath="$PROJECT_DIR$/lib/model/account.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/auth.js" afterPath="$PROJECT_DIR$/lib/routes/auth.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/index.js" afterPath="$PROJECT_DIR$/lib/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/njax.js" afterPath="$PROJECT_DIR$/lib/njax.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="njax.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396914327203" ignored="false" />
+    <file path="/Dummy.txt" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1397048573783" ignored="false" />
     <file path="/package.json" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396829966727" ignored="false" />
-    <file path="/app.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396813492393" ignored="false" />
-    <file path="/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396959670457" ignored="false" />
+    <file path="/app.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396976514561" ignored="false" />
+    <file path="/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396992893731" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396916322288" ignored="false" />
     <file path="/njax.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396957365138" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/lib/routes/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396959751562" ignored="false" />
@@ -66,6 +60,64 @@
     <file path="/basic.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396954755247" ignored="false" />
     <file path="$PROJECT_DIR$/../boosely/node_modules/njax/node_modules/passport-local-mongoose/lib/passport-local-mongoose.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396957249926" ignored="false" />
     <file path="/passport-local-mongoose.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396957153559" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/app.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1397047736503" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/routes/file/pdf.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396978024924" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/routes/model/document.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396990715708" ignored="false" />
+    <file path="/document.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396984674015" ignored="false" />
+    <file path="/pdf.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396991963802" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/lib/model/app_data.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396967258598" ignored="false" />
+    <file path="/app_data.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396969034850" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/node_modules/planvault_fs/lib/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396992989567" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/lib/model/role.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396967062476" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/lib/model/project.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396987933063" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/lib/model/document.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396982035381" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/app.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396976514561" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/lib/config.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396988185532" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/lib/model/document_data.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396978129771" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/routes/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396986006163" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/lib/helpers/pdf.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396991976482" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/node_modules/mongoose/node_modules/mquery/lib/utils.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396970151332" ignored="false" />
+    <file path="/document_data.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396978129771" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/routes/raw.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396977245827" ignored="false" />
+    <file path="/raw.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396977212672" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/public/templates/pdf/pdf.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396977290992" ignored="false" />
+    <file path="/pdf.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396977290992" ignored="false" />
+    <file path="/config.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396977568435" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/lib/plugins/api_auth.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396978508680" ignored="false" />
+    <file path="/api_auth.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396978509069" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/routes/model/application.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396978833177" ignored="false" />
+    <file path="/application.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396978819318" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/lib/model/application.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396978808549" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/public/templates/_header.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396979254045" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/routes/sdk/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396979271187" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/public/templates/txt.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396979322949" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/public/templates/pdf/_pdf_pagination.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396980892782" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/lib/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396980130958" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/public/js/router/TurisRouter.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396985082423" ignored="false" />
+    <file path="/TurisRouter.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396985080244" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/routes/model/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396985014325" ignored="false" />
+    <file path="/_pdf_pagination.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396980892782" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/routes/model/search.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396983981240" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/public/templates/sidebar/_sidebar_commit_list.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396984787755" ignored="false" />
+    <file path="/_sidebar_commit_list.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396984787755" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/lib/control/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396986413277" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/lib/model/revision.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396985246706" ignored="false" />
+    <file path="/revision.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396985246355" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/node_modules/hjs/lib/express.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396985505651" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/lib/helpers/txt.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396985956033" ignored="false" />
+    <file path="/txt.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396986075209" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/routes/file/txt.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396986076798" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/node_modules/planvault_fs/lib/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396992838034" ignored="false" />
+    <file path="/.gitignore" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396988005226" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/.gitignore" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396988100380" ignored="false" />
+    <file path="$PROJECT_DIR$/../planvault_doci/.gitignore" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396988102760" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/routes/admin/index.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396990149883" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/_util/admin_setup_midleware.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1397048686354" ignored="false" />
+    <file path="/admin_setup_midleware.js" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1397048676746" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/public/templates/admin/setup.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396989485791" ignored="false" />
+    <file path="/setup.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396989484780" ignored="false" />
+    <file path="$PROJECT_DIR$/../vpr2/public/templates/admin/_admin_sidebar.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396990232558" ignored="false" />
+    <file path="/_admin_sidebar.hjs" changelist="6d098d82-e198-4695-aa05-4a38ddf4f0b7" time="1396990196509" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +140,7 @@
       <file leaf-file-name="njax.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/njax.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="46" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.56962025">
+            <state line="51" column="15" selection-start="1433" selection-end="1433" vertical-scroll-proportion="0.25951558">
               <folding />
             </state>
           </provider>
@@ -106,7 +158,7 @@
       <file leaf-file-name="_footer.hjs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/templates/_footer.hjs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="6" selection-start="7" selection-end="7" vertical-scroll-proportion="-0.625">
+            <state line="1" column="6" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -115,7 +167,7 @@
       <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="28" selection-start="768" selection-end="768" vertical-scroll-proportion="-16.25">
+            <state line="26" column="28" selection-start="768" selection-end="768" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -133,7 +185,7 @@
       <file leaf-file-name="_header.hjs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/templates/_header.hjs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="4" selection-start="370" selection-end="370" vertical-scroll-proportion="-11.25">
+            <state line="18" column="4" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -195,7 +247,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="64" />
-    <option name="y" value="764" />
+    <option name="y" value="-4" />
     <option name="width" value="1303" />
     <option name="height" value="773" />
   </component>
@@ -225,7 +277,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -382,11 +433,12 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../boosely" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vpr2" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -448,7 +500,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="764" width="1303" height="773" extended-state="6" />
+    <frame x="64" y="-4" width="1303" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -567,9 +619,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../boosely/public/templates/index.hjs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/hjs/lib/express.js">
@@ -590,37 +640,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="39" selection-start="39" selection-end="39" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="39" selection-start="39" selection-end="39" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/templates/_footer.hjs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="6" selection-start="7" selection-end="7" vertical-scroll-proportion="-0.625">
+        <state line="1" column="6" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="28" selection-start="768" selection-end="768" vertical-scroll-proportion="-16.25">
+        <state line="26" column="28" selection-start="768" selection-end="768" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/templates/_header.hjs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="4" selection-start="370" selection-end="370" vertical-scroll-proportion="-11.25">
+        <state line="18" column="4" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/passport-local-mongoose/lib/passport-local-mongoose.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="51" selection-start="4082" selection-end="4095" vertical-scroll-proportion="0.3888889">
-          <folding />
-        </state>
+        <state line="113" column="51" selection-start="4082" selection-end="4095" vertical-scroll-proportion="0.3888889" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/model/account.js">
@@ -653,7 +699,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/njax.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="46" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.56962025">
+        <state line="51" column="15" selection-start="1433" selection-end="1433" vertical-scroll-proportion="0.25951558">
           <folding />
         </state>
       </provider>

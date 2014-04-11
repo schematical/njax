@@ -7,7 +7,7 @@
     },
     "dependencies": {
         "express": "4.*",
-        "hjs": "git://git@github.com:schematical/hjs.git",
+        "hjs": "git+ssh://git@github.com:schematical/hjs.git",
         "underscore": "*",
         "mkdirp": "*",
         "async": "*",

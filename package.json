@@ -12,6 +12,8 @@
         "mkdirp": "*",
         "async": "*",
         "request": "*",
+        "mkdirp": "*",
+        "aws-sdk":"*",
         "mongoose": "3.8.5",
         "oauth2orize": "0.x.x",
         "passport": "~0.1.12",
@@ -24,6 +26,7 @@
         "morgan": "~1.0.0",
         "body-parser": "~1.0.0",
         "cookie-parser":"*",
-        "express-session":"*"
+        "express-session":"*",
+        "errorhandler":"*"
     }
 }

@@ -13,6 +13,7 @@
         "async": "*",
         "request": "*",
         "mkdirp": "*",
+        "markdown": "*",
         "aws-sdk":"*",
         "mongoose": "3.8.5",
         "oauth2orize": "0.x.x",

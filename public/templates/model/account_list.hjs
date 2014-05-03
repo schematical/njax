@@ -1,0 +1,55 @@
+{{> _header }}
+
+{{> _navbar }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            {{> _account_edit_form }}
+        </div>
+        <div class="col-md-8 col-md-offset-1">
+            <table class="table">
+                <tr>
+                    
+                        <th>
+                            email
+                        </th>
+                    
+                        <th>
+                            name
+                        </th>
+                    
+                        <th>
+                            namespace
+                        </th>
+                    
+                </tr>
+                {{# account }}
+                    <tr>
+                        
+                            <td>
+                                {{ email }}
+                            </td>
+                        
+                            <td>
+                                {{ name }}
+                            </td>
+                        
+                            <td>
+                                {{ namespace }}
+                            </td>
+                        
+                        
+                        <td>
+                            <a class='btn btn-default btn-sm' href='/accounts/{{ namespace }}'>
+                                View
+                            </a>
+                        </td>
+                        
+                    </tr>
+                {{/ account }}
+            </table>
+        </div>
+    </div>
+</div>
+{{> _footer }}
+

@@ -1,0 +1,79 @@
+{{> _header }}
+
+{{> _navbar }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            {{> _application_edit_form }}
+        </div>
+        <div class="col-md-8 col-md-offset-1">
+            <table class="table">
+                <tr>
+                    
+                        <th>
+                            namespace
+                        </th>
+                    
+                        <th>
+                            name
+                        </th>
+                    
+                        <th>
+                            desc
+                        </th>
+                    
+                        <th>
+                            url
+                        </th>
+                    
+                        <th>
+                            secret
+                        </th>
+                    
+                        <th>
+                            owner
+                        </th>
+                    
+                </tr>
+                {{# application }}
+                    <tr>
+                        
+                            <td>
+                                {{ namespace }}
+                            </td>
+                        
+                            <td>
+                                {{ name }}
+                            </td>
+                        
+                            <td>
+                                {{ desc }}
+                            </td>
+                        
+                            <td>
+                                {{ url }}
+                            </td>
+                        
+                            <td>
+                                {{ secret }}
+                            </td>
+                        
+                            <td>
+                                {{ owner }}
+                            </td>
+                        
+                        
+                        <td>
+                            <a class='btn btn-default btn-sm' href='/applications/{{ namespace }}'>
+                                View
+                            </a>
+                        </td>
+                        
+                    </tr>
+                {{/ application }}
+            </table>
+        </div>
+    </div>
+</div>
+{{> _footer }}
+

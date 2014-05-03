@@ -1,0 +1,41 @@
+{{> _header }}
+
+{{> _navbar }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            {{> _requestCode_edit_form }}
+        </div>
+        <div class="col-md-8 col-md-offset-1">
+            <table class="table">
+                <tr>
+                    
+                        <th>
+                            code
+                        </th>
+                    
+                        <th>
+                            application
+                        </th>
+                    
+                </tr>
+                {{# requestCode }}
+                    <tr>
+                        
+                            <td>
+                                {{ code }}
+                            </td>
+                        
+                            <td>
+                                {{ application }}
+                            </td>
+                        
+                        
+                    </tr>
+                {{/ requestCode }}
+            </table>
+        </div>
+    </div>
+</div>
+{{> _footer }}
+

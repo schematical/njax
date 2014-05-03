@@ -1,0 +1,28 @@
+{{> _header }}
+{{> _navbar }}
+<div class="page-header">
+    <h1>{{ application.name }}<small>{{ application.desc }}</small></h1>
+</div>
+
+    <h3>Namespace</h3>
+    {{ application.namespace }}
+
+    <h3>Name</h3>
+    {{ application.name }}
+
+    <h3>Desc</h3>
+    {{ application.desc }}
+
+    <h3>Url</h3>
+    {{ application.url }}
+
+    <h3>Secret</h3>
+    {{ application.secret }}
+
+    <h3>Owner</h3>
+    {{ application.owner }}
+
+<a class='btn btn-default btn-sm' href='{{ application.uri }}/edit'>
+    Edit
+</a>
+{{> _footer }}

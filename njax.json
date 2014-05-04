@@ -12,7 +12,7 @@
         },
         "application":{
             "fields":{
-                "namespace":"namespace",
+                "username":"namespace",
                 "name":"string",
                 "desc":"md",
                 "url":"string",

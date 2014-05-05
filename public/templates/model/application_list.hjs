@@ -11,7 +11,7 @@
                 <tr>
                     
                         <th>
-                            namespace
+                            username
                         </th>
                     
                         <th>
@@ -31,15 +31,19 @@
                         </th>
                     
                         <th>
+                            level
+                        </th>
+                    
+                        <th>
                             owner
                         </th>
                     
                 </tr>
-                {{# application }}
+                {{# applications }}
                     <tr>
                         
                             <td>
-                                {{ namespace }}
+                                {{ username }}
                             </td>
                         
                             <td>
@@ -59,18 +63,16 @@
                             </td>
                         
                             <td>
+                                {{ level }}
+                            </td>
+                        
+                            <td>
                                 {{ owner }}
                             </td>
                         
                         
-                        <td>
-                            <a class='btn btn-default btn-sm' href='/applications/{{ namespace }}'>
-                                View
-                            </a>
-                        </td>
-                        
                     </tr>
-                {{/ application }}
+                {{/ applications }}
             </table>
         </div>
     </div>

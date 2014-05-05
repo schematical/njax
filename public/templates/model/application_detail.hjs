@@ -4,8 +4,8 @@
     <h1>{{ application.name }}<small>{{ application.desc }}</small></h1>
 </div>
 
-    <h3>Namespace</h3>
-    {{ application.namespace }}
+    <h3>Username</h3>
+    {{ application.username }}
 
     <h3>Name</h3>
     {{ application.name }}
@@ -18,6 +18,9 @@
 
     <h3>Secret</h3>
     {{ application.secret }}
+
+    <h3>Level</h3>
+    {{ application.level }}
 
     <h3>Owner</h3>
     {{ application.owner }}

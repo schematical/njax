@@ -27,7 +27,7 @@
                         </th>
                     
                 </tr>
-                {{# accessToken }}
+                {{# accessTokens }}
                     <tr>
                         
                             <td>
@@ -48,7 +48,7 @@
                         
                         
                     </tr>
-                {{/ accessToken }}
+                {{/ accessTokens }}
             </table>
         </div>
     </div>

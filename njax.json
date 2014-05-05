@@ -17,6 +17,7 @@
                 "desc":"md",
                 "url":"string",
                 "secret":"string",
+                "level":"level",
                 "owner":{
                     "type":"ref",
                     "ref":"account"
@@ -63,9 +64,9 @@
             "express": "4.*",
             "hjs": "git+ssh://git@github.com:schematical/hjs.git",
             "underscore": "*",
-            "mkdirp": "*",
             "async": "*",
             "request": "*",
+            "hogan":"*",
             "mkdirp": "*",
             "markdown": "*",
             "aws-sdk":"*",

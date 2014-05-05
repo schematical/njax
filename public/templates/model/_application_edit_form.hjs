@@ -4,8 +4,8 @@
     
         
             <div class="form-group">
-                <label for="namespace">namespace</label>
-                <input name="namespace" type="namespace" class="form-control" id="namespace" placeholder="Enter namespace" value="{{ application.namespace }}">
+                <label for="username">username</label>
+                <input name="username" type="username" class="form-control" id="username" placeholder="Enter username" value="{{ application.username }}">
             </div>
         
     
@@ -31,6 +31,13 @@
             <div class="form-group">
                 <label for="secret">secret</label>
                 <input name="secret" type="secret" class="form-control" id="secret" placeholder="Enter secret" value="{{ application.secret }}">
+            </div>
+        
+    
+        
+            <div class="form-group">
+                <label for="level">level</label>
+                <input name="level" type="level" class="form-control" id="level" placeholder="Enter level" value="{{ application.level }}">
             </div>
         
     

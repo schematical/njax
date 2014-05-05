@@ -23,7 +23,7 @@
                         </th>
                     
                 </tr>
-                {{# account }}
+                {{# accounts }}
                     <tr>
                         
                             <td>
@@ -40,13 +40,13 @@
                         
                         
                         <td>
-                            <a class='btn btn-default btn-sm' href='/accounts/{{ namespace }}'>
+                            <a class='btn btn-default btn-sm' href='{{ uri }}'>
                                 View
                             </a>
                         </td>
                         
                     </tr>
-                {{/ account }}
+                {{/ accounts }}
             </table>
         </div>
     </div>

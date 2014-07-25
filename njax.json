@@ -70,6 +70,7 @@
             "mkdirp": "*",
             "markdown": "*",
             "aws-sdk":"*",
+            "serve-static":"*",
             "mongoose": "3.8.5",
             "oauth2orize": "0.x.x",
             "passport": "~0.1.12",

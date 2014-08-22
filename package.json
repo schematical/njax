@@ -9,5 +9,6 @@
     "markdown": "*",
     "connect-multiparty": "*",
     "aws-lib": "*",
-    "socket.io": "*"
+    "socket.io": "*",
+    "serve-static":"*"
 }}

@@ -10,5 +10,19 @@
     "connect-multiparty": "*",
     "aws-lib": "*",
     "socket.io": "*",
-    "serve-static":"*"
+    "serve-static":"*",
+    "body-parser":"*",
+    "morgan":"*",
+    "mkdirp":"*",
+    "aws-sdk":"*",
+    "express-session":"*",
+    "oauth2orize":"*",
+    "cookie-parser":"*",
+    "passport":"*",
+    "passport-http":"*",
+    "passport-http-bearer":"*",
+    "passport-local":"*",
+    "passport-local-mongoose":"*",
+    "passport-oauth2-client-password":"*",
+    "request":"*"
 }}

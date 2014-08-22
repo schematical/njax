@@ -9,7 +9,5 @@
     "markdown": "*",
     "connect-multiparty": "*",
     "aws-lib": "*",
-    "socket.io": "*",
-    "njax": "git+ssh://git@github.com:schematical/njax.git#master",
-    "njax-bootstrap": "git+ssh://git@github.com:schematical/njax-bootstrap.git#master"
+    "socket.io": "*"
 }}

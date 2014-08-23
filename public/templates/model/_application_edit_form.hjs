@@ -1,23 +1,26 @@
 
 
 <form role="form" action='/applications/{{ application._id }}' method='POST' enctype="multipart/form-data">
-    
-        
-            <div class="form-group">
-                <label for="username">username</label>
-                <input name="username" type="username" class="form-control" id="username" placeholder="Enter username" value="{{ application.username }}">
+
+    <div class="form-group">
+        <label for="name">name</label>
+        <input name="name" type="name" class="form-control" id="name" placeholder="Enter name" value="{{ application.name }}">
+    </div>
+
+    <div class="form-group">
+                <label for="namespace">Namespace</label>
+                <input name="namespace" type="namespace" class="form-control" id="namespace" placeholder="Enter namespace" value="{{ application.namespace }}" njax-namespace="name">
             </div>
         
     
         
-            <div class="form-group">
-                <label for="name">name</label>
-                <input name="name" type="name" class="form-control" id="name" placeholder="Enter name" value="{{ application.name }}">
-            </div>
-        
+
     
         
-            <textarea id="desc" name="desc" class="form-control" rows="3">{{ application.desc}}</textarea>
+            <div class="form-group">
+                <label for="desc">desc</label>
+                <input name="desc" type="desc" class="form-control" id="desc" placeholder="Enter desc" value="{{ application.desc }}">
+            </div>
         
     
         

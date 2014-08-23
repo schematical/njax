@@ -11,67 +11,17 @@
                 <tr>
                     
                         <th>
-                            username
+                            Namespace
                         </th>
                     
                         <th>
                             name
                         </th>
-                    
-                        <th>
-                            desc
-                        </th>
-                    
-                        <th>
-                            url
-                        </th>
-                    
-                        <th>
-                            secret
-                        </th>
-                    
-                        <th>
-                            level
-                        </th>
-                    
-                        <th>
-                            owner
-                        </th>
+
                     
                 </tr>
                 {{# applications }}
-                    <tr>
-                        
-                            <td>
-                                {{ username }}
-                            </td>
-                        
-                            <td>
-                                {{ name }}
-                            </td>
-                        
-                            <td>
-                                {{ desc }}
-                            </td>
-                        
-                            <td>
-                                {{ url }}
-                            </td>
-                        
-                            <td>
-                                {{ secret }}
-                            </td>
-                        
-                            <td>
-                                {{ level }}
-                            </td>
-                        
-                            <td>
-                                {{ owner }}
-                            </td>
-                        
-                        
-                    </tr>
+                   {{> _application_list_single }}
                 {{/ applications }}
             </table>
         </div>

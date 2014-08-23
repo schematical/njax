@@ -1,0 +1,36 @@
+<tr id="#account-{{ namespace }}">
+    
+    
+    <td>
+        {{ email }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ name }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ namespace }}
+    </td>
+    
+
+    
+    
+    <td>
+        <a class='btn btn-default btn-sm' href='{{ uri }}'>
+            View
+        </a>
+        {{# is_admin }}
+            <a class='btn btn-default btn-sm' href='/admin/accounts/{{namespace}}/login_as'>
+                Login as
+            </a>
+        {{/is_admin}}
+    </td>
+    
+</tr>

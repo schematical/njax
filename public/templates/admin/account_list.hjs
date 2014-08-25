@@ -71,28 +71,7 @@
 
                 </tr>
                 {{# accounts }}
-                    <tr id="#account-{{ namespace }}">
-
-                        <td>
-                            {{ email }}
-                        </td>
-
-                        <td>
-                            {{ name }}
-                        </td>
-
-                        <td>
-                            {{ namespace }}
-                        </td>
-
-
-                        <td>
-                            <a class='btn btn-default btn-sm' href='{{ uri }}'>
-                                View
-                            </a>
-                        </td>
-
-                    </tr>
+                    {{> _account_list_single }}
                 {{/ accounts }}
             </table>
         </div>

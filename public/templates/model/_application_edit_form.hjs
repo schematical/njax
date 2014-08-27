@@ -42,10 +42,15 @@
                 <label for="level">level</label>
                 <input name="level" type="level" class="form-control" id="level" placeholder="Enter level" value="{{ application.level }}">
             </div>
-        
-    
-        
-            {{^ account }}
+
+    <div class="form-group">
+        <label for="callback_url">Callback URL:</label>
+        <input name="callback_url" type="callback_url" class="form-control" id="callback_url" placeholder="Enter callback_url" value="{{ application.callback_url }}">
+    </div>
+
+
+
+    {{^ account }}
             <div class="form-group">
                 <label for="owner">owner</label>
                 <select id="owner" name='owner' value='{{ application.owner }}'>

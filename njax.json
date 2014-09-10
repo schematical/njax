@@ -16,6 +16,7 @@
                 "name":"string",
                 "desc":"md",
                 "url":"string",
+                "domain":"string",
                 "secret":"string",
                 "level":"level",
                 "owner":{

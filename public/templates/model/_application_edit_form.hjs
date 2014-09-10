@@ -28,8 +28,11 @@
                 <label for="url">url</label>
                 <input name="url" type="url" class="form-control" id="url" placeholder="Enter url" value="{{ application.url }}">
             </div>
-        
-    
+
+            <div class="form-group">
+                <label for="domain">Domain</label>
+                <input name="domain" type="domain" class="form-control" id="url" placeholder="Enter domain" value="{{ application.domain }}">
+            </div>
         
             <div class="form-group">
                 <label for="secret">secret</label>

@@ -1,6 +1,6 @@
 
 
-<form role="form" action='/request_codes/{{ requestCode._id }}' method='POST' enctype="multipart/form-data">
+<form role="form" action='/{{ requestCode._id }}' method='POST' enctype="multipart/form-data">
     
         
             <div class="form-group">

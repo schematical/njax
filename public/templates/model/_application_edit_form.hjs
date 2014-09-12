@@ -1,6 +1,6 @@
 
 
-<form role="form" action='/applications/{{ application._id }}' method='POST' enctype="multipart/form-data">
+<form role="form" action='/apps/{{ application._id }}' method='POST' enctype="multipart/form-data">
 
     <div class="form-group">
         <label for="name">name</label>

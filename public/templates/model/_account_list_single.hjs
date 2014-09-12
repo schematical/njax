@@ -27,7 +27,7 @@
             View
         </a>
         {{# is_admin }}
-            <a class='btn btn-default btn-sm' href='/admin/accounts/{{ namespace }}/login_as'>
+            <a class='btn btn-default btn-sm' href='/admin/apps/{{ namespace }}/login_as'>
                 Login as
             </a>
         {{/is_admin}}

@@ -54,7 +54,7 @@
     {{# iframes }}
         <div class="form-group">
             <label for="{{ namespace}}_iframe_url">{{ name }} URL:</label>
-            <input name="{{ namespace}}_iframe_url" type="{{ namespace}}_iframe_url" class="form-control" id="{{ namespace }}_iframe_url" placeholder="Enter {{ name }} iframe URL" value="{{ application.iframes }}">
+            <input name="{{ namespace}}_iframe_url" type="{{ namespace}}_iframe_url" class="form-control" id="{{ namespace }}_iframe_url" placeholder="Enter {{ name }} iframe URL" value="{{ url }}">
         </div>
     {{/iframes}}
 

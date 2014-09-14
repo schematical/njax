@@ -6,5 +6,10 @@ module.exports = {
         secretAccessKey:'iKI6yOjvAIpi9AE+8xpvhc6SgmENNa4JgjUd5Jwn',
         bucket_name:'byobob',
         associateId:'holiday_helper-20'
+    },
+    developers:{
+        iframes:[
+            { name: 'Account Settings', value:"account_settings"}
+        ]
     }
 }

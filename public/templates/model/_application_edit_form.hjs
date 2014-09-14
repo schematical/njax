@@ -51,7 +51,12 @@
         <input name="callback_url" type="callback_url" class="form-control" id="callback_url" placeholder="Enter callback_url" value="{{ application.callback_url }}">
     </div>
 
-
+    {{# iframes }}
+        <div class="form-group">
+            <label for="{{ namespace}}_iframe_url">{{ name }} URL:</label>
+            <input name="{{ namespace}}_iframe_url" type="{{ namespace}}_iframe_url" class="form-control" id="{{ namespace }}_iframe_url" placeholder="Enter {{ name }} iframe URL" value="{{ application.iframes }}">
+        </div>
+    {{/iframes}}
 
     {{^ account }}
             <div class="form-group">

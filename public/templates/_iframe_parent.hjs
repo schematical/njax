@@ -1,0 +1,4 @@
+<h3>IFrame</h3>
+<iframe id="njax-iframe" src="/iframe/{{ application.namespace }}" style="width:100%;"  frameBorder="0">
+
+</iframe>

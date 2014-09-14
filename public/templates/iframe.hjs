@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    </head>
+    <body>
+        <form id="njax-iframe-form" action="{{ iframe_url }}" method="post">
+            <input type="hidden" name="njax_payload" value='{{{ njax_payload }}}' />
+        </form>
+        <script>
+            $('#njax-iframe-form').submit();
+        </script>
+    </body>
+</html>

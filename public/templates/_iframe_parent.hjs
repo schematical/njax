@@ -1,3 +1,3 @@
-<iframe id="njax-iframe" src="{{ iframe_url }}" style="width:100%;"  frameBorder="0">
+<iframe id="njax-iframe" src="{{ iframe_url }}" style="width:100%;"  frameBorder="0" njax-iframe>
 
 </iframe>

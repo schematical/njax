@@ -1,5 +1,20 @@
 
 angular.module('njax.directives', [])
+    .directive('njaxIframe', [ function() {
+        return {
+            replace:true,
+            scope:{
+                //xtarget:'='
+            },
+            link:function(scope, element, attrs) {
+                setInterval( function(){
+                    var childHeight = element[0].contentWindow.document.body.offsetHeight;
+                    element.css('height', childHeight);
+                }, 1000);
+            }
+
+        };
+    }])
     .directive('njaxNamespace', [ function() {
 
         return {
@@ -18,7 +33,7 @@ angular.module('njax.directives', [])
                     element.val(namespace);
 
                 });
-            },
+            }
             //template: '/njax/templates/directives/njaxNamespace.html',
             /*controller: function($scope) {
                 console.log('Target:', $scope.xtarget, $scope.target);

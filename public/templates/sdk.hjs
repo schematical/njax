@@ -1,0 +1,4 @@
+/*
+This is designed to allow cross domain sdk
+*/
+document.domain = "{{ req.domain }}";

@@ -7,9 +7,14 @@ angular.module('njax.directives', [])
                 //xtarget:'='
             },
             link:function(scope, element, attrs) {
-                setInterval( function(){
-                    var childHeight = element[0].contentWindow.document.body.offsetHeight;
-                    element.css('height', childHeight);
+                setTimeout(function(){
+                    setInterval( function(){
+                        var childHeight = element[0].contentWindow.document.body.offsetHeight;
+                        element.css('height', childHeight);
+                    }, 1000);
+                    var jBody = $(element[0].contentWindow.document.body);
+                    jBody.find('#njax-payload').val(JSON.stringify(window.njax_bootstrap));
+                    jBody.find('#njax-iframe-form').submit();
                 }, 1000);
             }
 

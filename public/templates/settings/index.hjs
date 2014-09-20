@@ -5,6 +5,9 @@
     <div class='col-md-4'>
         <div class="list-group">
             {{# tabs }}
+                <a href="/settings" class="list-group-item">
+                    Basic
+                </a>
                 <a href="/settings/{{ namespace }}" class="list-group-item">
                     {{ name }}
                 </a>
@@ -12,8 +15,14 @@
         </div>
     </div>
     <div class='col-md-8'>
-        {{> _iframe_parent }}
+        {{#display_basic_settings}}
+            {{> _settings_basic }}
+        {{/display_basic_settings}}
+        {{^ display_basic_settings }}
+            {{> _iframe_parent }}
+        {{/display_basic_settings}}
     </div>
 </div>
+
 
 {{> _footer }}

@@ -1,0 +1,19 @@
+{{> _header }}
+
+{{> _navbar }}
+<div class='row container'>
+    <div class='col-md-4'>
+        <div class="list-group">
+            {{# tabs }}
+                <a href="/settings/{{ namespace }}" class="list-group-item">
+                    {{ name }}
+                </a>
+            {{/tabs}}
+        </div>
+    </div>
+    <div class='col-md-8'>
+        {{> _iframe_parent }}
+    </div>
+</div>
+
+{{> _footer }}

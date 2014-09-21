@@ -3,12 +3,15 @@
 }, "dependencies": {
     "async": "*",
     "underscore": "*",
-    "mongoose": "*",
     "errorhandler": "*",
     "markdown": "*",
     "connect-multiparty": "*",
     "aws-lib": "*",
     "aws-sdk": "*",
     "mkdirp": "*",
+    "oauth2orize":"*",
+    "passport":"*",
+    "passport-local-mongoose":"*",
+    "passport-local":"*",
     "njax-util": "git+ssh://git@github.com:schematical/njax-util.git#master"
 }}

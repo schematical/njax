@@ -35,7 +35,7 @@
         <!-- Text Under Box -->
         <div class="login-extra">
             Don't have an account? <a href="/register">Sign Up</a><br/>
-            Remind <a href="#">Password</a>
+            Remind <a href="/forgot_pass">Password</a>
         </div> <!-- /login-extra -->
     </div>
 </div>

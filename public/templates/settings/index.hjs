@@ -4,10 +4,11 @@
 <div class='row container'>
     <div class='col-md-4'>
         <div class="list-group">
+            <a href="/settings" class="list-group-item">
+                Basic
+            </a>
             {{# tabs }}
-                <a href="/settings" class="list-group-item">
-                    Basic
-                </a>
+
                 <a href="/settings/{{ namespace }}" class="list-group-item">
                     {{ name }}
                 </a>

@@ -1,0 +1,32 @@
+<tr>
+    
+    
+    <td>
+        {{ event_namespace }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ entity_url }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ data }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ application }}
+    </td>
+    
+
+    
+    
+</tr>

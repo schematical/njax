@@ -1,0 +1,73 @@
+<tr>
+    
+    
+    <td>
+        {{ namespace }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ name }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{{ desc }}}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ url }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ secret }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ level }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ callback_url }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ iframes }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ owner }}
+    </td>
+    
+
+    
+    
+    <td>
+        <a class='btn btn-default btn-sm' href='{{ uri }}'>
+            View
+        </a>
+    </td>
+    
+</tr>

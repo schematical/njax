@@ -8,8 +8,8 @@
 
             </ul>
             <div class="tab-content">
-                <div class="tab-pane active" id="stripe_plans">
-                    <form role="form" action="/settings/reset_pass" method="post">
+                <div class="tab-pane active" id="password">
+                    <form role="form" action="/settings/reset_pass{{# forgot_pass }}?forgot_pass_code={{ forgot_pass_code }}{{/forgot_pass}}" method="post">
                         <h3>Password:</h3>
                         {{# error }}
                             <div class="alert alert-danger">
@@ -21,11 +21,14 @@
                                 Password has successfully been updated
                             </div>
                         {{/success}}
-                        <div class="" ng-controller="stripePlansCtl">
+
+                        <div class="" >
+                            {{^ forgot_pass }}
                             <div class="form-group">
                                 <label for="old_password">Old Password</label>
                                 <input type="password"  name="old_password" class="form-control" id="old_password" placeholder="Enter Old Password">
                             </div>
+                            {{/ forgot_pass }}
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" name='password' id="password" placeholder="New Password">

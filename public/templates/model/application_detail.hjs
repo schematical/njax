@@ -14,7 +14,7 @@
     {{ application.desc }}
 
     <h3>Url</h3>
-    {{ application.url }}
+    {{ application.app_url }}
 
     <h3>Secret</h3>
     {{ application.secret }}

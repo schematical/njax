@@ -1,17 +1,1 @@
-{"name":"njax", "version": "0.0.1", "private": true, "scripts": {
-    "start": "node app.js"
-}, "dependencies": {
-    "async": "*",
-    "underscore": "*",
-    "errorhandler": "*",
-    "markdown": "*",
-    "connect-multiparty": "*",
-    "aws-lib": "*",
-    "aws-sdk": "*",
-    "mkdirp": "*",
-    "oauth2orize":"*",
-    "passport":"*",
-    "passport-local-mongoose":"*",
-    "passport-local":"*",
-    "njax-util": "git+ssh://git@github.com:schematical/njax-util.git#master"
-}}
+{"version":"0.0.1","private":true,"scripts":{"start":"node app.js"},"dependencies":{"async":"*","underscore":"*","mongoose":"*","errorhandler":"*","markdown":"*","connect-multiparty":"*","aws-lib":"*","aws-sdk":"*","socket.io":"*","mkdirp":"*","njax":"git+ssh://git@github.com:schematical/njax.git#master","njax-bootstrap":"git+ssh://git@github.com:schematical/njax-bootstrap.git#master"}}

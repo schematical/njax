@@ -11,6 +11,6 @@
     "aws-sdk": "*",
     "socket.io": "*",
     "mkdirp": "*",
-    "njax": "git+ssh://git@github.com:schematical/njax.git#master",
+    "njax-util": "git+ssh://git@github.com:schematical/njax-util.git#master",
     "njax-bootstrap": "git+ssh://git@github.com:schematical/njax-bootstrap.git#master"
 }}

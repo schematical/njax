@@ -30,6 +30,12 @@ angular.module('njax.directives', [])
             link:function(scope, element, attrs) {
                 //element.val('test');
                 var target = angular.element(document.querySelector( '#' + attrs.njaxNamespace));
+                var namespace = target.val()
+                namespace = namespace.toLowerCase();
+                namespace = namespace.replace(/[^\w\s]/gi, '');
+                namespace = namespace.replace(/ /g,"_");
+                element.val(namespace);
+
                 target.on('keyup', function(event) {
                     var namespace = target.val()
                     namespace = namespace.toLowerCase();
@@ -38,6 +44,15 @@ angular.module('njax.directives', [])
                     element.val(namespace);
 
                 });
+                element.on('keyup', function(event){
+                    var namespace = element.val()
+                    namespace = namespace.toLowerCase();
+                    namespace = namespace.replace(/[^\w\s]/gi, '');
+                    namespace = namespace.replace(/ /g,"_");
+                    if(element.val() != namespace){
+                        element.val(namespace);
+                    }
+                })
             }
             //template: '/njax/templates/directives/njaxNamespace.html',
             /*controller: function($scope) {

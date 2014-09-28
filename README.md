@@ -1,5 +1,7 @@
 NJax -
 ====
+//IF YOU ARE READING THIS THIS IS JUST AN OUTLINE FOR AN INTRO PARAGRAPH -> WELCOME TO MY PROCESS
+
 
 Designed to allow your work force to innovate.
 
@@ -17,6 +19,14 @@ This creates these giant originizations. Originizations this big inevitably suff
 
 
 ####The Googles Invest:
+
+
+###Dunbars Number - Limit of employees
+http://en.wikipedia.org/wiki/Dunbar's_number
+
+
+###Github:
+[How GitHub Uses GitHub to Build GitHub](http://zachholman.com/talk/how-github-uses-github-to-build-github/)
 
 ###Resources:
 http://toopay.github.io/bootstrap-markdown/

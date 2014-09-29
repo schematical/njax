@@ -28,7 +28,36 @@ http://en.wikipedia.org/wiki/Dunbar's_number
 ###Github:
 [How GitHub Uses GitHub to Build GitHub](http://zachholman.com/talk/how-github-uses-github-to-build-github/)
 
-###Resources:
+##Features:
+
+###Yeoman Generators
+
+###Restful API:
+
+###Angualar:
+
+###MongoDB
+
+###Passport:
+
+####
+
+####Borrower Strategy:
+
+###Applications:
+####IFrame:
+
+
+####Scafolded Node SDK:
+
+####Javascript SDK:
+
+###AWS Integration:
+####S3 Binary Assets:
+
+####
+
+##Resources:
 http://toopay.github.io/bootstrap-markdown/
 
 

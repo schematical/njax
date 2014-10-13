@@ -1,0 +1,11 @@
+{{> _header }}
+{{> _navbar}}
+<div class="container">
+    <script>
+        setTimeout(function(){
+            document.location = "{{ redirect_url }}";
+        }, 500);
+    </script>
+    <h1>You will be directed momentarily</h1>
+</div>
+{{> _footer }}

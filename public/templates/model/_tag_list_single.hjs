@@ -1,0 +1,67 @@
+<tr>
+    
+    
+    <td>
+        {{ type }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ sub_type }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ value }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ entity_type }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ entity_url }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ _entity_name }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ _entity_namespace }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ application }}
+    </td>
+    
+
+    
+    
+    <td>
+        {{ account }}
+    </td>
+    
+
+    
+    
+</tr>

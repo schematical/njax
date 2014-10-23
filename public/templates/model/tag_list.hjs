@@ -1,0 +1,76 @@
+{{> _header }}
+
+{{> _navbar }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            {{> _tag_edit_form }}
+        </div>
+        <div class="col-md-8 col-md-offset-1">
+            <table class="table">
+                <tr>
+                    
+                        
+                            <th>
+                                type
+                            </th>
+                        
+                    
+                        
+                            <th>
+                                sub_type
+                            </th>
+                        
+                    
+                        
+                            <th>
+                                value
+                            </th>
+                        
+                    
+                        
+                            <th>
+                                entity_type
+                            </th>
+                        
+                    
+                        
+                            <th>
+                                entity_url
+                            </th>
+                        
+                    
+                        
+                            <th>
+                                _entity_name
+                            </th>
+                        
+                    
+                        
+                            <th>
+                                _entity_namespace
+                            </th>
+                        
+                    
+                        
+                            <th>
+                                application
+                            </th>
+                        
+                    
+                        
+                            <th>
+                                account
+                            </th>
+                        
+                    
+                </tr>
+                {{# tags }}
+                  {{> _tag_list_single }}
+                {{/ tags }}
+            </table>
+        </div>
+    </div>
+</div>
+{{> _footer }}
+

@@ -11,7 +11,7 @@
     "mkdirp": "*",
     "oauth2orize":"*",
     "passport":"*",
-    "passport-local-mongoose":"*",
+    "passport-local-mongoose":"0.3.0",
     "passport-local":"*",
     "njax-util": "git+ssh://git@github.com:schematical/njax-util.git#master"
 }}

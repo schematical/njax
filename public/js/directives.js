@@ -42,6 +42,10 @@ angular.module('njax.directives', [])
                     namespace = namespace.replace(/[^\w\s]/gi, '');
                     namespace = namespace.replace(/ /g,"_");
                     element.val(namespace);
+					var ngModel = element.attr('ng-model');
+					if(ngModel){
+						scope.$parent[ngModel] = namespace;
+					}
 
                 });
                 element.on('keyup', function(event){
@@ -51,6 +55,7 @@ angular.module('njax.directives', [])
                     namespace = namespace.replace(/ /g,"_");
                     if(element.val() != namespace){
                         element.val(namespace);
+
                     }
                 })
             }
@@ -91,4 +96,40 @@ angular.module('njax.directives', [])
                 });*/
             }
         };
-    }]);;
+    }]).directive('njaxStatusUpdate', [ 'NJaxBootstrap', 'EventService', function(NJaxBootstrap, EventService) {
+		return {
+			replace:true,
+			scope:{
+				'target':'@target',
+				'event':'@event',
+				'users':'@users'
+			},
+			templateUrl: '/templates/directives/njaxStatusUpdate.html',
+			link:function(scope, element, attrs) {
+				scope.save = function($event){
+					var data = {};
+					data.status = scope.status;
+					/*console.log("Status:", scope.status);*/
+					if(NJaxBootstrap[scope.target]){
+
+						data[scope.target] = NJaxBootstrap[scope.target];
+						data['_url'] = NJaxBootstrap[scope.target].url;
+					}else{
+						data['_url'] = scope.target;
+					}
+					var users = NJaxBootstrap.user;
+					if(NJaxBootstrap[scope.users]){
+						users = NJaxBootstrap[scope.users]
+					}
+					return EventService.trigger({
+						event: scope.event,
+						data:data,
+						users:users
+					}, function(){
+						alert("Done");
+					})
+				}
+			}
+
+		};
+	}]);;

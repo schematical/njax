@@ -1,8 +1,6 @@
 console.log("NJaxBootstrap-Loaded for " + document.location.host);
 if(!window.njax_bootstrap){
-    var njax_bootstrap = {
-        core_api_url: '{{ core_api_url}}'//TODO: This is hackie as balls
-    }
+    var njax_bootstrap = {{{ sdk_bootstrap }}};
     window.njax_bootstrap = njax_bootstrap;
     if(window.angular){
         var njaxBootstrapService = angular.module('njax.bootstrap', []);

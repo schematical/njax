@@ -30,24 +30,23 @@ angular.module('njax.directives', [])
             link:function(scope, element, attrs) {
                 //element.val('test');
                 var target = angular.element(document.querySelector( '#' + attrs.njaxNamespace));
-                var namespace = target.val()
-                namespace = namespace.toLowerCase();
-                namespace = namespace.replace(/[^\w\s]/gi, '');
-                namespace = namespace.replace(/ /g,"_");
-                element.val(namespace);
+				var ngModel = element.attr('ng-model');
+				var updateFromTarget = function(event) {
+					var namespace = target.val()
+					namespace = namespace.toLowerCase();
+					namespace = namespace.replace(/[^\w\s]/gi, '');
+					namespace = namespace.replace(/ /g,"_");
+					element.val(namespace);
 
-                target.on('keyup', function(event) {
-                    var namespace = target.val()
-                    namespace = namespace.toLowerCase();
-                    namespace = namespace.replace(/[^\w\s]/gi, '');
-                    namespace = namespace.replace(/ /g,"_");
-                    element.val(namespace);
-					var ngModel = element.attr('ng-model');
 					if(ngModel){
-						scope.$parent[ngModel] = namespace;
-					}
+						var statment = ngModel + ' = "' + namespace + '";';
 
-                });
+						scope.$parent.$eval(ngModel + ' = "' + namespace + '";');
+					}
+				}
+				setTimeout(updateFromTarget, 250);
+
+                target.on('keyup', updateFromTarget);
                 element.on('keyup', function(event){
                     var namespace = element.val()
                     namespace = namespace.toLowerCase();

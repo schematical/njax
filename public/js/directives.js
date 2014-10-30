@@ -1,5 +1,5 @@
 
-angular.module('njax.directives', [])
+angular.module('njax.directives', ['njax.services'])
     .directive('njaxIframe', [ function() {
         return {
             replace:true,
@@ -20,7 +20,7 @@ angular.module('njax.directives', [])
 
         };
     }])
-    .directive('njaxNamespace', [ function() {
+    .directive('njaxNamespace', ['getNamespace', function(getNamespace) {
 
         return {
             replace:true,
@@ -32,10 +32,7 @@ angular.module('njax.directives', [])
                 var target = angular.element(document.querySelector( '#' + attrs.njaxNamespace));
 				var ngModel = element.attr('ng-model');
 				var updateFromTarget = function(event) {
-					var namespace = target.val()
-					namespace = namespace.toLowerCase();
-					namespace = namespace.replace(/[^\w\s]/gi, '');
-					namespace = namespace.replace(/ /g,"_");
+					var namespace = getNamespace(target.val());
 					element.val(namespace);
 
 					if(ngModel){

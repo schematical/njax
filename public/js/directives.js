@@ -43,6 +43,7 @@ angular.module('njax.directives', [])
 
 						scope.$parent.$eval(ngModel + ' = "' + namespace + '";');
 					}
+					scope.$parent.$digest();
 				}
 				setTimeout(updateFromTarget, 250);
 

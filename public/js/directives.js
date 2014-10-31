@@ -129,4 +129,25 @@ angular.module('njax.directives', ['njax.services'])
 			}
 
 		};
-	}]);;
+	}]).directive('njaxTagPicker', [ 'NJaxBootstrap', function(NJaxBootstrap) {
+
+		return {
+			replace:true,
+			scope:{
+				tagOptions:'=tagOptions',
+				service:'=service',
+				allowCustomTags:'=allowCustomTags'
+			},
+			templateUrl: '/templates/directives/tagSelect.html',
+			link: function($scope, element, attributes) {
+
+				$scope.tag_options = $scope.$eval($scope.tagOptions, NJaxBootstrap);
+
+				console.log($scope.tag_options);
+
+				$scope.skills = NJaxBootstrap.skills;
+
+
+			}
+		};
+	}])

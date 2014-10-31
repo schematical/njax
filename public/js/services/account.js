@@ -6,7 +6,7 @@ accountServices.factory(
 		'NJaxBootstrap',
 		function($resource, NJaxBootstrap){
 			return $resource(
-				NJaxBootstrap.core_api_url + '/:account_id',
+				NJaxBootstrap.core_api_url + '/accounts/:account_id',
 				{
 					'account_id':'@_id'
 				},

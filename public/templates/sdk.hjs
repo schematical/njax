@@ -1,21 +1,81 @@
 console.log("NJaxBootstrap-Loaded for " + document.location.host);
-if(!window.njax_bootstrap){
-    var njax_bootstrap = {{{ sdk_bootstrap }}};
-    window.njax_bootstrap = njax_bootstrap;
+try{
+
+    if(!window.njax_bootstrap){
+        var njax_bootstrap = {{{ sdk_bootstrap }}};
+        window.njax_bootstrap = njax_bootstrap;
+    }
     if(window.angular){
         var njaxBootstrapService = angular.module('njax.bootstrap', []);
         njaxBootstrapService.factory(
             'NJaxBootstrap',
-            [function(){
-                return njax_bootstrap;
+            ['$http', '$q', function($http, $q){
+                var deferred = $q.defer();
+                angular.extend(deferred.promise, njax_bootstrap);
+                var promise = $http.get(njax_bootstrap.core_api_url + '/bootstrap').then(function(results){
+                    console.log("NJax:", results);
+                    angular.extend(deferred.promise, results.data);
+                    angular.extend(window.njax_bootstrap, results.data);
+                    return deferred.resolve(results.data);
+                });
+                return deferred.promise;
             }]
         );
+        njaxSdk = angular.module('njax.sdk', []);
+        njaxSdk.factory(
+            'NJaxSDK',
+            ['$document', '$q', '$timeout', 'NJaxBootstrap', function ($document, $q, $timeout, NJaxBootstrap) {
+
+                    //Yes I borrowed this from another library. Can't remember which one. Emial me if you know
+                    this.loadScript = function (src) {
+                        var deferred = $q.defer();
+                        var script = $document[0].createElement('script');
+                        script.onload = script.onreadystatechange = function (e) {
+                            $timeout(function () {
+                                deferred.resolve(e);
+                            });
+
+                        };
+                        script.onerror = function (e) {
+                            $timeout(function () {
+                                deferred.reject(e);
+                            });
+                        };
+                        script.src = src;
+                        $document[0].body.appendChild(script);
+                        return deferred.promise;
+                    };
+                    this.init = function(config){
+                        var deferred = $q.defer();
+                        /* var promisses = [];
+                        for(var i in NJaxBootstrap.modules){
+                            promisses.push(this.loadScript(NJaxBootstrap.modules[i]));
+                        }
+                        $q.all(promisses).then(function(){ */
+                            console.log("Loaded");
+
+                            if (window!=window.top) {
+                                document.domain = NJaxBootstrap.cookie.domain;
+                            }
+                            //NJaxBootstrap.update().then(function(){
+                                deferred.resolve();
+                            //});
+                        /* }); */
+                        return deferred.promise;
+                    }
+                return this;
+
+
+            }]
+        );
+
+        /**Dynamicly included modules */
+        {{{ angular_modules }}}
+        console.log("NJaxBootstrap-Finish Loading for " + document.location.host);
     }
+
+}catch(e){
+    throw new Error(e);
+   // console.log(e);
 }
 
-/*
-This is designed to allow cross domain sdk
-*/
-if (window!=window.top) {
-    document.domain = "{{ req.domain }}";
-}

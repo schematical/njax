@@ -1,0 +1,45 @@
+{{> _header }}
+{{> _navbar }}
+<div class="page-header">
+    <h1>{{ subscription.name }}<small>{{{ subscription.desc }}}</small></h1>
+</div>
+
+    <h3>Events</h3>
+    
+        {{ subscription.events }}
+    
+
+    <h3>Short_namespace</h3>
+    
+        {{ subscription.short_namespace }}
+    
+
+    <h3>Entity_url</h3>
+    
+        {{ subscription.entity_url }}
+    
+
+    <h3>Entity_type</h3>
+    
+        {{ subscription.entity_type }}
+    
+
+    <h3>Entity_id</h3>
+    
+        {{ subscription.entity_id }}
+    
+
+    <h3>Data</h3>
+    
+        {{ subscription.data }}
+    
+
+    <h3>Account</h3>
+    
+        {{ subscription.account }}
+    
+
+<a class='btn btn-default btn-sm' href='{{ subscription.uri }}/edit'>
+    Edit
+</a>
+{{> _footer }}

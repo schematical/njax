@@ -5,6 +5,9 @@ try{
         var njax_bootstrap = {{{ sdk_bootstrap }}};
         window.njax_bootstrap = njax_bootstrap;
     }
+    if (window!=window.top) {
+        document.domain = njax_bootstrap.cookie.domain;
+    }
     if(window.angular){
         var njaxBootstrapService = angular.module('njax.bootstrap', []);
         njaxBootstrapService.factory(
@@ -54,9 +57,7 @@ try{
                         $q.all(promisses).then(function(){ */
                             console.log("Loaded");
 
-                            if (window!=window.top) {
-                                document.domain = NJaxBootstrap.cookie.domain;
-                            }
+
                             //NJaxBootstrap.update().then(function(){
                                 deferred.resolve();
                             //});

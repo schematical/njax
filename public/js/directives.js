@@ -151,3 +151,35 @@ angular.module('njax.directives', ['njax.services'])
 			}
 		};
 	}])
+	.directive('njaxNewsfeedEvent', ['NJaxBootstrap',  function(NJaxBootstrap) {
+
+		return {
+			replace:true,
+			scope:{
+				'_event':'=event'
+			},
+			templateUrl: '/templates/newsfeed/newsfeedEvent.hjs',
+			link: function($scope, element, attributes) {
+				$scope.ele_name = attributes.name;
+				//var entity = attributes.EventType;
+				if(!$scope._event.data){
+					return console.error("No event data for ", $scope._event);
+				}
+				for(var i in $scope._event.data){
+					if(i != '_event'){
+						$scope[i] = $scope._event.data[i];
+					}
+				}
+				if(!$scope._event.event_namespace){
+					console.error("No event namespace found for event : " + $scope._event._njax_type + " - " + $scope._event.name);
+				}
+				if(!NJaxBootstrap._event_tpls[$scope._event.event_namespace]){
+					//console.error("No event namespace found for event :"  + $scope._event.event_namespace);
+				}else{
+					$scope.event_tpl = '/templates/' + NJaxBootstrap._event_tpls[$scope._event.event_namespace] + '.hjs';
+				}
+
+			}
+
+		};
+	}]);

@@ -1,0 +1,63 @@
+
+
+<form role="form" action='/subscription/{{ subscription._id }}' method='POST' enctype="multipart/form-data"  ng-controller="subscriptionEditForm">
+    
+        
+            <div class="form-group">
+                <label for="events">events</label>
+                <input name="events" type="events" class="form-control" id="events" placeholder="Enter events" value="{{ subscription.events }}"  ng-model="subscription.events">
+            </div>
+        
+    
+        
+            <div class="form-group">
+                <label for="short_namespace">short_namespace</label>
+                <input name="short_namespace" type="short_namespace" class="form-control" id="short_namespace" placeholder="Enter short_namespace" value="{{ subscription.short_namespace }}"  ng-model="subscription.short_namespace">
+            </div>
+        
+    
+        
+            <div class="form-group">
+                <label for="entity_url">entity_url</label>
+                <input name="entity_url" type="entity_url" class="form-control" id="entity_url" placeholder="Enter entity_url" value="{{ subscription.entity_url }}"  ng-model="subscription.entity_url">
+            </div>
+        
+    
+        
+            <div class="form-group">
+                <label for="entity_type">entity_type</label>
+                <input name="entity_type" type="entity_type" class="form-control" id="entity_type" placeholder="Enter entity_type" value="{{ subscription.entity_type }}"  ng-model="subscription.entity_type">
+            </div>
+        
+    
+        
+            <div class="form-group">
+                <label for="entity_id">entity_id</label>
+                <input name="entity_id" type="entity_id" class="form-control" id="entity_id" placeholder="Enter entity_id" value="{{ subscription.entity_id }}"  ng-model="subscription.entity_id">
+            </div>
+        
+    
+        
+            <div class="form-group">
+                <label for="data">data</label>
+                <input name="data" type="data" class="form-control" id="data" placeholder="Enter data" value="{{ subscription.data }}"  ng-model="subscription.data">
+            </div>
+        
+    
+        
+            {{^ account }}
+            <div class="form-group">
+                <label for="account">account</label>
+                <select id="account" name='account' value='{{ subscription.account }}'  ng-model="subscription.account">
+                    {{# accounts }}
+                        <option {{# _selected }}selected='true'{{/ _selected}} value='{{ _id }}'>{{ name }}</option>
+                    {{/ accounts }}
+                </select>
+            </div>
+             {{/ account }}
+        
+    
+
+
+    <button type="submit" class="btn btn-default" ng-submit="save($event);">Submit</button>
+</form>

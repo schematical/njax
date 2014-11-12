@@ -59,7 +59,7 @@ angular.module('njax.auth.controller', [])
 							if($scope.onRegisterFinish){
 								$scope.onRegisterFinish(data);
 							}
-							$scope.$broadcast('njax.register.success');
+							$scope.$emit('njax.register.success', data);
 
 
 						})

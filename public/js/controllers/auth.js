@@ -16,7 +16,7 @@ angular.module('njax.auth.controller', [])
 					$scope.error = null;
 					var deferred = $q.defer();
 					if(!$scope.password || $scope.password.length < 8){
-						deferred.reject(new Error("Password length is not valid"));
+						deferred.reject(new Error("Password must be at least 8 characters"));
 					}else if($scope.password != $scope.password_confirm){
 						deferred.reject(new Error("Passwords do not match"));
 					}else if(!$scope.name){

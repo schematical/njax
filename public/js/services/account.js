@@ -1,4 +1,4 @@
-var accountServices = angular.module('core100.account.service', ['ngResource']);
+var accountServices = angular.module('njax.account.service', ['ngResource']);
 accountServices.factory(
 	'AccountService',
 	[

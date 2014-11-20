@@ -27,7 +27,7 @@ angular.module('njax.services', [])
 				jBody.append(jIFrame);*/
 				AccountService.me().$promise.then(function(results){
 					window.njax_bootstrap.user = results.user;
-c
+
 					if(results.user){
 
 						if(results.user.access_token && !$cookies.access_token){
@@ -37,6 +37,7 @@ c
 						if($cookies.access_token){
 							$cookies.access_token = null;
 						}
+
 					}
 				});
 

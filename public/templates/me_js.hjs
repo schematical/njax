@@ -1,0 +1,8 @@
+(function(window){
+    if(!window.njax_bootstrap){
+        window.njax_bootstrap = {};
+    }
+    {{#user}}
+        window.njax_bootstrap.user = {{{ user }}};
+    {{/user}}
+})(window);

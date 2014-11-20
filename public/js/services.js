@@ -6,6 +6,45 @@ angular.module('njax.services', [])
 		namespace = namespace.replace(/ /g,"_");
 		return namespace;
 	})
+	.service('NJaxAuth', ['$cookies', 'NJaxBootstrap', 'AccountService', function($cookies, NJaxBootstrap, AccountService){
+
+		return {
+			crossdomain:function(){
+
+
+				/*if ( window.location !== window.parent.location ) {
+					return;
+				}
+				var jBody = angular.element('body')
+				var jIFrame = angular.element('<iframe width="1" height="1" ng-src="' + NJaxBootstrap.core_www_url + '/me?redirect_uri='+ document.location + '" frameborder="0"></iframe>');
+				jIFrame.load(function(){
+					try{
+						console.log(jIFrame.contents());
+					}catch(e){
+					console.error(e);
+					}
+				});
+				jBody.append(jIFrame);*/
+				AccountService.me().$promise.then(function(results){
+					window.njax_bootstrap.user = results.user;
+c
+					if(results.user){
+
+						if(results.user.access_token && !$cookies.access_token){
+							$cookies.access_token = window.njax_bootstrap.user.access_token;
+						}
+					}else{
+						if($cookies.access_token){
+							$cookies.access_token = null;
+						}
+					}
+				});
+
+			}
+		}
+
+
+	}]);
 	/*.service('NJaxHandlebars', function(){
 
 		if(!Handlebars){

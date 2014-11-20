@@ -22,6 +22,10 @@ accountServices.factory(
 					url:NJaxBootstrap.core_api_url + '/auth/namespace_available',
 					method:'GET'
 				},
+				me:{
+					url:NJaxBootstrap.core_api_url + '/me',
+					method:'GET'
+				},
 				register:{
 					url:NJaxBootstrap.core_api_url + '/register',
 					method:'POST'

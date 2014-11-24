@@ -182,4 +182,65 @@ angular.module('njax.directives', ['njax.services'])
 			}
 
 		};
-	}]);
+	}])
+	.directive('njaxArchive', ['$location', '$http', '$compile', 'NJaxBootstrap',  function($location, $http, $compile, NJaxBootstrap) {
+
+		return {
+			replace:true,
+			scope:{
+				target:'=njaxArchive',
+				redirect_url:'=njaxRedirectUrl',
+				callback:'=njaxCallback'//Can use this to trigger function after
+			},
+			//templateUrl: '/templates/directives/njaxArchiveButton.html',
+			link: function($scope, element, attributes) {
+				var target_url = null;
+				$scope.target = $scope.target || attributes.njaxArchive;
+				if(!$scope.target){
+					throw new Error("Invalid Target")
+				}
+				if(typeof($scope.target) == 'string'){
+					var target =  $scope.$eval($scope.target, NJaxBootstrap);
+					if(target){
+						if(typeof(target) == 'string'){
+							target_url = target;
+						}else{
+							if(!(target.api_url || target.url)){
+								throw new Error("NJaxBootstrap Object found not valid. No api_url or url")
+							}
+							target_url = target.api_url || target.url;
+						}
+
+					}else{
+						target_url = target;
+					}
+
+
+				}else{
+					if(!($scope.target.api_url || $scope.target.url)){
+						throw new Error("Invalid Target Option");
+					}
+					target_url = $scope.target.api_url || $scope.target.url;
+				}
+
+
+
+				element.on('click', function(){
+
+					if(target_url.substr(0, 2) != '//'){
+						target_url = '//' + target_url;
+					}
+					console.log('target_url', target_url);
+					return $http.delete(target_url).then(function(result){
+						if($scope.callback){
+							return $scope.callback(result);
+						}
+						if($scope.redirect_url){
+							document.location = $scope.redirect_url
+						}
+					});
+				});
+
+			}
+		};
+	}])

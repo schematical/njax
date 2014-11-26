@@ -225,8 +225,8 @@ angular.module('njax.directives', ['njax.services'])
 
 
 
-				element.on('click', function(){
-
+				element.on('click', function(e){
+					e.preventDefault();
 					if(target_url.substr(0, 2) != '//'){
 						target_url = '//' + target_url;
 					}

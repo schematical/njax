@@ -1,0 +1,6 @@
+<!-- widget stuff -->
+{{# _njax_widgets }}
+    {{# src }}
+        <script src="{{ src }}"></script>
+    {{/src}}
+{{/ _njax_widgets }}

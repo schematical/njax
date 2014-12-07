@@ -176,7 +176,7 @@ angular.module('njax.directives', ['njax.services'])
 				if(!NJaxBootstrap._event_tpls[$scope._event.event_namespace]){
 					//console.error("No event namespace found for event :"  + $scope._event.event_namespace);
 				}else{
-					$scope.event_tpl = '/templates/' + NJaxBootstrap._event_tpls[$scope._event.event_namespace] + '.hjs';
+					$scope.event_tpl = NJaxBootstrap.core_www_url + '/templates/' + NJaxBootstrap._event_tpls[$scope._event.event_namespace] + '.hjs';
 				}
 
 			}
@@ -242,5 +242,35 @@ angular.module('njax.directives', ['njax.services'])
 				});
 
 			}
+		};
+	}])
+	.directive('njaxWidget', ['NJaxBootstrap', 'NJaxServices',  function(NJaxBootstrap, NJaxServices) {
+
+		return {
+			replace:true,
+			scope:{
+				'widget':'=njaxWidget'
+			},
+			//templateUrl: NJaxBootstrap.core_www_url + '/templates/newsfeed/newsfeedEvent.hjs',
+			link: function($scope, element, attributes) {
+				console.log($scope.widget);
+				NJaxServices.loadFeature(
+					$scope.widget.angular_modules,
+					$scope.widget.angular_ctl,
+					function(Crl, x){
+
+						return Crl($scope);
+					}
+				);
+			/*
+				for(var i in $scope.widget){
+					if(i != '_event'){
+						$scope[i] = $scope._event.data[i];
+					}
+				}*/
+
+
+			}
+
 		};
 	}])

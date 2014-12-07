@@ -158,7 +158,7 @@ angular.module('njax.directives', ['njax.services'])
 			scope:{
 				'_event':'=event'
 			},
-			templateUrl: '/templates/newsfeed/newsfeedEvent.hjs',
+			templateUrl: NJaxBootstrap.core_www_url + '/templates/newsfeed/newsfeedEvent.hjs',
 			link: function($scope, element, attributes) {
 				$scope.ele_name = attributes.name;
 				//var entity = attributes.EventType;

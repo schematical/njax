@@ -45,7 +45,20 @@ angular.module('njax.services', [])
 		}
 
 
-	}]);
+	}])
+	.service('NJaxServices', function(){
+		return {
+			loadFeature:function(services, module, callback){
+				try{
+					var $injector = angular.injector(services);
+					$injector.invoke([module,callback]);
+				}catch(e){
+					//throw e;
+					console.log("Skipped loading:" + module);
+				}
+			}
+		}
+	});
 	/*.service('NJaxHandlebars', function(){
 
 		if(!Handlebars){

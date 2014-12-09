@@ -274,3 +274,74 @@ angular.module('njax.directives', ['njax.services'])
 
 		};
 	}])
+	.directive('njaxHideEvent', ['$location', '$http', '$compile', 'NJaxBootstrap',  function($location, $http, $compile, NJaxBootstrap) {
+
+		return {
+			replace:true,
+			scope:{
+				target:'=njaxHideEvent',
+				callback:'=njaxCallback',//Can use this to trigger function after,
+				hide_element:'=njaxElement'
+			},
+			//templateUrl: '/templates/directives/njaxArchiveButton.html',
+			link: function($scope, element, attributes) {
+				var target_url = null;
+				$scope.target = $scope.target || attributes.njaxHideEvent;
+				if(!$scope.target){
+					throw new Error("Invalid Target")
+				}
+				if(typeof($scope.target) == 'string'){
+					if($scope.target.indexOf('/') != -1){
+						target_url = $scope.target;//Its a url
+					}else{
+						var target =  $scope.$eval($scope.target, NJaxBootstrap);
+						if(target){
+							if(typeof(target) == 'string'){
+								target_url = target;
+							}else{
+								if(!(target.api_url || target.url)){
+									throw new Error("NJaxBootstrap Object found not valid. No api_url or url")
+								}
+								target_url = target.api_url || target.url;
+							}
+
+						}else{
+							target_url = $scope.target;
+						}
+					}
+
+
+				}else{
+					if(!($scope.target.api_url || $scope.target.url)){
+						throw new Error("Invalid Target Option");
+					}
+					target_url = $scope.target.api_url || $scope.target.url;
+				}
+
+
+
+				return element.on('click', function(e){
+					e.preventDefault();
+					if(target_url.substr(0, 2) != '//'){
+						target_url = '//' + target_url;
+					}
+					console.log('target_url', target_url);
+					return $http.post(target_url + '/hide').then(function(result){
+						if($scope.hide_element){
+							var ele = angular.element($scope.hide_element);
+							if(ele.length > 0){
+								ele.addClass('hidden');
+							}
+						}
+						if($scope.callback){
+							return $scope.$parent.$eval($scope.callback, { result:result  });
+						}
+						console.log("Archived:" + target_url);
+
+					});
+				});
+
+			}
+		};
+	}])
+

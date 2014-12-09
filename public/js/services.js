@@ -53,7 +53,7 @@ angular.module('njax.services', [])
 					var $injector = angular.injector(services);
 					$injector.invoke([module,callback]);
 				}catch(e){
-					throw e;
+					//throw e;
 					console.log("Skipped loading:" + module);
 				}
 			}

@@ -1,116 +1,147 @@
 
 
-<form role="form" action='/apps/{{ application._id }}' method='POST' enctype="multipart/form-data">
+<div ng-controller="ApplicationEditFormCtl">
+    <div role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">Home</a></li>
+            <li role="presentation"><a href="#iframes" aria-controls="iframes" role="tab" data-toggle="tab">IFrames</a></li>
 
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input name="name" type="name" class="form-control" id="name" placeholder="Enter name" value="{{ application.name }}">
+            <li ng-if="application.level == 'SUPER'" role="presentation"><a href="#super_options" aria-controls="super_options" role="tab" data-toggle="tab">Super</a></li>
+
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="general">
+                <form role="form" action='/apps/{{ application._id }}' method='POST' enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input name="name" type="name" class="form-control" id="name" placeholder="Enter name" value="{{ application.name }}"  ng-model="application.name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="namespace">Namespace</label>
+                        <input name="namespace" type="namespace" class="form-control" id="namespace" placeholder="Enter namespace" value="{{ application.namespace }}"  ng-model="application.namespace" njax-namespace="name">
+                    </div>
+
+
+
+
+
+
+                    <textarea id="desc" name="desc" class="form-control" rows="3"  ng-model="application.desc">>{{ application.desc}}</textarea>
+
+
+
+                    <div class="form-group">
+                        <label for="app_url">Application Url:</label>
+                        <input name="app_url" type="string" class="form-control" id="app_url" placeholder="Enter url" value="{{ application.app_url }}" ng-model="application.app_url">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="domain">Domain</label>
+                        <input name="domain" type="domain" class="form-control" id="url" placeholder="Enter domain" value="{{ application.domain }}" ng-model="application.domain">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="secret">Secret</label>
+                        <input name="secret" type="secret" class="form-control" id="secret" placeholder="Enter secret" value="{{ application.secret }}" ng-model="application.secret">
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <h4>Level</h4>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="level" id="level_SUPER" value="SUPER"  ng-model="application.level">
+                                super
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="level" id="level_PARTNER" value="PARTNER"  ng-model="application.level">
+                                partner
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="level" id="level_UNKNOWN" value="UNKNOWN" ng-model="application.level">
+                                unknown
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="level" id="is_FEATURED" value="FEATURED"  ng-model="application.level">
+                                featured
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="level" id="is_BETA" value="BETA"  ng-model="application.level">
+                                beta
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="level" id="is_ALPHA" value="ALPHA"  ng-model="application.level">
+                                alpha
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="level" id="is_LAB" value="LAB"   ng-model="application.level">
+                                lab
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="level" id="is_DEV" value="DEV"  ng-model="application.level">
+                                dev
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="callback_url">Callback URL:</label>
+                        <input name="callback_url" type="callback_url" class="form-control" id="callback_url" placeholder="Enter callback_url" value="{{ application.callback_url }}" ng-model="application.callback_url">
+                    </div>
+                </form>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="iframes">
+                    {{# iframes }}
+                        <div class="form-group">
+                            <label for="{{ namespace}}_iframe_url">{{ name }} URL:</label>
+                            <input name="{{ namespace}}_iframe_url" type="{{ namespace}}_iframe_url" class="form-control" id="{{ namespace }}_iframe_url" placeholder="Enter {{ name }} iframe URL" value="{{ url }}" ng-model="{{ namespace}}_iframe_url">
+                        </div>
+                    {{/iframes}}
+
+             </div>
+            <div role="tabpanel" class="tab-pane" id="super_options">
+                <form name="super_options_frm">
+                    <h4>Super Options</h4>
+                    <hr/>
+                    <div class="form-group">
+                        <label for="app_url">API Url:</label>
+                        <input name="api_url" type="string" class="form-control" id="api_url" placeholder="Enter url" value="{{ application.bootstrap_data.api_url }}" ng-model="application.bootstrap_data.api_url" >
+                    </div>
+                    <h5>Bootstrap Data</h5>
+                    <div ng-if="bootstrap_data_error" ng-bind="bootstrap_data_error.message" class="alert alert-danger"></div>
+                    <textarea id="bootstrap_data_json" name="bootstrap_data_json" class="form-control" rows="3" ng-model="bootstrap_data_json"></textarea>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <div class="form-group">
-        <label for="namespace">Namespace</label>
-        <input name="namespace" type="namespace" class="form-control" id="namespace" placeholder="Enter namespace" value="{{ application.namespace }}" njax-namespace="name">
-    </div>
-
-
-
-
-
-
-    <textarea id="desc" name="desc" class="form-control" rows="3">{{ application.desc}}</textarea>
-
-
-
-    <div class="form-group">
-        <label for="app_url">Application Url:</label>
-        <input name="app_url" type="string" class="form-control" id="app_url" placeholder="Enter url" value="{{ application.app_url }}">
-    </div>
-
-    <div class="form-group">
-        <label for="domain">Domain</label>
-        <input name="domain" type="domain" class="form-control" id="url" placeholder="Enter domain" value="{{ application.domain }}">
-    </div>
-
-    <div class="form-group">
-        <label for="secret">Secret</label>
-        <input name="secret" type="secret" class="form-control" id="secret" placeholder="Enter secret" value="{{ application.secret }}">
-    </div>
-
-
-
-    <div class="form-group">
-        <h4>Level</h4>
-
-        <div class="radio">
-            <label>
-                <input type="radio" name="level" id="level_SUPER" value="SUPER" {{# level_SUPER_selected }}checked{{/level_SUPER_selected}}  ng-model="application.level">
-                super
-            </label>
-        </div>
-
-        <div class="radio">
-            <label>
-                <input type="radio" name="level" id="level_PARTNER" value="PARTNER" {{# level_PARTNER_selected }}checked{{/level_PARTNER_selected}}  ng-model="application.level">
-                partner
-            </label>
-        </div>
-
-        <div class="radio">
-            <label>
-                <input type="radio" name="level" id="level_UNKNOWN" value="UNKNOWN" {{# level_UNKNOWN_selected }}checked{{/level_UNKNOWN_selected}}  ng-model="application.level">
-                unknown
-            </label>
-        </div>
-
-        <div class="radio">
-            <label>
-                <input type="radio" name="level" id="level_FEATURED" value="FEATURED" {{# level_FEATURED_selected }}checked{{/level_FEATURED_selected}}  ng-model="application.level">
-                featured
-            </label>
-        </div>
-
-        <div class="radio">
-            <label>
-                <input type="radio" name="level" id="level_BETA" value="BETA" {{# level_BETA_selected }}checked{{/level_BETA_selected}}  ng-model="application.level">
-                beta
-            </label>
-        </div>
-
-        <div class="radio">
-            <label>
-                <input type="radio" name="level" id="level_ALPHA" value="ALPHA" {{# level_ALPHA_selected }}checked{{/level_ALPHA_selected}}  ng-model="application.level">
-                alpha
-            </label>
-        </div>
-
-        <div class="radio">
-            <label>
-                <input type="radio" name="level" id="level_LAB" value="LAB" {{# level_LAB_selected }}checked{{/level_LAB_selected}}  ng-model="application.level">
-                lab
-            </label>
-        </div>
-
-        <div class="radio">
-            <label>
-                <input type="radio" name="level" id="level_DEV" value="DEV" {{# level_DEV_selected }}checked{{/level_DEV_selected}}  ng-model="application.level">
-                dev
-            </label>
-        </div>
-
-    </div>
-
-    <div class="form-group">
-        <label for="callback_url">Callback URL:</label>
-        <input name="callback_url" type="callback_url" class="form-control" id="callback_url" placeholder="Enter callback_url" value="{{ application.callback_url }}">
-    </div>
-
-    {{# iframes }}
-        <div class="form-group">
-            <label for="{{ namespace}}_iframe_url">{{ name }} URL:</label>
-            <input name="{{ namespace}}_iframe_url" type="{{ namespace}}_iframe_url" class="form-control" id="{{ namespace }}_iframe_url" placeholder="Enter {{ name }} iframe URL" value="{{ url }}">
-        </div>
-    {{/iframes}}
-
-
-    <button type="submit" class="btn btn-default">Save</button>
-</form>
+    <button type="submit" class="btn btn-default" ng-click="save($event);">Save</button>
+</div>

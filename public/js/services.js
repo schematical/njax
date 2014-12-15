@@ -51,9 +51,15 @@ angular.module('njax.services', [])
 			loadFeature:function(services, module, callback){
 				try{
 					var $injector = angular.injector(services);
-					$injector.invoke([module,callback]);
+					if(!callback && typeof(module) == 'function'){
+						callback = module;
+						module = null;
+						return callback($injector);
+					}else{
+						$injector.invoke([module,callback]);
+					}
 				}catch(e){
-					//throw e;
+					throw e;
 					console.log("Skipped loading:" + module);
 				}
 			}

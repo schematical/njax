@@ -244,24 +244,39 @@ angular.module('njax.directives', ['njax.services'])
 			}
 		};
 	}])
-	.directive('njaxWidget', ['NJaxBootstrap', 'NJaxServices',  function(NJaxBootstrap, NJaxServices) {
+	.directive('njaxWidget', ['$compile', '$sce', 'NJaxBootstrap', 'NJaxServices',  function($compile, $sce, NJaxBootstrap, NJaxServices) {
 
 		return {
 			replace:true,
 			scope:{
 				'widget':'=njaxWidget'
 			},
-			//templateUrl: NJaxBootstrap.core_www_url + '/templates/newsfeed/newsfeedEvent.hjs',
+			//templateUrl: NJaxBootstrap.core_www_url + '/templates/directives/njaxWidget.html',
 			link: function($scope, element, attributes) {
 				console.log($scope.widget);
-				NJaxServices.loadFeature(
-					$scope.widget.angular_modules,
-					$scope.widget.angular_ctl,
-					function(Crl, x){
+				if($scope.widget.angular_ctl){
+					NJaxServices.loadFeature(
+						$scope.widget.angular_modules,
+						$scope.widget.angular_ctl,
+						function(Crl, x){
 
-						return Crl($scope);
-					}
-				);
+							return Crl($scope);
+						}
+					);
+				}else if($scope.widget.angular_directive){
+					var directiveDash =  $scope.widget.angular_directive.replace(/\W+/g, '-')
+							.replace(/([a-z\d])([A-Z])/g, '$1-$2');
+
+					NJaxServices.loadFeature(
+						$scope.widget.angular_modules,
+						function($injector){
+							var html = '<div ' + directiveDash + '>AAAA</div>';
+							var safe_html = $sce.trustAsHtml(html);
+							element.append($compile(html)($scope));
+						}
+					);
+				}
+
 			/*
 				for(var i in $scope.widget){
 					if(i != '_event'){

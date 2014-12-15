@@ -123,7 +123,7 @@
                     {{# iframes }}
                         <div class="form-group">
                             <label for="{{ namespace}}_iframe_url">{{ name }} URL:</label>
-                            <input name="{{ namespace}}_iframe_url" type="{{ namespace}}_iframe_url" class="form-control" id="{{ namespace }}_iframe_url" placeholder="Enter {{ name }} iframe URL" value="{{ url }}" ng-model="{{ namespace}}_iframe_url">
+                            <input name="{{ namespace}}_iframe_url" type="{{ namespace}}_iframe_url" class="form-control" id="{{ namespace }}_iframe_url" placeholder="Enter {{ name }} iframe URL" value="{{ url }}" ng-model="application.{{ namespace}}_iframe_url">
                         </div>
                     {{/iframes}}
 

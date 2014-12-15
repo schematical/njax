@@ -244,7 +244,7 @@ angular.module('njax.directives', ['njax.services'])
 			}
 		};
 	}])
-	.directive('njaxWidget', ['$compile', '$sce', 'NJaxBootstrap', 'NJaxServices',  function($compile, $sce, NJaxBootstrap, NJaxServices) {
+	.directive('njaxWidget', [ '$compile', '$sce', 'NJaxBootstrap', 'NJaxServices',  function( $compile, $sce, NJaxBootstrap, NJaxServices) {
 
 		return {
 			replace:true,
@@ -265,14 +265,18 @@ angular.module('njax.directives', ['njax.services'])
 					);
 				}else if($scope.widget.angular_directive){
 					var directiveDash =  $scope.widget.angular_directive.replace(/\W+/g, '-')
-							.replace(/([a-z\d])([A-Z])/g, '$1-$2');
+							.replace(/([a-z\d])([A-Z])/g, '$1-$2').toLowerCase();
 
 					NJaxServices.loadFeature(
 						$scope.widget.angular_modules,
 						function($injector){
-							var html = '<div ' + directiveDash + '>AAAA</div>';
-							var safe_html = $sce.trustAsHtml(html);
-							element.append($compile(html)($scope));
+							$injector.invoke(['$compile',function($_compile){
+
+								var html = '<div ' + directiveDash + '>AAAA</div>';
+								//var safe_html = $sce.trustAsHtml(html);
+								var compiled = $_compile(html)($scope);
+								element.append(compiled);
+							}]);
 						}
 					);
 				}

@@ -1,0 +1,12 @@
+<div >
+    <a href="#" ng-hide="!hidden" ng-click="toggleDisplay();">Comment</a>
+    <div class="input-group input-group-sm" ng-hide="hidden">
+        <input id="comment-body" name="comment-body" class="form-control" ng-model="body" placeholder="Comment..." />
+        <span class="input-group-btn">
+            <button class="btn btn-sm" ng-click="save($event);" ng-disabled="!body || posting">Post</button>
+        </span>
+    </div>
+    <div ng-repeat="comment in comments">
+        {{ comment.user.name }} - {{ comment.body }}
+    </div>
+</div>

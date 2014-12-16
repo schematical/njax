@@ -363,4 +363,63 @@ angular.module('njax.directives', ['njax.services'])
 			}
 		};
 	}])
+	.directive('njaxComments', ['$http', 'NJaxBootstrap', function($http, NJaxBootstrap) {
+		return {
+			replace:true,
+			scope:{
+				'target':'@target',
+				'bootstrap':'@bootstrap',
+				'event':'@event'
+			},
+			templateUrl: '/templates/directives/njaxComments.html',
+			link:function(scope, element, attrs) {
+				scope.posting = false;
+				scope.hidden = true;
+				if(!scope.event){
+					scope.event = 'comment';
+				}
+				var target = scope.$parent.$eval(scope.target, NJaxBootstrap);
+				if(!target){
+					target = scope.target;;
+				}
+				scope.toggleDisplay = function(){
+					scope.hidden = false;
+				}
+				scope.comments = [];//TODO: fix
+				scope.save = function($event){
+					var data = {};
+					scope.posting = true;
 
+					if(typeof(target) != 'string'){
+
+						data['target'] = target;
+						data['_url'] = target.url;
+					}else{
+						data['_url'] = target;
+					}
+					var comment_data = {
+						_id: target._id || null,
+
+						body:scope.body,
+						//This other stuff really doesnt matter
+						event_namespace:scope.event,
+						event: scope.event,
+						data:data
+					}
+					var api_url = target.api_url || target;
+					return $http.post('//' + api_url, comment_data).success( function(response){
+						console.log(response);
+						scope.status = '';
+						scope.posting = false;
+						scope.comments.push(response);
+						console.log(response);
+						scope.$emit('njax.comment.create.local', response)
+
+					}).error(function(err){
+						throw err;
+					})
+				}
+			}
+
+		};
+	}])

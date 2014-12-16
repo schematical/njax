@@ -387,6 +387,23 @@ angular.module('njax.directives', ['njax.services'])
 					scope.hidden = false;
 				}
 				scope.comments = [];//TODO: fix
+				for(var i in NJaxBootstrap.events){
+					console.log( NJaxBootstrap.events[i].event_namespace);
+					var url = NJaxBootstrap.events[i]._url  || NJaxBootstrap.events[i].data._url;
+					if(url){
+						if(typeof(target) == 'string'){
+							if(url == target){
+								scope.comments.push(NJaxBootstrap.events[i]);
+							}
+						}else{
+							if(url == target.url){
+								scope.comments.push(NJaxBootstrap.events[i]);
+							}
+						}
+					}
+
+				}
+				console.log("Comment Count:" + scope.comments.length);
 				var users = []
 				var creator = null;
 				if(target.owner){

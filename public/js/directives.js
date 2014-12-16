@@ -363,13 +363,14 @@ angular.module('njax.directives', ['njax.services'])
 			}
 		};
 	}])
-	.directive('njaxComments', ['$http', 'NJaxBootstrap', function($http, NJaxBootstrap) {
+	.directive('njaxComments', ['$http', '$rootScope', 'NJaxBootstrap', function($http, $rootScope, NJaxBootstrap) {
 		return {
 			replace:true,
 			scope:{
 				'target':'@target',
 				'bootstrap':'@bootstrap',
-				'event':'@event'
+				'event':'@event',
+				'sanitizeData':'@njaxSanitizeData'
 			},
 			templateUrl: '/templates/directives/njaxComments.html',
 			link:function(scope, element, attrs) {
@@ -380,12 +381,34 @@ angular.module('njax.directives', ['njax.services'])
 				}
 				var target = scope.$parent.$eval(scope.target, NJaxBootstrap);
 				if(!target){
-					target = scope.target;;
+					target = scope.target;
 				}
 				scope.toggleDisplay = function(){
 					scope.hidden = false;
 				}
 				scope.comments = [];//TODO: fix
+				var users = []
+				var creator = null;
+				if(target.owner){
+					creator = target.owner._id || target.owner;
+				}else if(target.data.owner){
+					creator = target.data.owner._id || target.data.owner;
+				}else if(target.user){
+					creator = target.user._id;
+				}else if (target.data.user){
+					creator = target.data.user._id;
+				}
+
+				if(creator){
+					users.push(creator);
+				}
+				for(var i in scope.comments){
+					if(scope.comments[i].user){
+						users.push(scope.comments[i].user._id || scope.comments[i].user)
+					}else if(scope.comments[i].data.user){
+						users.push(scope.comments[i].data.user._id || scope.comments[i].data.user)
+					}
+				}
 				scope.save = function($event){
 					var data = {};
 					scope.posting = true;
@@ -399,21 +422,36 @@ angular.module('njax.directives', ['njax.services'])
 					}
 					var comment_data = {
 						_id: target._id || null,
-
-						body:scope.body,
+						users: users,
+						body: scope.body,
 						//This other stuff really doesnt matter
-						event_namespace:scope.event,
+						event_namespace: scope.event,
 						event: scope.event,
-						data:data
+						data: data
+					}
+					if(scope.sanitizeData){
+						var t_comment_data = scope.$parent.$eval(scope.sanitizeData, {
+							comment_data:comment_data
+						})
+						if(!t_comment_data){
+							//THIS IS A SAD HACK
+							t_comment_data = $rootScope.$eval(scope.sanitizeData, {
+								comment_data:comment_data
+							})
+							if(!t_comment_data){
+								throw new Error("Invalid njaxSanitizeData function. Must return comment_data");
+							}
+						}
+						comment_data = t_comment_data;
 					}
 					var api_url = target.api_url || target;
-					return $http.post('//' + api_url, comment_data).success( function(response){
-						console.log(response);
+					return $http.post( NJaxBootstrap.core_api_url + '/trigger', comment_data).success( function(response){
+						console.log(response.data);
 						scope.status = '';
 						scope.posting = false;
-						scope.comments.push(response);
-						console.log(response);
-						scope.$emit('njax.comment.create.local', response)
+						scope.comments.push(comment_data);
+
+						scope.$emit('njax.comment.create.local', comment_data)
 
 					}).error(function(err){
 						throw err;

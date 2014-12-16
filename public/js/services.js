@@ -60,6 +60,7 @@ angular.module('njax.services', [])
 					}
 				}catch(e){
 					//throw e;
+					console.log(e);
 					console.log("Skipped loading:" + module);
 				}
 			}

@@ -14,7 +14,7 @@ angular.module('core100.application.controller', [])
 					$scope.application = new ApplicationService(NJaxBootstrap.application);
 					$scope.bootstrap_data_json = JSON.stringify($scope.application.bootstrap_data);
 				}else{
-					$scope.application = new ApplicationService({:q});
+					$scope.application = new ApplicationService({});
 				}
 				$scope.$watch(function(){
 					return JSON.stringify(($scope.application && $scope.application.bootstrap_data) || {});

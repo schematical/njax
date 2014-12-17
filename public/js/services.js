@@ -50,6 +50,7 @@ angular.module('njax.services', [])
 		return {
 			loadFeature:function(services, module, callback){
 				try{
+					//var $injector = angular.element(document).injector(services);//(services);
 					var $injector = angular.injector(services);
 					if(!callback && typeof(module) == 'function'){
 						callback = module;

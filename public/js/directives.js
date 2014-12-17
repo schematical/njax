@@ -392,9 +392,13 @@ angular.module('njax.directives', ['njax.services'])
 					//console.log( NJaxBootstrap.events[i].event_namespace);
 
 					var url = NJaxBootstrap.events[i]._url  || NJaxBootstrap.events[i].data._url;
-					if(NJaxBootstrap.events[i].event_namespace == "100innovation.comment.create"){
-						console.log(url, ' == ', target.url)
-					}
+					/*if(NJaxBootstrap.events[i].event_namespace == "100innovation.comment.create"){
+						if(url){
+							console.log(url, ' == ', target.url)
+						}else{
+							console.log("Missing Url: ", NJaxBootstrap.events[i]);
+						}
+					}*/
 					if(url){
 						if(typeof(target) == 'string'){
 							if(url == target){
@@ -466,9 +470,9 @@ angular.module('njax.directives', ['njax.services'])
 						}
 						comment_data = t_comment_data;
 					}
-					var api_url = target.api_url || target;
+
 					return $http.post( NJaxBootstrap.core_api_url + '/trigger', comment_data).success( function(response){
-						console.log(response.data);
+
 						scope.status = '';
 						scope.posting = false;
 						scope.comments.push(comment_data);

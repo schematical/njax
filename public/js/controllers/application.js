@@ -15,9 +15,9 @@ angular.module('core100.application.controller', [])
 					$scope.bootstrap_data_json = JSON.stringify($scope.application.bootstrap_data);
 				}
 				$scope.$watch(function(){
-					return JSON.stringify($scope.application.bootstrap_data);
+					return JSON.stringify(($scope.application && $scope.application.bootstrap_data) || {});
 				}, function(newValue, oldValue){
-					$scope.bootstrap_data_json = JSON.stringify($scope.application.bootstrap_data);
+					$scope.bootstrap_data_json = JSON.stringify(($scope.application && $scope.application.bootstrap_data) || {});
 				});
                 $scope.validate = function(){
 

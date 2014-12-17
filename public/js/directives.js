@@ -377,7 +377,7 @@ angular.module('njax.directives', ['njax.services'])
 				scope.posting = false;
 				scope.hidden = true;
 				if(!scope.event){
-					scope.event = 'comment';
+					scope.event = 'comment.create';
 				}
 				var target = scope.$parent.$eval(scope.target, NJaxBootstrap);
 				if(!target){
@@ -386,10 +386,15 @@ angular.module('njax.directives', ['njax.services'])
 				scope.toggleDisplay = function(){
 					scope.hidden = false;
 				}
+
 				scope.comments = [];//TODO: fix
 				for(var i in NJaxBootstrap.events){
-					console.log( NJaxBootstrap.events[i].event_namespace);
+					//console.log( NJaxBootstrap.events[i].event_namespace);
+
 					var url = NJaxBootstrap.events[i]._url  || NJaxBootstrap.events[i].data._url;
+					if(NJaxBootstrap.events[i].event_namespace == "100innovation.comment.create"){
+						console.log(url, ' == ', target.url)
+					}
 					if(url){
 						if(typeof(target) == 'string'){
 							if(url == target){
@@ -474,6 +479,12 @@ angular.module('njax.directives', ['njax.services'])
 						throw err;
 					})
 				}
+				$rootScope.$on(NJaxBootstrap.active_application.namespace + '.comment.create', function(event, data){
+					if(data._url == (target._url || target)){
+						scope.comments.push(data);
+					}
+				});
+
 			}
 
 		};

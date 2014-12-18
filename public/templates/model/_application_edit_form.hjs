@@ -120,13 +120,17 @@
                 </form>
             </div>
             <div role="tabpanel" class="tab-pane" id="iframes">
+                <div ng-if="!iframes">
                     {{# iframes }}
                         <div class="form-group">
                             <label for="{{ namespace}}_iframe_url">{{ name }} URL:</label>
-                            <input name="{{ namespace}}_iframe_url" type="{{ namespace}}_iframe_url" class="form-control" id="{{ namespace }}_iframe_url" placeholder="Enter {{ name }} iframe URL" value="{{ url }}" ng-model="application.{{ namespace}}_iframe_url">
+                            <input name="{{ namespace}}_iframe_url" type="{{ namespace}}_iframe_url" class="form-control" id="{{ namespace }}_iframe_url" placeholder="Enter {{ name }} iframe URL" value="{{ url }}">
                         </div>
                     {{/iframes}}
-
+                </div>
+                <div ng-if="iframes">
+                    <div ng-include="'/templates/partials/_application_iframe.html'"></div>
+                </div>
              </div>
             <div role="tabpanel" class="tab-pane" id="super_options">
                 <form name="super_options_frm">

@@ -1,11 +1,11 @@
 {{> _header }}
 
 {{> _navbar }}
-<div class='row container'>
+<div class='row container body-padding'>
     <div class='col-md-4'>
         <div class="list-group">
             {{# tabs }}
-                <a href="{{ project.uri }}/settings/{{ namespace }}" class="list-group-item">
+                <a href="{{ admin_uri }}/settings/{{ namespace }}" class="list-group-item">
                     {{ name }}
                 </a>
             {{/tabs}}
@@ -16,5 +16,4 @@
     </div>
 </div>
 
-{{> _100_footer }}
 {{> _footer }}

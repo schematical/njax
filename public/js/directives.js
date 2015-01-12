@@ -7,15 +7,22 @@ angular.module('njax.directives', ['njax.services'])
                 //xtarget:'='
             },
             link:function(scope, element, attrs) {
-                setTimeout(function(){
-                    setInterval( function(){
-                        var childHeight = element[0].contentWindow.document.body.offsetHeight;
-                        element.css('height', childHeight);
-                    }, 1000);
-                    var jBody = $(element[0].contentWindow.document.body);
-                    jBody.find('#njax-payload').val(JSON.stringify(window.njax_bootstrap));
-                    jBody.find('#njax-iframe-form').submit();
-                }, 1000);
+				var setup = function(){
+
+					try{
+						var jBody = $(element[0].contentWindow.document.body);
+						jBody.find('#njax-payload').val(JSON.stringify(window.njax_bootstrap));
+						jBody.find('#njax-iframe-form').submit();
+					}catch(e){
+						console.error(e);
+						return setTimeout(setup, 1000);
+					}
+					setInterval( function(){
+						var childHeight = element[0].contentWindow.document.body.offsetHeight;
+						element.css('height', childHeight);
+					}, 1000);
+				}
+                setTimeout(setup, 1000);
             }
 
         };

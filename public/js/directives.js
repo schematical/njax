@@ -176,8 +176,9 @@ angular.module('njax.directives', ['njax.services'])
 				if(!NJaxBootstrap._event_tpls[$scope._event.event_namespace]){
 					//console.error("No event namespace found for event :"  + $scope._event.event_namespace);
 				}else{
-					$scope.event_tpl = NJaxBootstrap.core_www_url + '/templates/' + NJaxBootstrap._event_tpls[$scope._event.event_namespace] + '.hjs';
-				}
+					// $scope.event_tpl = NJaxBootstrap.core_www_url + '/templates/' + NJaxBootstrap._event_tpls[$scope._event.event_namespace] + '.hjs';
+					$scope.event_tpl = 'public/templates/' + NJaxBootstrap._event_tpls[$scope._event.event_namespace] + '.hjs';
+ 				}
 
 			}
 

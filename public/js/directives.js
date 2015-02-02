@@ -1,32 +1,39 @@
 
 angular.module('njax.directives', ['njax.services'])
-    .directive('njaxIframe', [ function() {
-        return {
-            replace:true,
-            scope:{
-                //xtarget:'='
-            },
-            link:function(scope, element, attrs) {
-				var setup = function(){
+    .directive('njaxIframe', [
+		'NJaxBootstrap',
+		function(NJaxBootstrap) {
+			return {
+				replace:true,
+				scope:{
+					//xtarget:'='
+				},
+				link:function(scope, element, attrs) {
+					var setup = function(){
 
-					try{
-						var jBody = $(element[0].contentWindow.document.body);
-						jBody.find('#njax-payload').val(JSON.stringify(window.njax_bootstrap));
-						jBody.find('#njax-iframe-form').submit();
-					}catch(e){
-						console.error(e);
-						return setTimeout(setup, 1000);
+						try{
+							var jBody = $(element[0].contentWindow.document.body);
+							jBody.find('#njax-payload').val(JSON.stringify(NJaxBootstrap.njax_payload));
+							jBody.find('#njax-iframe-form').submit();
+						}catch(e){
+							console.error(e);
+							return setTimeout(setup, 1000);
+						}
+						return setInterval( function(){
+							try {
+								var childHeight = element[0].contentWindow.document.body.offsetHeight;
+								element.css('height', childHeight);
+							}catch(e){
+								console.error(e);
+							}
+						}, 1000);
 					}
-					setInterval( function(){
-						var childHeight = element[0].contentWindow.document.body.offsetHeight;
-						element.css('height', childHeight);
-					}, 1000);
+					setTimeout(setup, 1000);
 				}
-                setTimeout(setup, 1000);
-            }
 
-        };
-    }])
+			};
+    	}
+	])
     .directive('njaxNamespace', ['getNamespace', function(getNamespace) {
 
         return {

@@ -77,7 +77,7 @@ angular.module('njax.services', [])
 				_njaxSearchable._searchable[key] = search_funct;
 			},
 			query:function(query, search_scopes, callback){
-				if(typeof(search_scope) == 'Function'){
+				if(typeof(search_scopes) == 'Function'){
 					callback = search_scopes;
 					scope = Object.keys(_njaxSearchable._searchable);
 				}

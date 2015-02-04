@@ -268,7 +268,7 @@ angular.module('njax.directives', ['njax.services'])
 			},
 			//templateUrl: NJaxBootstrap.core_www_url + '/templates/directives/njaxWidget.html',
 			link: function($scope, element, attributes) {
-				console.log($scope.widget);
+
 				if($scope.widget.angular_ctl){
 					NJaxServices.loadFeature(
 						$scope.widget.angular_modules,
@@ -359,7 +359,7 @@ angular.module('njax.directives', ['njax.services'])
 					if(target_url.substr(0, 2) != '//'){
 						target_url = '//' + target_url;
 					}
-					console.log('target_url', target_url);
+
 					return $http.post(target_url + '/hide').then(function(result){
 						if($scope.hide_element){
 							var ele = angular.element($scope.hide_element);
@@ -370,7 +370,7 @@ angular.module('njax.directives', ['njax.services'])
 						if($scope.callback){
 							return $scope.$parent.$eval($scope.callback, { result:result  });
 						}
-						console.log("Archived:" + target_url);
+
 
 					});
 				});
@@ -492,7 +492,7 @@ angular.module('njax.directives', ['njax.services'])
 					}
 
 				}
-				console.log("Comment Count:" + scope.comments.length);
+
 				var users = []
 				var creator = null;
 				if(target.owner){
@@ -591,7 +591,7 @@ angular.module('njax.directives', ['njax.services'])
 				}
 				scope.search = function($viewValue){
 					return NJaxSearch.query($viewValue, scope.search_scopes).then(function(results){
-						console.log(results);
+
 						scope.results = results;
 						if(typeof(scope.query) === 'string') {
 							if (scope.triggerSearchChange) {

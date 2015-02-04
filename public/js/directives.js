@@ -572,4 +572,93 @@ angular.module('njax.directives', ['njax.services'])
 			}
 
 		};
+	}]).directive('njaxSearchBox', ['$timeout', '$q', 'NJaxBootstrap', 'NJaxSearch', function($timeout, $q, NJaxBootstrap, NJaxSearch) {
+		return {
+			replace:true,
+			scope:{
+				'search_scope_desc':'@searchScopeDesc',
+				'search_scope':'@searchScope',
+				'triggerSearchSelected':'&searchSelected',
+				'triggerSearchChange':'&searchChange',
+				'event':'@event'
+			},
+			templateUrl: NJaxBootstrap.core_www_url +  '/templates/directives/njaxSearchBox.html',
+			link:function(scope, element, attrs) {
+				if(scope.search_scope){
+					scope.search_scopes = scope.search_scope.split(',')
+				}else{
+					scope.search_scope_desc = 'all';
+				}
+				scope.search = function($viewValue){
+					return NJaxSearch.query($viewValue, scope.search_scopes).then(function(results){
+						console.log(results);
+						scope.results = results;
+						if(typeof(scope.query) === 'string') {
+							if (scope.triggerSearchChange) {
+								scope.triggerSearchChange({
+									query: scope.query,
+									results: results
+								});
+							}
+						}
+						return results;
+					});
+
+
+
+				}
+				scope.selectEntity = function(){
+					if(typeof(scope.query) !== 'string'){
+						if(scope.triggerSearchSelected){
+							return scope.triggerSearchSelected({ entity:scope.query, runDefault:scope.selectEntity_default });
+						}else{
+							return scope.selectEntity_default();
+						}
+					}
+				}
+				scope.selectEntity_default = function(){
+
+					return document.location = 'http://' + (scope.query.location_friendly_url ||scope.query.url);
+				}
+				scope.setSearchScope = function(search_scopes, search_scope_desc){
+					scope.search_scopes = search_scopes;
+					scope.search_scope_desc = search_scope_desc;
+				}
+			}
+
+		};
+	}])
+	.directive('njaxSearchResult', ['NJaxBootstrap',  function(NJaxBootstrap) {
+
+		return {
+			replace:true,
+			scope:{
+				'_result':'=njaxSearchResult'
+			},
+			templateUrl: NJaxBootstrap.core_www_url + '/templates/browse/searchResult.hjs',
+			link: function($scope, element, attributes) {
+				$scope.ele_name = attributes.name;
+
+				if(!$scope._result){
+					return console.error("No result data for ", $scope._result);
+				}
+				$scope.entity = {};
+				for(var i in $scope._result){
+					//if(i != '_event'){
+						$scope.entity[i] = $scope._result[i];
+					//}
+				}
+				if(!$scope._result._njax_type){
+					console.error("No event namespace found for event : " + $scope._result._njax_type + " - " + $scope._result.name);
+				}
+				if(!NJaxBootstrap._search_tpls[$scope._result._njax_type]){
+					//console.error("No event namespace found for event :"  + $scope._event.event_namespace);
+				}else{
+					// $scope.event_tpl = NJaxBootstrap.core_www_url + '/templates/' + NJaxBootstrap._event_tpls[$scope._event.event_namespace] + '.hjs';
+					$scope.event_tpl = '/templates/' + NJaxBootstrap._search_tpls[$scope._result._njax_type] + '.hjs';
+				}
+
+			}
+
+		};
 	}])

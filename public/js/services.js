@@ -66,7 +66,54 @@ angular.module('njax.services', [])
 				}
 			}
 		}
-	});
+	})
+	.service('NJaxSearch', ['$q', function($q){
+		var _njaxSearchable = {
+			_searchable:{},
+			register:function(key, search_funct){
+				if(typeof(search_funct) != 'function'){
+					throw new Error("Invalid Seaarch function");
+				}
+				_njaxSearchable._searchable[key] = search_funct;
+			},
+			query:function(query, search_scopes, callback){
+				if(typeof(search_scope) == 'Function'){
+					callback = search_scopes;
+					scope = Object.keys(_njaxSearchable._searchable);
+				}
+
+				if(!angular.isArray(search_scopes)){
+					return callback(new Error("Invalid scope"));
+				}
+				var promises = [];
+				angular.forEach(search_scopes, function(search_scope, index){
+					if(!_njaxSearchable._searchable[search_scope]){
+						throw new Error("Invalid search scope'" + search_scope + "'");
+					}
+					promises.push(_njaxSearchable._searchable[search_scope](query));
+				});
+				return $q.all(promises).then(function(res){
+					//Combine the res
+					var results = [];
+					for(var i in res){
+						for(var ii = 0; ii < res[i].length; ii++){
+							results.push(res[i][ii]);
+						}
+					}
+					/*console.log(results);*/
+					return results;
+				});
+
+
+
+			}
+		}
+
+
+		return _njaxSearchable;
+
+
+	}]);
 	/*.service('NJaxHandlebars', function(){
 
 		if(!Handlebars){

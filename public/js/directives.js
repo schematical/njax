@@ -378,6 +378,71 @@ angular.module('njax.directives', ['njax.services'])
 			}
 		};
 	}])
+	.directive(
+	'njaxSubscription', [
+		'$http',
+		'$rootScope',
+		'NJaxBootstrap',
+		'SubscriptionService',
+		'$http',
+		function($http, $rootScope, NJaxBootstrap, SubscriptionService, $http) {
+			return {
+				replace: true,
+				scope: {
+					'target': '=target',
+					'type':'@type',
+					'onSubscribe':'@onSubscribe'
+				},
+				//templateUrl: '/templates/directives/njaxComments.html',
+				link: function (scope, element, attrs) {
+
+					var target = scope.$parent.$eval(scope.target, NJaxBootstrap);
+					if(!target){
+						target = scope.target;
+					}
+					scope.onClick = function(e){
+						e.preventDefault();
+						if(!NJaxBootstrap.user){
+							//TODO: Log them in?
+							return console.error("Need to be user to subscribe");
+						}
+						/*scope.subscription = new SubscriptionService({
+							account:NJaxBootstrap.user._id,
+							type: scope.type,
+							entity_type:target._njax_type,
+							entity_id:target._id,
+							entity_url:target.api_url,
+							_entity_name:target.name,
+							_entity_namespace:target.namespace,
+						});*/
+						//return scope.subscription.$save(function(){
+
+						$http.post(
+							'//' + target.api_url + '/subscriptions',
+							{
+								type: scope.type
+							}).success( function(response){
+
+
+								scope.posting = false;
+
+
+								scope.$emit('njax.subscription.create.local', {})
+
+								if(scope.onSubscribe){
+									scope.onSubscribe(scope.subscription);
+								}
+							}).error(function(err){
+								throw err;
+							})
+					}
+
+					element.on('click', scope.onClick);
+
+				}
+			}
+		}
+	])
 	.directive('njaxComments', ['$http', '$rootScope', 'NJaxBootstrap', function($http, $rootScope, NJaxBootstrap) {
 		return {
 			replace:true,

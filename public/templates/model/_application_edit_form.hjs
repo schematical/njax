@@ -140,6 +140,10 @@
                         <label for="app_url">API Url:</label>
                         <input name="api_url" type="string" class="form-control" id="api_url" placeholder="Enter url" value="{{ application.bootstrap_data.api_url }}" ng-model="application.bootstrap_data.api_url" >
                     </div>
+                    <div class="form-group">
+                        <label for="aset_url">Asset Url:</label>
+                        <input name="aset_url" type="string" class="form-control" id="aset_url" placeholder="Enter url" value="{{ application.bootstrap_data.aset_url }}" ng-model="application.bootstrap_data.aset_url" >
+                    </div>
                     <h5>Bootstrap Data</h5>
                     <div ng-if="bootstrap_data_error" ng-bind="bootstrap_data_error.message" class="alert alert-danger"></div>
                     <textarea id="bootstrap_data_json" name="bootstrap_data_json" class="form-control" rows="3" ng-model="bootstrap_data_json"></textarea>

@@ -17,12 +17,12 @@ angular.module('njax.directives', ['njax.services'])
 							var jForm = jBody.find('#njax-iframe-form');
 							if(jForm.length == 0){
 								console.error("Cannot find #njax-iframe-form waiting for 1000ms");
-								return setTimeout(setup, 1000);
+								return setTimeout(setup, 500);
 							}
 							jForm.submit();
 						}catch(e){
 							console.error(e);
-							return setTimeout(setup, 1000);
+							return setTimeout(setup, 500);
 						}
 						return setInterval( function(){
 							try {

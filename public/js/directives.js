@@ -14,7 +14,12 @@ angular.module('njax.directives', ['njax.services'])
 						try{
 							var jBody = $(element[0].contentWindow.document.body);
 							jBody.find('#njax-payload').val(JSON.stringify(NJaxBootstrap.njax_payload));
-							jBody.find('#njax-iframe-form').submit();
+							var jForm = jBody.find('#njax-iframe-form');
+							if(jForm.length == 0){
+								console.error("Cannot find #njax-iframe-form waiting for 1000ms");
+								return setTimeout(setup, 1000);
+							}
+							jForm.submit();
 						}catch(e){
 							console.error(e);
 							return setTimeout(setup, 1000);

@@ -77,6 +77,7 @@ angular.module('njax.services', [])
 				_njaxSearchable._searchable[key] = search_funct;
 			},
 			query:function(query, search_scopes, callback){
+				_njaxSearchable._latestQuery = query;
 				if(typeof(search_scopes) == 'Function'){
 					callback = search_scopes;
 					scope = Object.keys(_njaxSearchable._searchable);
@@ -92,17 +93,30 @@ angular.module('njax.services', [])
 					}
 					promises.push(_njaxSearchable._searchable[search_scope](query));
 				});
-				return $q.all(promises).then(function(res){
-					//Combine the res
-					var results = [];
-					for(var i in res){
-						for(var ii = 0; ii < res[i].length; ii++){
-							results.push(res[i][ii]);
+				return (function(_query){
+
+					return $q.all(promises).then(function(res){
+
+						if(
+							(_query != _njaxSearchable._latestQuery) &&
+							_njaxSearchable._lastResults
+						){
+							console.log(_query + '!=' + _njaxSearchable._latestQuery)
+							//We are to late so dip out
+							return _njaxSearchable._lastResults;
 						}
-					}
-					/*console.log(results);*/
-					return results;
-				});
+
+						var results = [];
+						for(var i in res){
+							for(var ii = 0; ii < res[i].length; ii++){
+								results.push(res[i][ii]);
+							}
+						}
+						/*console.log(results);*/
+						_njaxSearchable._lastResults = results;
+						return results;
+					});
+				})(query);
 
 
 

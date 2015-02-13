@@ -162,7 +162,7 @@ angular.module('njax.directives', ['njax.services'])
 
 				$scope.tag_options = $scope.$eval($scope.tagOptions, NJaxBootstrap);
 
-				console.log($scope.tag_options);
+
 
 				$scope.skills = NJaxBootstrap.skills;
 

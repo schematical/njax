@@ -30,4 +30,15 @@ angular.module('njax.browse.controller', [])
 
 		}
 	]
-);
+)
+/*.filter('filterSearchResults',[
+	'NJaxSearch',
+	function(NJaxSearch) {
+		return function(input, value) {
+
+
+			return out;
+		};
+	}
+])*/
+

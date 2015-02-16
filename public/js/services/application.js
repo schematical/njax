@@ -3,8 +3,9 @@ applicationServices.factory(
     'ApplicationService',
     [
         '$resource',
-        function($resource){
-            return $resource('/apps/:application_id',
+		'NJaxBootstrap',
+        function($resource, NJaxBootstrap){
+            return $resource(NJaxBootstrap.core_api_url + '/apps/:application_id',
             	{
             		'application_id':'@_id'
             	},

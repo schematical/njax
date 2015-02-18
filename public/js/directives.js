@@ -412,17 +412,12 @@ angular.module('njax.directives', ['njax.services'])
 						}
 
 
-
-
-
 						scope.addSubscription = function(){
 							if(!NJaxBootstrap.user){
 								//TODO: Log them in?
 								return console.error("Need to be user to subscribe");
 							}
 							SubscriptionService.add(target).success( function(response){
-
-
 
 
 								scope.is_subscribed = true;
@@ -514,12 +509,14 @@ angular.module('njax.directives', ['njax.services'])
 				'target':'@target',
 				'bootstrap':'@bootstrap',
 				'event':'@event',
-				'sanitizeData':'@njaxSanitizeData'
+				'sanitizeData':'@njaxSanitizeData',
+				'preloadComments':'=preloadComments'
 			},
 			templateUrl: '/templates/directives/njaxComments.html',
 			link:function(scope, element, attrs) {
 				scope.posting = false;
 				scope.hidden = true;
+				scope.loading = false;
 				if(!scope.event){
 					scope.event = 'comment.create';
 				}
@@ -529,33 +526,30 @@ angular.module('njax.directives', ['njax.services'])
 				}
 				scope.toggleDisplay = function(){
 					scope.hidden = false;
-				}
+					if(scope.comments){
 
-				scope.comments = [];//TODO: fix
-				for(var i in NJaxBootstrap.events){
-					//console.log( NJaxBootstrap.events[i].event_namespace);
-
-					var url = NJaxBootstrap.events[i]._url  || NJaxBootstrap.events[i].data._url;
-					/*if(NJaxBootstrap.events[i].event_namespace == "100innovation.comment.create"){
-						if(url){
-							console.log(url, ' == ', target.url)
-						}else{
-							console.log("Missing Url: ", NJaxBootstrap.events[i]);
-						}
-					}*/
-					if(url){
-						if(typeof(target) == 'string'){
-							if(url == target){
-								scope.comments.push(NJaxBootstrap.events[i]);
-							}
-						}else{
-							if(url == target.url){
-								scope.comments.push(NJaxBootstrap.events[i]);
-							}
-						}
+						return;
 					}
+					scope.loadComments();
 
 				}
+				scope.loadComments = function(){
+					scope.loading = true;
+					$http.get('//' + target.api_url + '/events').success(function(events){
+						scope.comments = [];
+						for(var i in events){
+							if(events[i].event_namespace.substr(events[i].event_namespace.length - '.comment.create'.length) == '.comment.create'){
+								var data = events[i].data;
+								data._event = events[i];
+								scope.comments.push(data);
+							}
+						}
+						scope.loading = false;
+
+					});
+				}
+
+
 
 				var users = []
 				var creator = null;
@@ -580,7 +574,9 @@ angular.module('njax.directives', ['njax.services'])
 					}
 				}
 				scope.save = function($event){
-					var data = {};
+					var data = {
+						body: scope.body,
+					};
 					scope.posting = true;
 
 					if(typeof(target) != 'string'){
@@ -589,11 +585,13 @@ angular.module('njax.directives', ['njax.services'])
 						data['_url'] = target.url;
 					}else{
 						data['_url'] = target;
+
 					}
+					data['user'] = NJaxBootstrap.user;
 					var comment_data = {
 						_id: target._id || null,
 						users: users,
-						body: scope.body,
+						//body: scope.body,
 						//This other stuff really doesnt matter
 						event_namespace: scope.event,
 						event: scope.event,
@@ -619,8 +617,8 @@ angular.module('njax.directives', ['njax.services'])
 
 						scope.status = '';
 						scope.posting = false;
-						scope.comments.push(comment_data);
-
+						scope.comments = [comment_data.data].concat(scope.comments);
+						scope.body = '';
 						scope.$emit('njax.comment.create.local', comment_data)
 
 					}).error(function(err){
@@ -632,6 +630,9 @@ angular.module('njax.directives', ['njax.services'])
 						scope.comments.push(data);
 					}
 				});
+				if(scope.preloadComments){
+					scope.loadComments();
+				}
 
 			}
 

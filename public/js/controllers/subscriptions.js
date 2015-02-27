@@ -16,6 +16,7 @@ angular.module('njax.subscriptions.controller', [])
 				$scope.subscriptions[i].name = $scope.subscriptions[i]._entity_name;
 				$scope.subscriptions[i].namespace = $scope.subscriptions[i]._entity_namespace;
 				$scope.subscriptions[i].api_url = $scope.subscriptions[i].entity_url;
+				$scope.subscriptions[i].url = $scope.subscriptions[i].entity_url;
 
 			}
 			$scope.searchSelected = function(query, runDefault){

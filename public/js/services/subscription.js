@@ -43,8 +43,16 @@ subscriptionServices.factory(
 					return $http.get(url);
 
 				},
-				queryByAccount:function(account){
+				queryByAccount:function(account, type){
+					if(!account.api_url){
+						throw new Error("Invalid Account passed in");
+					}
+					var url = '//' + account.api_url  + '/subscriptions';
+					if(type){
+						url += '&type=' + scope.type;
+					}
 
+					return $http.get(url);
 				},
 				add:function(target,type, user){
 					if(user){

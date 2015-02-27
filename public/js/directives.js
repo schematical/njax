@@ -836,3 +836,78 @@ angular.module('njax.directives', ['njax.services'])
 			}
 		]
 )
+.directive(
+	'njaxSubscriptionList',
+	[
+		'$q',
+		'$http',
+		'$rootScope',
+		'NJaxBootstrap',
+		'SubscriptionService',
+		function($q, $http, $rootScope, NJaxBootstrap, SubscriptionService) {
+			return {
+				replace: true,
+				scope: {
+					'account': '=account',
+					'type':'@type',
+					'preLoad':'=?',
+					'preLoadEntities':'=?'
+				},
+				templateUrl:  (NJaxBootstrap.core_asset_url || NJaxBootstrap.core_www_url) + '/templates/directives/njaxSubscriptionList.html',
+				link: function (scope, element, attrs) {
+					scope.load = function() {
+						scope.loading = false;
+						return SubscriptionService.queryByAccount(scope.account, scope.type).success(function (response) {
+							scope.count = response.length;
+							scope.subscriptions = response;
+							var promises = [];
+							for (var i in scope.subscriptions) {
+								scope.subscriptions[i] =(function(subscription){
+
+									if(scope.preLoadEntities){
+										promise =  $http.get('//' + subscription.entity_url).then(function(response){
+											return response.data;
+										});
+										promises.push(promise);
+										promise._njax_type = subscription.entity_type;
+										promise.name = subscription._entity_name;
+										promise.namespace = subscription._entity_namespace;
+										promise.api_url = subscription.entity_url;
+										promise.url = subscription.entity_url;
+									}else{
+										subscription._njax_type = subscription.entity_type;
+										subscription.name = subscription._entity_name;
+										subscription.namespace = subscription._entity_namespace;
+										subscription.api_url = subscription.entity_url;
+										subscription.url = subscription.entity_url;
+										subscription.loadEntity = function(){
+											return $http.get('//' + subscription.entity_url);
+										}
+
+									}
+
+									return subscription;
+								})(scope.subscriptions[i]);
+
+							}
+							$q.all(promises).then(function(subscriptions){
+								console.log(subscriptions);
+								scope.subscriptions = subscriptions;
+								scope.loading = false;
+							});
+
+
+
+						}).error(function (err) {
+							throw err;
+						})
+					}
+					if(scope.preLoad){
+						return scope.load();
+					}
+
+				}
+			}
+		}
+	]
+)

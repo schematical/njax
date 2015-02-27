@@ -418,14 +418,15 @@ angular.module('njax.directives', ['njax.services'])
 								return console.error("Need to be user to subscribe");
 							}
 							SubscriptionService.add(target).success( function(response){
-
+								scope.subscriptions.push(response);
 
 								scope.is_subscribed = true;
-								scope.$emit('njax.subscription.create.local', {})
-
+								//scope.$emit('njax.subscription.create.local', scope.subscription)
+								$rootScope.$broadcast('njax.subscription.create.local', response);
 								if(scope.onSubscribe){
-									scope.onSubscribe(scope.subscription);
+									scope.onSubscribe(response);
 								}
+
 							}).error(function(err){
 								throw err;
 							})
@@ -443,7 +444,15 @@ angular.module('njax.directives', ['njax.services'])
 							}
 							var promisses = [];
 							for(var i in scope.subscriptions) {
-								promisses.push(SubscriptionService.remove(scope.subscriptions[i]));
+								promisses.push(SubscriptionService.remove(scope.subscriptions[i]).success(function(response){
+									$rootScope.$broadcast('njax.subscription.remove.local', response);//scope.subscriptions[i])
+
+									if(scope.onUnSubscribe){
+										scope.onUnSubscribe(response);//scope.onUnSubscribe);
+									}
+									return response;
+								}));
+								scope.subscriptions.splice(i, 1);
 							}
 
 							$q.all(promisses).then( function(response){
@@ -452,11 +461,8 @@ angular.module('njax.directives', ['njax.services'])
 								scope.posting = false;
 
 								scope.is_subscribed = false;
-								scope.$emit('njax.subscription.remove.local', {})
 
-								if(scope.onUnSubscribe){
-									scope.onUnSubscribe(scope.onUnSubscribe);
-								}
+
 							})/*.error(function(err){
 								throw err;
 							})*/
@@ -830,6 +836,19 @@ angular.module('njax.directives', ['njax.services'])
 						}).error(function(err){
 							throw err;
 						})
+						$rootScope.$on('njax.subscription.create.local', function(e, subscription){
+							scope.subscriptions = [subscription].concat(scope.subscriptions);
+
+						});
+						$rootScope.$on('njax.subscription.remove.local', function(e, subscription){
+							for(var i in scope.subscriptions){
+								if(
+									(scope.subscriptions[i].url == subscription.url)
+								){
+									scope.subscriptions.splice(i, 1);
+								}
+							}
+						});
 
 					}
 				}
@@ -895,7 +914,18 @@ angular.module('njax.directives', ['njax.services'])
 								scope.subscriptions = subscriptions;
 								scope.loading = false;
 							});
-
+							$rootScope.$on('njax.subscription.create.local', function(subscription){
+								scope.subscriptions = [subscription].concat(scope.subscriptions);
+							});
+							$rootScope.$on('njax.subscription.remove.local', function(subscription){
+								for(var i in scope.subscriptions){
+									if(
+										(scope.subscriptions[i].url == subscription.url)
+									){
+										scope.subscriptions.splice(i, 1);
+									}
+								}
+							});
 
 
 						}).error(function (err) {

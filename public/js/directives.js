@@ -196,7 +196,7 @@ angular.module('njax.directives', ['njax.services'])
 					//console.error("No event namespace found for event :"  + $scope._event.event_namespace);
 				}else{
 					// $scope.event_tpl = NJaxBootstrap.core_www_url + '/templates/' + NJaxBootstrap._event_tpls[$scope._event.event_namespace] + '.hjs';
-					$scope.event_tpl = '/templates/' + NJaxBootstrap._event_tpls[$scope._event.event_namespace] + '.hjs';
+					$scope.event_tpl =  NJaxBootstrap.core_www_url + '/templates/' + NJaxBootstrap._event_tpls[$scope._event.event_namespace] + '.hjs';
  				}
 
 			}
@@ -878,10 +878,11 @@ angular.module('njax.directives', ['njax.services'])
 						scope.loading = false;
 						return SubscriptionService.queryByAccount(scope.account, scope.type).success(function (response) {
 							scope.count = response.length;
-							scope.subscriptions = response;
+							var subscriptions = response;
 							var promises = [];
-							for (var i in scope.subscriptions) {
-								scope.subscriptions[i] =(function(subscription){
+							scope.subscriptions = [];
+							for (var i in subscriptions) {
+								subscriptions[i] =(function(subscription){
 
 									if(scope.preLoadEntities){
 										promise =  $http.get('//' + subscription.entity_url).then(function(response){
@@ -902,17 +903,20 @@ angular.module('njax.directives', ['njax.services'])
 										subscription.loadEntity = function(){
 											return $http.get('//' + subscription.entity_url);
 										}
-
+										scope.subscriptions.push(subscription)
 									}
 
 									return subscription;
-								})(scope.subscriptions[i]);
+								})(subscriptions[i]);
 
 							}
 							$q.all(promises).then(function(subscriptions){
 								console.log(subscriptions);
 								scope.subscriptions = subscriptions;
 								scope.loading = false;
+								if(!$rootScope.$$phase){
+									$rootScope.$digest();
+								}
 							});
 							$rootScope.$on('njax.subscription.create.local', function(subscription){
 								scope.subscriptions = [subscription].concat(scope.subscriptions);

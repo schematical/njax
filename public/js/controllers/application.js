@@ -10,11 +10,17 @@ angular.module('core100.application.controller', [])
             'ApplicationService',
 			'NJaxBootstrap',
             function($scope, ApplicationService, NJaxBootstrap) {
+				$scope.is_admin = NJaxBootstrap.is_admin;
+				$scope.app_url = NJaxBootstrap.core_www_url + '/apps';
+
 				if( NJaxBootstrap.application){
 					$scope.application = new ApplicationService(NJaxBootstrap.application);
 					$scope.bootstrap_data_json = JSON.stringify($scope.application.bootstrap_data);
 				}else{
 					$scope.application = new ApplicationService({});
+				}
+				if($scope.application && !$scope.application.desc){
+					$scope.application.desc = $scope.application.desc_raw;
 				}
 				$scope.iframes = NJaxBootstrap.iframes;
 				$scope.$watch(function(){
@@ -39,7 +45,7 @@ angular.module('core100.application.controller', [])
 					}
 
 					$scope.application.$save(function(){
-						alert("Done");
+						document.location = '//' + $scope.application.url;
 					});
                 }
             }

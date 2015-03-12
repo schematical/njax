@@ -196,7 +196,7 @@ angular.module('njax.directives', ['njax.services'])
 					//console.error("No event namespace found for event :"  + $scope._event.event_namespace);
 				}else{
 					// $scope.event_tpl = NJaxBootstrap.core_www_url + '/templates/' + NJaxBootstrap._event_tpls[$scope._event.event_namespace] + '.hjs';
-					$scope.event_tpl = '/templates/' + NJaxBootstrap._event_tpls[$scope._event.event_namespace] + '.hjs';
+					$scope.event_tpl =  NJaxBootstrap.core_www_url + '/templates/' + NJaxBootstrap._event_tpls[$scope._event.event_namespace] + '.hjs';
  				}
 
 			}
@@ -384,70 +384,130 @@ angular.module('njax.directives', ['njax.services'])
 		};
 	}])
 	.directive(
-	'njaxSubscription', [
-		'$http',
-		'$rootScope',
-		'NJaxBootstrap',
-		'SubscriptionService',
-		'$http',
-		function($http, $rootScope, NJaxBootstrap, SubscriptionService, $http) {
-			return {
-				replace: true,
-				scope: {
-					'target': '=target',
-					'type':'@type',
-					'onSubscribe':'@onSubscribe'
-				},
-				//templateUrl: '/templates/directives/njaxComments.html',
-				link: function (scope, element, attrs) {
-
-					var target = scope.$parent.$eval(scope.target, NJaxBootstrap);
-					if(!target){
-						target = scope.target;
-					}
-					scope.onClick = function(e){
-						e.preventDefault();
-						if(!NJaxBootstrap.user){
-							//TODO: Log them in?
-							return console.error("Need to be user to subscribe");
+		'njaxSubscription',
+		[
+			'$q',
+			'$http',
+			'$rootScope',
+			'NJaxBootstrap',
+			'SubscriptionService',
+			function($q, $http, $rootScope, NJaxBootstrap, SubscriptionService) {
+				return {
+					replace: true,
+					scope: {
+						'target': '=target',
+						'type':'@type',
+						'onSubscribe':'@onSubscribe',
+						'onUnSubscribe':'@onUnSubscribe',
+						'beforeUnSubscribe':"@befureUnSubscribe"
+					},
+					transclude: true,
+					template:'<div ng-transclude> </div>',
+					//templateUrl: '/templates/directives/njaxComments.html',
+					link: function (scope, element, attrs) {
+						scope.loading = true;
+						var target = scope.$parent.$eval(scope.target, NJaxBootstrap);
+						if(!target){
+							target = scope.target;
 						}
-						/*scope.subscription = new SubscriptionService({
-							account:NJaxBootstrap.user._id,
-							type: scope.type,
-							entity_type:target._njax_type,
-							entity_id:target._id,
-							entity_url:target.api_url,
-							_entity_name:target.name,
-							_entity_namespace:target.namespace,
-						});*/
-						//return scope.subscription.$save(function(){
 
-						$http.post(
-							'//' + target.api_url + '/subscriptions',
-							{
-								type: scope.type
-							}).success( function(response){
+
+						scope.addSubscription = function(){
+							if(!NJaxBootstrap.user){
+								//TODO: Log them in?
+								return console.error("Need to be user to subscribe");
+							}
+							SubscriptionService.add(target).success( function(response){
+								scope.subscriptions.push(response);
+
+								scope.is_subscribed = true;
+								//scope.$emit('njax.subscription.create.local', scope.subscription)
+								$rootScope.$broadcast('njax.subscription.create.local', response);
+								if(scope.onSubscribe){
+									scope.onSubscribe(response);
+								}
+
+							}).error(function(err){
+								throw err;
+							})
+						}
+						scope.promptUnSubscribe = function(){
+							if(!scope.beforeUnSubscribe){
+								return scope.removeSubscription();
+							}
+							return scope.beforeUnSubscribe(scope.removeSubscription);
+						}
+						scope.removeSubscription = function(){
+							if(!NJaxBootstrap.user){
+								//TODO: Log them in?
+								return console.error("Need to be user to subscribe");
+							}
+							var promisses = [];
+							for(var i in scope.subscriptions) {
+								promisses.push(SubscriptionService.remove(scope.subscriptions[i]).success(function(response){
+									$rootScope.$broadcast('njax.subscription.remove.local', response);//scope.subscriptions[i])
+
+									if(scope.onUnSubscribe){
+										scope.onUnSubscribe(response);//scope.onUnSubscribe);
+									}
+									return response;
+								}));
+								scope.subscriptions.splice(i, 1);
+							}
+
+							$q.all(promisses).then( function(response){
 
 
 								scope.posting = false;
 
+								scope.is_subscribed = false;
 
-								scope.$emit('njax.subscription.create.local', {})
 
-								if(scope.onSubscribe){
-									scope.onSubscribe(scope.subscription);
-								}
-							}).error(function(err){
+							})/*.error(function(err){
 								throw err;
-							})
-					}
+							})*/
+						}
 
-					element.on('click', scope.onClick);
+						SubscriptionService.queryEntity(scope.target, scope.type).success( function(subscriptions){
+
+
+							scope.loading = false;
+
+							scope.count = subscriptions.length;
+							scope.is_subscribed = scope.count > 0;
+							scope.subscriptions = subscriptions;
+
+
+
+
+
+
+							scope.onClick = function(e){
+								e.preventDefault();
+
+								if(scope.is_subscribed){
+									scope.promptUnSubscribe();
+								}else{
+									scope.addSubscription();
+								}
+
+							}
+
+							element.on('click', scope.onClick);
+
+
+						}).error(function(err){
+							throw err;
+						})
+
+
+
+					}
 
 				}
 			}
-		}
-	])
+		]
+	)
 	.directive('njaxComments', ['$http', '$rootScope', 'NJaxBootstrap', function($http, $rootScope, NJaxBootstrap) {
 		return {
 			replace:true,
@@ -455,12 +515,16 @@ angular.module('njax.directives', ['njax.services'])
 				'target':'@target',
 				'bootstrap':'@bootstrap',
 				'event':'@event',
-				'sanitizeData':'@njaxSanitizeData'
+				'sanitizeData':'@njaxSanitizeData',
+				'preloadComments':'=preloadComments',
+				'commentEventName':'@commentEventName',
+				'expanded':'=?expanded'
 			},
-			templateUrl: '/templates/directives/njaxComments.html',
+			templateUrl: (NJaxBootstrap.core_asset_url || NJaxBootstrap.core_www_url) + '/templates/directives/njaxComments.html',
 			link:function(scope, element, attrs) {
 				scope.posting = false;
-				scope.hidden = true;
+				scope.hidden = !scope.expanded;
+				scope.loading = false;
 				if(!scope.event){
 					scope.event = 'comment.create';
 				}
@@ -470,33 +534,30 @@ angular.module('njax.directives', ['njax.services'])
 				}
 				scope.toggleDisplay = function(){
 					scope.hidden = false;
-				}
+					if(scope.comments){
 
-				scope.comments = [];//TODO: fix
-				for(var i in NJaxBootstrap.events){
-					//console.log( NJaxBootstrap.events[i].event_namespace);
-
-					var url = NJaxBootstrap.events[i]._url  || NJaxBootstrap.events[i].data._url;
-					/*if(NJaxBootstrap.events[i].event_namespace == "100innovation.comment.create"){
-						if(url){
-							console.log(url, ' == ', target.url)
-						}else{
-							console.log("Missing Url: ", NJaxBootstrap.events[i]);
-						}
-					}*/
-					if(url){
-						if(typeof(target) == 'string'){
-							if(url == target){
-								scope.comments.push(NJaxBootstrap.events[i]);
-							}
-						}else{
-							if(url == target.url){
-								scope.comments.push(NJaxBootstrap.events[i]);
-							}
-						}
+						return;
 					}
+					scope.loadComments();
 
 				}
+				scope.loadComments = function(){
+					scope.loading = true;
+					$http.get('//' + target.api_url + '/events').success(function(events){
+						scope.comments = [];
+						for(var i in events){
+							if(events[i].event_namespace.substr(events[i].event_namespace.length - '.comment.create'.length) == '.comment.create'){
+								var data = events[i].data;
+								data._event = events[i];
+								scope.comments.push(data);
+							}
+						}
+						scope.loading = false;
+
+					});
+				}
+
+
 
 				var users = []
 				var creator = null;
@@ -521,7 +582,9 @@ angular.module('njax.directives', ['njax.services'])
 					}
 				}
 				scope.save = function($event){
-					var data = {};
+					var data = {
+						body: scope.body,
+					};
 					scope.posting = true;
 
 					if(typeof(target) != 'string'){
@@ -530,11 +593,13 @@ angular.module('njax.directives', ['njax.services'])
 						data['_url'] = target.url;
 					}else{
 						data['_url'] = target;
+
 					}
+					data['user'] = NJaxBootstrap.user;
 					var comment_data = {
 						_id: target._id || null,
 						users: users,
-						body: scope.body,
+						//body: scope.body,
 						//This other stuff really doesnt matter
 						event_namespace: scope.event,
 						event: scope.event,
@@ -560,19 +625,25 @@ angular.module('njax.directives', ['njax.services'])
 
 						scope.status = '';
 						scope.posting = false;
-						scope.comments.push(comment_data);
-
+						scope.comments = [comment_data.data].concat(scope.comments);
+						scope.body = '';
 						scope.$emit('njax.comment.create.local', comment_data)
 
 					}).error(function(err){
 						throw err;
 					})
 				}
-				$rootScope.$on(NJaxBootstrap.active_application.namespace + '.comment.create', function(event, data){
+				if(!scope.commentEventName){
+					scope.commentEventName = (NJaxBootstrap.active_application && NJaxBootstrap.active_application.namespace) || 'njax';
+				}
+				$rootScope.$on(scope.commentEventName + '.comment.create', function(event, data){
 					if(data._url == (target._url || target)){
 						scope.comments.push(data);
 					}
 				});
+				if(scope.preloadComments){
+					scope.loadComments();
+				}
 
 			}
 
@@ -667,3 +738,210 @@ angular.module('njax.directives', ['njax.services'])
 
 		};
 	}])
+	.directive(
+	'njaxSubscriptionCount', [
+		'$http',
+		'$rootScope',
+		'NJaxBootstrap',
+		'SubscriptionService',
+		function($http, $rootScope, NJaxBootstrap, SubscriptionService) {
+			return {
+				replace: true,
+				scope: {
+					'target': '=target',
+					'type':'@type'
+				},
+				//templateUrl: '/templates/directives/njaxComments.html',
+				link: function (scope, element, attrs) {
+
+					SubscriptionService.queryEntity(scope.target, scope.type).success( function(response){
+
+
+						scope.posting = false;
+
+						scope.count = response.length;
+						var jElement = angular.element(element[0]);
+						jElement.html(scope.count);
+
+					}).error(function(err){
+						throw err;
+					})
+
+				}
+			}
+		}
+	])
+	.directive(
+		'njaxEventsList',
+		[
+			'$http',
+			'$rootScope',
+			'NJaxBootstrap',
+			'SubscriptionService',
+			function($http, $rootScope, NJaxBootstrap, SubscriptionService) {
+				return {
+					replace: true,
+					scope: {
+						'target': '=?target',
+						'events': '=?events',
+						'limit':'=?limit',
+						'type':'@type'
+					},
+					templateUrl: '/templates/directives/njaxEventsList.html',
+					link: function (scope, element, attrs) {
+
+						Events.queryEntity(scope.target, scope.type).success( function(response){
+
+
+							scope.posting = false;
+
+							scope.count = response.length;
+							var jElement = angular.element(element[0]);
+							jElement.html(scope.count);
+
+						}).error(function(err){
+							throw err;
+						})
+
+					}
+				}
+			}
+		]
+	)
+	.directive(
+		'njaxSubscriptionAccountList',
+		[
+			'$http',
+			'$rootScope',
+			'NJaxBootstrap',
+			'SubscriptionService',
+			function($http, $rootScope, NJaxBootstrap, SubscriptionService) {
+				return {
+					replace: true,
+					scope: {
+						'target': '=target',
+						'type':'@type'
+					},
+					templateUrl:  (NJaxBootstrap.core_asset_url || NJaxBootstrap.core_www_url) + '/templates/directives/njaxSubscriptionAccountList.html',
+					link: function (scope, element, attrs) {
+
+						SubscriptionService.queryEntity(scope.target, scope.type).success( function(response){
+
+
+							scope.posting = false;
+
+							scope.count = response.length;
+							scope.subscriptions = response;
+
+						}).error(function(err){
+							throw err;
+						})
+						$rootScope.$on('njax.subscription.create.local', function(e, subscription){
+							scope.subscriptions = [subscription].concat(scope.subscriptions);
+
+						});
+						$rootScope.$on('njax.subscription.remove.local', function(e, subscription){
+							for(var i in scope.subscriptions){
+								if(
+									(scope.subscriptions[i].url == subscription.url)
+								){
+									scope.subscriptions.splice(i, 1);
+								}
+							}
+						});
+
+					}
+				}
+			}
+		]
+)
+.directive(
+	'njaxSubscriptionList',
+	[
+		'$q',
+		'$http',
+		'$rootScope',
+		'NJaxBootstrap',
+		'SubscriptionService',
+		function($q, $http, $rootScope, NJaxBootstrap, SubscriptionService) {
+			return {
+				replace: true,
+				scope: {
+					'account': '=account',
+					'type':'@type',
+					'preLoad':'=?',
+					'preLoadEntities':'=?'
+				},
+				templateUrl:  (NJaxBootstrap.core_asset_url || NJaxBootstrap.core_www_url) + '/templates/directives/njaxSubscriptionList.html',
+				link: function (scope, element, attrs) {
+					scope.load = function() {
+						scope.loading = false;
+						return SubscriptionService.queryByAccount(scope.account, scope.type).success(function (response) {
+							scope.count = response.length;
+							var subscriptions = response;
+							var promises = [];
+							scope.subscriptions = [];
+							for (var i in subscriptions) {
+								subscriptions[i] =(function(subscription){
+
+									if(scope.preLoadEntities){
+										promise =  $http.get('//' + subscription.entity_url).then(function(response){
+											return response.data;
+										});
+										promises.push(promise);
+										promise._njax_type = subscription.entity_type;
+										promise.name = subscription._entity_name;
+										promise.namespace = subscription._entity_namespace;
+										promise.api_url = subscription.entity_url;
+										promise.url = subscription.entity_url;
+									}else{
+										subscription._njax_type = subscription.entity_type;
+										subscription.name = subscription._entity_name;
+										subscription.namespace = subscription._entity_namespace;
+										subscription.api_url = subscription.entity_url;
+										subscription.url = subscription.entity_url;
+										subscription.loadEntity = function(){
+											return $http.get('//' + subscription.entity_url);
+										}
+										scope.subscriptions.push(subscription)
+									}
+
+									return subscription;
+								})(subscriptions[i]);
+
+							}
+							$q.all(promises).then(function(subscriptions){
+								console.log(subscriptions);
+								scope.subscriptions = subscriptions;
+								scope.loading = false;
+								if(!$rootScope.$$phase){
+									$rootScope.$digest();
+								}
+							});
+							$rootScope.$on('njax.subscription.create.local', function(subscription){
+								scope.subscriptions = [subscription].concat(scope.subscriptions);
+							});
+							$rootScope.$on('njax.subscription.remove.local', function(subscription){
+								for(var i in scope.subscriptions){
+									if(
+										(scope.subscriptions[i].url == subscription.url)
+									){
+										scope.subscriptions.splice(i, 1);
+									}
+								}
+							});
+
+
+						}).error(function (err) {
+							throw err;
+						})
+					}
+					if(scope.preLoad){
+						return scope.load();
+					}
+
+				}
+			}
+		}
+	]
+)

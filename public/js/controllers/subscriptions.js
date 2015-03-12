@@ -2,17 +2,23 @@
 
 /* Controllers */
 
-angular.module('njax.browse.controller', [])
+angular.module('njax.subscriptions.controller', [])
 	.controller(
-	'NJaxBrowseCtl',
+	'NJaxSubscriptionsCtl',
 	[
 		'$scope',
 		'NJaxBootstrap',
 		function($scope, NJaxBootstrap) {
-			$scope.searchChange = function(query, results){
-				$scope.results = results;
-			}
 
+			$scope.subscriptions = NJaxBootstrap.subscriptions;
+			for(var i in $scope.subscriptions){
+				$scope.subscriptions[i]._njax_type = $scope.subscriptions[i].entity_type;
+				$scope.subscriptions[i].name = $scope.subscriptions[i]._entity_name;
+				$scope.subscriptions[i].namespace = $scope.subscriptions[i]._entity_namespace;
+				$scope.subscriptions[i].api_url = $scope.subscriptions[i].entity_url;
+				$scope.subscriptions[i].url = $scope.subscriptions[i].entity_url;
+
+			}
 			$scope.searchSelected = function(query, runDefault){
 				//TODO: Make this dynamic some day
 				if(query.location_friendly_url && query.location_friendly_url.length > 0){
@@ -25,20 +31,7 @@ angular.module('njax.browse.controller', [])
 				//return runDefault();
 			}
 
-
-
-
 		}
 	]
 )
-/*.filter('filterSearchResults',[
-	'NJaxSearch',
-	function(NJaxSearch) {
-		return function(input, value) {
-
-
-			return out;
-		};
-	}
-])*/
 

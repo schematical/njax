@@ -1,4 +1,4 @@
-
+<script src="{{ core_asset_url }}/js/directives/application.js"></script>
 
 <div ng-controller="ApplicationEditFormCtl">
     <div role="tabpanel">
@@ -8,6 +8,7 @@
             <li role="presentation"><a href="#iframes" aria-controls="iframes" role="tab" data-toggle="tab">IFrames</a></li>
             <li ng-if="is_admin" role="presentation"><a href="#admin_options" aria-controls="admin_options" role="tab" data-toggle="tab">Admin</a></li>
             <li ng-if="application.level == 'SUPER'" role="presentation"><a href="#super_options" aria-controls="super_options" role="tab" data-toggle="tab">Super App</a></li>
+            <li ng-if="application.level == 'SUPER'" role="presentation"><a href="#widget_options" aria-controls="widget_options" role="tab" data-toggle="tab">Widgets</a></li>
 
         </ul>
 
@@ -154,6 +155,11 @@
                     <div ng-if="bootstrap_data_error" ng-bind="bootstrap_data_error.message" class="alert alert-danger"></div>
                     <textarea id="bootstrap_data_json" name="bootstrap_data_json" class="form-control" rows="3" ng-model="bootstrap_data_json"></textarea>
                 </form>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="widget_options">
+                <div njax-application-widget="application">
+
+                </div>
             </div>
 
 

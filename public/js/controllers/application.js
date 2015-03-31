@@ -48,6 +48,11 @@ angular.module('core100.application.controller', [])
 						document.location = '//' + $scope.application.url;
 					});
                 }
+
+
+				/**
+				 * Widget Funct
+				 */
             }
         ]
     )

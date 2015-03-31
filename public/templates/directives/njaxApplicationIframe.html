@@ -1,0 +1,14 @@
+<div>
+    <div ng-if="!iframes">
+        <div class="form-group">
+            <label for="{{ namespace}}_iframe_url">{{ name }} URL:</label>
+            <input name="{{ namespace}}_iframe_url" type="{{ namespace}}_iframe_url" class="form-control" id="{{ namespace }}_iframe_url" placeholder="Enter {{ name }} iframe URL" value="{{ url }}">
+        </div>
+    </div>
+    <div ng-if="iframes">
+        <div ng-repeat="iframe in iframes" class="form-group">
+            <label for="{{ iframe.namespace }}_iframe_url">{{ iframe.name }} URL:</label>
+            <input id="{{ iframe.namespace }}_iframe_url" name="{{ iframe.namespace}}_iframe_url" type="url" class="form-control"  placeholder="Enter {{ iframe.name }} iframe URL" ng-model="iframe.url">
+        </div>
+    </div>
+</div>

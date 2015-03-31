@@ -22,7 +22,7 @@ angular.module('core100.application.controller', [])
 				if($scope.application && !$scope.application.desc){
 					$scope.application.desc = $scope.application.desc_raw;
 				}
-				$scope.iframes = NJaxBootstrap.iframes;
+
 				$scope.$watch(function(){
 					return JSON.stringify(($scope.application && $scope.application.bootstrap_data) || {});
 				}, function(newValue, oldValue){
@@ -33,7 +33,7 @@ angular.module('core100.application.controller', [])
 
                 }
                 $scope.save = function($event){
-					$scope.application.iframes = $scope.iframes;
+
 					if($scope.super_options_frm.bootstrap_data_json.$dirty){
 						try{
 							$scope.application.bootstrap_data = JSON.parse($scope.bootstrap_data_json);
@@ -50,9 +50,6 @@ angular.module('core100.application.controller', [])
                 }
 
 
-				/**
-				 * Widget Funct
-				 */
             }
         ]
     )

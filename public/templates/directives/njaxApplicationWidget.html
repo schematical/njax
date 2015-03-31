@@ -7,7 +7,7 @@
         <div class="col-md-4">
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="widget in application.widgets" ng-click="select(widget, $event)">
-                    <span ng-click="delete(widget, $event);" class="badge">x</span>
+                    <span ng-click="deleteWidget(widget, $event);" class="badge">x</span>
                     {{ widget.namespace }}
                 </li>
                 <li class="list-group-item" ng-click="addNewWidget();">
@@ -40,7 +40,7 @@
                 </p>
                 <div class="form-group">
                     <label for="widget_angular_modules">Angular Modules</label>
-                    <input name="widget_angular_modules" type="string" class="form-control" id="widget_angular_modules" placeholder="opp100.widgets,opp100.services" value="" ng-model="selected_widget.angular_module" >
+                    <input name="widget_angular_modules" type="string" class="form-control" id="widget_angular_modules" placeholder="opp100.widgets,opp100.services" value="" ng-model="selected_widget.angular_modules_raw" >
                 </div>
                 <p>
                     Please enter in the angular directive that comprises the majority of your widget

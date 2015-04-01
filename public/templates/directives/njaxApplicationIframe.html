@@ -1,14 +1,57 @@
 <div>
-    <div ng-if="!iframes">
-        <div class="form-group">
-            <label for="{{ namespace}}_iframe_url">{{ name }} URL:</label>
-            <input name="{{ namespace}}_iframe_url" type="{{ namespace}}_iframe_url" class="form-control" id="{{ namespace }}_iframe_url" placeholder="Enter {{ name }} iframe URL" value="{{ url }}">
+    <form name="iframe_options_frm">
+        <h4>IFrame Options</h4>
+        <p>
+            This will allow anyone to iframe in their content to various places on the website.
+        </p>
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="iframe in application.iframes" ng-click="selectIframe(iframe, $event)">
+                        <span ng-click="deleteIframe(iframe, $event);" class="badge">x</span>
+                        {{ iframe.tab_name }}
+                    </li>
+                    <li class="list-group-item" ng-click="addNewIframe();">
+                        Add Iframe
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div ng-if="selected_iframe">
+                    <p>Select the page you want your tab to show up on</p>
+                    <div class="form-group">
+                        <label for="iframe_type">Page</label>
+                        <select name="iframe_type" type="string" class="form-control" id="iframe_type" ng-model="selected_iframe.iframe_type" ng-options="iframe_option.namespace as iframe_option.name for iframe_option in iframe_options"></select>
+                    </div>
+
+                    <p>Please enter in a tab name that will display to the users</p>
+                    <div class="form-group">
+                        <label for="iframe_tab_name">Tab Name</label>
+                        <input name="iframe_tab_name" type="string" class="form-control" id="iframe_tab_name" placeholder="Enter Tab Name" ng-model="selected_iframe.tab_name" >
+                    </div>
+                    <p>Please enter in an id unique to this iframe and your application to track this iframe</p>
+                    <div class="form-group">
+                        <label for="iframe_namespace">Namespace</label>
+                        <input name="iframe_namespace" type="string" class="form-control" id="iframe_namespace" placeholder="Enter namespace" ng-model="selected_iframe.namespace"  njax-namespace="iframe_tab_name">
+                    </div>
+                    <p>Select the action you want your tab todo when the user clicks your tab</p>
+                    <div class="form-group">
+                        <label for="iframe_action">Action</label>
+                        <select name="iframe_action" type="string" class="form-control" id="iframe_action" ng-model="selected_iframe.action" ng-options="action_option.namespace as action_option.name for action_option in action_options"></select>
+                    </div>
+                    <p>Please enter in the url of the page on the 3rd party application you want iframed in or linked to</p>
+                    <div class="form-group">
+                        <label for="iframe_url">URL</label>
+                        <input name="iframe_url" type="text" class="form-control" id="iframe_url" ng-model="selected_iframe.url" />
+                    </div>
+                    <p>The weight determines the order a tab shows up in</p>
+                    <div class="form-group">
+                        <label for="iframe_action">Weight</label>
+                        <input name="iframe_weight" type="number" class="form-control" id="iframe_weight" placeholder="Enter weight" ng-model="selected_iframe.weight" >
+                    </div>
+                    <a href="btn btn-default btn-sm" ng-click="saveIframe(selected_iframe, $event);">Save IFrames</a>
+               </div>
+            </div>
         </div>
-    </div>
-    <div ng-if="iframes">
-        <div ng-repeat="iframe in iframes" class="form-group">
-            <label for="{{ iframe.namespace }}_iframe_url">{{ iframe.name }} URL:</label>
-            <input id="{{ iframe.namespace }}_iframe_url" name="{{ iframe.namespace}}_iframe_url" type="url" class="form-control"  placeholder="Enter {{ iframe.name }} iframe URL" ng-model="iframe.url">
-        </div>
-    </div>
+    </form>
 </div>

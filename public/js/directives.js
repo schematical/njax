@@ -777,8 +777,8 @@ angular.module('njax.directives', ['njax.services'])
 			'$http',
 			'$rootScope',
 			'NJaxBootstrap',
-			'SubscriptionService',
-			function($http, $rootScope, NJaxBootstrap, SubscriptionService) {
+			'EventService',
+			function($http, $rootScope, NJaxBootstrap, EventService) {
 				return {
 					replace: true,
 					scope: {
@@ -790,7 +790,7 @@ angular.module('njax.directives', ['njax.services'])
 					templateUrl: '/templates/directives/njaxEventsList.html',
 					link: function (scope, element, attrs) {
 
-						Events.queryEntity(scope.target, scope.type).success( function(response){
+						EventService.queryEntity(scope.target, scope.type).success( function(response){
 
 
 							scope.posting = false;

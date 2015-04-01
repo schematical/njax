@@ -1,4 +1,4 @@
-angular.module('njax.directives', ['njax.services'])
+angular.module('njax.directives'/*, ['njax.services']*/)
 	.directive('njaxApplicationWidget', [
 		'NJaxBootstrap',
 		function(NJaxBootstrap) {
@@ -65,10 +65,56 @@ angular.module('njax.directives', ['njax.services'])
 				templateUrl: '/templates/directives/njaxApplicationIframe.html',
 				link:function(scope, element, attrs) {
 
-					scope.iframes = NJaxBootstrap.iframes;
-					scope.saveIframe= function(widget, $event){
-						scope.application.iframes = scope.iframes;
-						console.log(scope.application.iframes);
+					scope.iframe_options = NJaxBootstrap.iframes;
+					scope.action_options = [
+						{
+							namespace:'tab',
+							name:"Open as a tab"
+						},
+						{
+							namespace:'link',
+							name:"Link out to new page"
+						}/*,
+						{
+							namespace:'window',
+							name:"Link out as a new window"
+						}*/
+					]
+
+					for(var i in scope.iframes){
+						if(scope.application && scope.application.iframes && scope.application.iframes[scope.iframes[i].namespace]){
+							scope.iframes[i].url = scope.application.iframes[iframes[i].namespace].url
+						}
+					}
+
+					scope.addNewIframe = function(){
+						scope.selected_iframe = {
+							weight: 50,
+							action:'tab'
+						};
+					}
+					scope.saveIframe= function(iframe, $event){
+						$event.preventDefault();
+						if(!scope.application.iframes){
+							scope.application.iframes = {};
+						}
+						scope.application.iframes[iframe.namespace] = iframe;
+
+						scope.application.$save(function(err){
+							alert("Saved");
+						});
+					}
+					scope.selectIframe = function(iframe, $event){
+						$event.preventDefault();
+						scope.selected_iframe = iframe;
+					}
+					scope.deleteIframe = function(iframe, $event){
+						$event.preventDefault();
+						delete(scope.application.iframes[iframe.namespace]);
+						scope.application.$save(function(err){
+							alert("Saved");
+						});
+
 					}
 
 				}

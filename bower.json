@@ -1,1 +1,22 @@
-{"name":"nde","version":"1.0.0","main":"path/to/main.css","ignore":[".jshintrc","**/*.txt"],"dependencies":{"jquery":"*","angular":"*","ace":"*","underscore":"*","async":"*"}}
+{
+  "name": "njax",
+  "version": "0.0.1",
+  "main": [
+    "public/js/njaxBootstrap.js",
+    "public/js/directives.js",
+    "public/js/services.js",
+    "public/js/services/account.js",
+    "public/js/controllers/auth.js"
+  ],
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "jquery": "*",
+    "angular": "*",
+    "ace": "*",
+    "underscore": "*",
+    "async": "*"
+  }
+}

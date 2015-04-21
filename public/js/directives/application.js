@@ -81,6 +81,7 @@ angular.module('njax.directives'/*, ['njax.services']*/)
 						}*/
 					]
 
+					scope.iframes = scope.application.iframes || [];
 					for(var i in scope.iframes){
 						if(scope.application && scope.application.iframes && scope.application.iframes[scope.iframes[i].namespace]){
 							scope.iframes[i].url = scope.application.iframes[iframes[i].namespace].url
@@ -111,6 +112,14 @@ angular.module('njax.directives'/*, ['njax.services']*/)
 					scope.deleteIframe = function(iframe, $event){
 						$event.preventDefault();
 						delete(scope.application.iframes[iframe.namespace]);
+						scope.application.$save(function(err){
+							alert("Saved");
+						});
+
+					}
+					scope.clearAllIframes = function($event){
+						$event.preventDefault();
+						scope.application.iframes = {};
 						scope.application.$save(function(err){
 							alert("Saved");
 						});

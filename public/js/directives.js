@@ -68,7 +68,7 @@ angular.module('njax.directives', ['njax.services'])
                     var namespace = element.val()
                     namespace = namespace.toLowerCase();
                     namespace = namespace.replace(/[^\w\s]/gi, '');
-                    namespace = namespace.replace(/ /g,"_");
+                    namespace = namespace.replace(/ /g,"-");
                     if(element.val() != namespace){
                         element.val(namespace);
 

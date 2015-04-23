@@ -71,7 +71,7 @@ angular.module('njax.directives', ['njax.services'])
                     namespace = namespace.replace(/ /g,"_");
                     if(element.val() != namespace){
                         element.val(namespace);
-
+			scope.$parent.$digest();
                     }
                 })
             }

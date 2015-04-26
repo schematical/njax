@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('core100.application.controller', [])
+angular.module('njax.application.controller', [])
     .controller(
         'ApplicationEditFormCtl',
         [

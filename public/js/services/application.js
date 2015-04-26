@@ -1,4 +1,4 @@
-var applicationServices = angular.module('core100.application.service', ['ngResource']);
+var applicationServices = angular.module('njax.application.service', ['ngResource']);
 applicationServices.factory(
     'ApplicationService',
     [

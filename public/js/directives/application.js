@@ -72,8 +72,12 @@ angular.module('njax.directives'/*, ['njax.services']*/)
 							name:"Open as a tab"
 						},
 						{
-							namespace:'link',
+							namespace:'external_link',
 							name:"Link out to new page"
+						},
+						{
+							namespace:'relative_link',
+							name:"Link to a page relitve to this page"
 						}/*,
 						{
 							namespace:'window',
@@ -84,7 +88,7 @@ angular.module('njax.directives'/*, ['njax.services']*/)
 					scope.iframes = scope.application.iframes || [];
 					for(var i in scope.iframes){
 						if(scope.application && scope.application.iframes && scope.application.iframes[scope.iframes[i].namespace]){
-							scope.iframes[i].url = scope.application.iframes[iframes[i].namespace].url
+							scope.iframes[i].url = scope.application.iframes[scope.iframes[i].namespace].url
 						}
 					}
 

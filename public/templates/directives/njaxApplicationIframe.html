@@ -9,7 +9,7 @@
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="iframe in application.iframes" ng-click="selectIframe(iframe, $event)">
                         <span ng-click="deleteIframe(iframe, $event);" class="badge">x</span>
-                        {{ iframe.tab_name }}
+                        <div ng-bind="iframe._iframe_type_desc + '-' + iframe.tab_name">
                     </li>
                     <li class="list-group-item" ng-click="addNewIframe();">
                         Add Iframe
@@ -35,7 +35,7 @@
                     <p>Please enter in an id unique to this iframe and your application to track this iframe</p>
                     <div class="form-group">
                         <label for="iframe_namespace">Namespace</label>
-                        <input name="iframe_namespace" type="string" class="form-control" id="iframe_namespace" placeholder="Enter namespace" ng-model="selected_iframe.namespace"  njax-namespace="iframe_tab_name">
+                        <input name="iframe_namespace" type="string" class="form-control" id="iframe_namespace" placeholder="Enter namespace" ng-model="selected_iframe.short_namespace"  njax-namespace="iframe_tab_name">
                     </div>
                     <p>Select the action you want your tab todo when the user clicks your tab</p>
                     <div class="form-group">

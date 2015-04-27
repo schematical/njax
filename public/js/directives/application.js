@@ -89,6 +89,13 @@ angular.module('njax.directives'/*, ['njax.services']*/)
 					for(var i in scope.iframes){
 						if(scope.application && scope.application.iframes && scope.application.iframes[scope.iframes[i].namespace]){
 							scope.iframes[i].url = scope.application.iframes[scope.iframes[i].namespace].url
+							scope.iframes[i]._orig_namespace = scope.iframes[i].namespace;
+
+							for(var ii in scope.iframe_options){
+								if(scope.iframe_options[ii].namespace == scope.iframes[i].iframe_type){
+									scope.iframes[i]._iframe_type_desc = scope.iframe_options[ii].name;
+								}
+							}
 						}
 					}
 
@@ -102,6 +109,10 @@ angular.module('njax.directives'/*, ['njax.services']*/)
 						$event.preventDefault();
 						if(!scope.application.iframes){
 							scope.application.iframes = {};
+						}
+						iframe.namespace = iframe.iframe_type + '-' + iframe.short_namespace;
+						if(iframe._orig_namespace != iframe.namespace) {
+							delete(scope.application.iframes[iframe._orig_namespace]);
 						}
 						scope.application.iframes[iframe.namespace] = iframe;
 

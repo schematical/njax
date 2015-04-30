@@ -1,0 +1,13 @@
+{{> _header }}
+<div class="container">
+    {{> _navbar }}
+    <div class='row'>
+        <div class='col-md-4 col-md-offset-4'>
+            <div class="alert alert-info">Click to import</div>
+            {{# applications }}
+            <a class="btn btn-default" href="{{ admin_uri }}/import_apps?namespace={{ namespace }}">{{ name }}</a><br>
+            {{/applications}}
+        </div>
+    </div>
+</div>
+{{> _footer }}

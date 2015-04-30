@@ -30,8 +30,8 @@ angular.module('njax.application.controller', [])
 				});
                 $scope.validate = function(){
 
-
                 }
+				$scope.tag_options = NJaxBootstrap.tag_options;
                 $scope.save = function($event){
 
 					if($scope.super_options_frm.bootstrap_data_json.$dirty){

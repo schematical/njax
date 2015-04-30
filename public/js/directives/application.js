@@ -9,7 +9,9 @@ angular.module('njax.directives'/*, ['njax.services']*/)
 				},
 				templateUrl: '/templates/directives/njaxApplicationWidget.html',
 				link:function(scope, element, attrs) {
-
+					if(!scope.application){
+						scope.application = NJaxBootstrap.application;
+					}
 					/*
 					weight:10,
 					src:[
@@ -64,7 +66,9 @@ angular.module('njax.directives'/*, ['njax.services']*/)
 				},
 				templateUrl: '/templates/directives/njaxApplicationIframe.html',
 				link:function(scope, element, attrs) {
-
+					if(!scope.application){
+						scope.application = NJaxBootstrap.application;
+					}
 					scope.iframe_options = NJaxBootstrap.iframes;
 					scope.action_options = [
 						{

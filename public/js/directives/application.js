@@ -1,7 +1,8 @@
 angular.module('njax.directives'/*, ['njax.services']*/)
 	.directive('njaxApplicationWidget', [
 		'NJaxBootstrap',
-		function(NJaxBootstrap) {
+		'ApplicationService',
+		function(NJaxBootstrap, ApplicationService) {
 			return {
 				replace:true,
 				scope:{
@@ -10,7 +11,7 @@ angular.module('njax.directives'/*, ['njax.services']*/)
 				templateUrl: '/templates/directives/njaxApplicationWidget.html',
 				link:function(scope, element, attrs) {
 					if(!scope.application){
-						scope.application = NJaxBootstrap.application;
+						scope.application =  new ApplicationService(NJaxBootstrap.application);
 					}
 					/*
 					weight:10,
@@ -58,7 +59,8 @@ angular.module('njax.directives'/*, ['njax.services']*/)
 	])
 	.directive('njaxApplicationIframe', [
 		'NJaxBootstrap',
-		function(NJaxBootstrap) {
+		'ApplicationService',
+		function(NJaxBootstrap, ApplicationService) {
 			return {
 				replace:true,
 				scope:{
@@ -67,7 +69,7 @@ angular.module('njax.directives'/*, ['njax.services']*/)
 				templateUrl: '/templates/directives/njaxApplicationIframe.html',
 				link:function(scope, element, attrs) {
 					if(!scope.application){
-						scope.application = NJaxBootstrap.application;
+						scope.application = new ApplicationService(NJaxBootstrap.application);
 					}
 					scope.iframe_options = NJaxBootstrap.iframes;
 					scope.action_options = [

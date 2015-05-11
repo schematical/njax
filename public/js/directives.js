@@ -419,7 +419,7 @@ angular.module('njax.directives', ['njax.services'])
 							}
 							SubscriptionService.add(target).success( function(response){
 								scope.subscriptions.push(response);
-
+								scope.count += 1;
 								scope.is_subscribed = true;
 								//scope.$emit('njax.subscription.create.local', scope.subscription)
 								$rootScope.$broadcast('njax.subscription.create.local', response);
@@ -442,6 +442,7 @@ angular.module('njax.directives', ['njax.services'])
 								//TODO: Log them in?
 								return console.error("Need to be user to subscribe");
 							}
+							scope.count -= 1;
 							var promisses = [];
 							for(var i in scope.subscriptions) {
 								promisses.push(SubscriptionService.remove(scope.subscriptions[i]).success(function(response){

@@ -84,6 +84,10 @@ angular.module('njax.directives'/*, ['njax.services']*/)
 						{
 							namespace:'relative_link',
 							name:"Link to a page relitve to this page"
+						},
+						{
+							namespace:'application_link',
+							name:"Link to a page relitve to this application"
 						}/*,
 						{
 							namespace:'window',

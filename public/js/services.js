@@ -76,11 +76,10 @@ angular.module('njax.services', [])
 				}
 				_njaxSearchable._searchable[key] = search_funct;
 			},
-			query:function(query, search_scopes, callback){
+			query:function(query, search_scopes){
 				_njaxSearchable._latestQuery = query;
-				if(typeof(search_scopes) == 'Function'){
-					callback = search_scopes;
-					scope = Object.keys(_njaxSearchable._searchable);
+				if(typeof(search_scopes) == 'Function' || !search_scopes){
+					search_scopes = Object.keys(_njaxSearchable._searchable);
 				}
 
 				if(!angular.isArray(search_scopes)){

@@ -83,7 +83,9 @@ angular.module('njax.services', [])
 				}
 
 				if(!angular.isArray(search_scopes)){
-					return callback(new Error("Invalid scope"));
+					//throw new Error("Invalid scope");
+					//Just going to use all for now
+					search_scopes = Object.keys(_njaxSearchable._searchable);
 				}
 				var promises = [];
 				angular.forEach(search_scopes, function(search_scope, index){

@@ -34,7 +34,7 @@ angular.module('njax.application.controller', [])
 				$scope.tag_options = NJaxBootstrap.tag_options;
                 $scope.save = function($event){
 
-					if($scope.super_options_frm.bootstrap_data_json.$dirty){
+					if($scope./*super_options_frm.*/bootstrap_data_json.$dirty){
 						try{
 							$scope.application.bootstrap_data = JSON.parse($scope.bootstrap_data_json);
 						}catch(e){

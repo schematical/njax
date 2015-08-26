@@ -1,4 +1,4 @@
-module.export = function () {
+module.exports = function () {
 	var config = {
 		"njax_module": true,
 		"models": {

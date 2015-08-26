@@ -1,1 +1,1 @@
-module.exports = require('./lib/njax');
+module.exports = require('./lib/');

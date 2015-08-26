@@ -1,6 +1,6 @@
 {
   "name": "njax",
-  "version": "0.0.3",
+  "version": "0.2.0",
   "private": false,
   "scripts": {
     "start": "node app.js"

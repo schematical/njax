@@ -3,7 +3,7 @@ module.exports = function () {
 		"njax_module": true,
 		"models": {
 			"account": {
-				"uri_prefix": "",
+				"uri_prefix": "/accounts",
 				"name": "account",
 				"tpl_override": {
 					"schema": "lib/model/account.default.js"
@@ -164,9 +164,9 @@ module.exports = function () {
 					}
 				}
 			},
-			"user_group": {
+			"userGroup": {
 				"uri_prefix": "/user_groups",
-				"name": "user_group",
+				"name": "userGroup",
 				"default": true,
 				"fields": {
 					"name": "string",
@@ -178,9 +178,9 @@ module.exports = function () {
 					}
 				}
 			},
-			"user_group_member": {
+			"userGroupMember": {
 				"uri_prefix": "/members",
-				"name": "user_group_member",
+				"name": "userGroupMember",
 				"relationship": "assoc",
 				"default": true,
 				"fields": {}

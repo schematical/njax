@@ -2,17 +2,75 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d098d82-e198-4695-aa05-4a38ddf4f0b7" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/model/_gen/accessToken_gen.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/model/_gen/account_gen.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/model/_gen/application_gen.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/model/_gen/event_gen.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/model/_gen/requestCode_gen.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/model/_gen/subscription_gen.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/model/_gen/tag_gen.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/njax.js" afterPath="$PROJECT_DIR$/njax_config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/auth.js" afterPath="$PROJECT_DIR$/lib/routes/auth.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/builder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/templates/admin/install.hjs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/templates/model/account/list.hjs" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_accessToken_edit_form.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_accessToken_list_single.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_account_edit_form.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_account_list_single.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_application_edit_form.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_application_list_single.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_event_edit_form.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_event_list_single.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/Event_detail.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/Event_edit.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/Event_list.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_Event_edit_form.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_Event_list_single.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_accessToken_edit_form.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_accessToken_list_single.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_account_edit_form.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_account_list_single.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_application_edit_form.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_application_list_single.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_requestCode_edit_form.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_requestCode_list_single.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/accessToken_detail.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/accessToken_edit.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/accessToken_list.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/account_detail.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/account_edit.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/account_list.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/application_detail.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/application_edit.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/application_list.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/requestCode_detail.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/requestCode_edit.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/requestCode_list.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_requestCode_edit_form.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_requestCode_list_single.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_subscription_edit_form.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_subscription_list_single.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_tag_edit_form.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_tag_list_single.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/accessToken_detail.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/accessToken_edit.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/accessToken_list.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/account_detail.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/account_edit.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/account_list.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/application_detail.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/application_edit.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/application_list.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/event_detail.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/event_edit.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/event_list.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/requestCode_detail.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/requestCode_edit.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/requestCode_edit_form.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/requestCode_list.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/subscription_detail.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/subscription_edit.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/subscription_list.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/tag_detail.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/tag_edit.hjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/tag_list.hjs" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/api.js" afterPath="$PROJECT_DIR$/lib/modules/api.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/index.js" afterPath="$PROJECT_DIR$/lib/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/trigger.js" afterPath="$PROJECT_DIR$/lib/routes/trigger.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/admin/index.js" afterPath="$PROJECT_DIR$/lib/routes/admin/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/njax_config.js" afterPath="$PROJECT_DIR$/njax_config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/admin/settings.js" afterPath="$PROJECT_DIR$/lib/routes/admin/settings.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="njax.iws" />
@@ -38,40 +96,50 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.js">
+        <entry file="file://$PROJECT_DIR$/lib/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+            <state vertical-scroll-proportion="-5.1621623" vertical-offset="994" max-vertical-offset="2100">
+              <caret line="79" column="21" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="builder.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/js/builder.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8770492" vertical-offset="95" max-vertical-offset="825">
+              <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="njax_config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/njax_config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.2162162" vertical-offset="0" max-vertical-offset="3570">
+              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/index.js">
+        <entry file="file://$PROJECT_DIR$/lib/routes/admin/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.142857" vertical-offset="630" max-vertical-offset="2055">
-              <caret line="66" column="60" selection-start-line="66" selection-start-column="60" selection-end-line="66" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+              <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/routes/auth.js">
+      <file leaf-file-name="install.hjs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/templates/admin/install.hjs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.0714285" vertical-offset="360" max-vertical-offset="6165">
-              <caret line="29" column="48" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="njax_config.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/njax_config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31413612" vertical-offset="0" max-vertical-offset="3570">
-              <caret line="12" column="35" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="35" />
+            <state vertical-scroll-proportion="-6.521739" vertical-offset="0" max-vertical-offset="345">
+              <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -103,9 +171,16 @@
         <option value="$PROJECT_DIR$/lib/njax.js" />
         <option value="$PROJECT_DIR$/njax.js" />
         <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/njax_config.js" />
-        <option value="$PROJECT_DIR$/lib/index.js" />
         <option value="$PROJECT_DIR$/lib/routes/auth.js" />
+        <option value="$PROJECT_DIR$/public/templates/model/_list_single.hjs" />
+        <option value="$PROJECT_DIR$/public/templates/model/_userGroup_list_single.hjs" />
+        <option value="$PROJECT_DIR$/lib/index.js" />
+        <option value="$PROJECT_DIR$/njax_config.js" />
+        <option value="$PROJECT_DIR$/public/templates/model/account/list.hjs" />
+        <option value="$PROJECT_DIR$/public/templates/admin/install.hjs" />
+        <option value="$PROJECT_DIR$/lib/routes/admin/settings.js" />
+        <option value="$PROJECT_DIR$/lib/routes/admin/index.js" />
+        <option value="$PROJECT_DIR$/public/js/builder.js" />
       </list>
     </option>
   </component>
@@ -113,8 +188,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="-4" />
+    <option name="x" value="1985" />
+    <option name="y" value="1076" />
     <option name="width" value="1855" />
     <option name="height" value="1084" />
   </component>
@@ -173,7 +248,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="njax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -188,10 +281,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -223,13 +312,19 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="editorconfig.notification" value="Applied .editorconfig settings" />
     <property name="LayoutCode.rearrangeEntriesJavaScript 1.5" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/templates/model/account" />
+      <recent name="$PROJECT_DIR$/public/templates/model" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/js" />
+      <recent name="$PROJECT_DIR$/public/templates/model" />
       <recent name="$PROJECT_DIR$/lib/model" />
       <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -257,6 +352,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
       <method />
     </configuration>
     <list size="0" />
@@ -281,34 +382,40 @@
       <option name="project" value="LOCAL" />
       <updated>1426188718092</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Moving uid to njax-util and fixing broken directive">
+      <created>1440612693349</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1440612693349</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="1985" y="1076" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3294979" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3294979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17819591" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18262313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -336,20 +443,63 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/lib/routes/auth.js</url>
-          <line>40</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/lib/routes/auth.js</url>
           <line>42</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2100">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/njax_config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2299" max-vertical-offset="3570">
+          <caret line="182" column="40" selection-start-line="182" selection-start-column="40" selection-end-line="182" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="2055">
+          <caret line="66" column="60" selection-start-line="66" selection-start-column="60" selection-end-line="66" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/routes/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6165">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="465">
@@ -442,6 +592,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/routes/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5409836" vertical-offset="360" max-vertical-offset="6165">
+          <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/underscore/underscore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3327869" vertical-offset="13222" max-vertical-offset="21270">
+          <caret line="898" column="4" selection-start-line="898" selection-start-column="4" selection-end-line="898" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="925">
@@ -450,26 +616,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/index.js">
+    <entry file="file://$PROJECT_DIR$/public/templates/admin/install.hjs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.142857" vertical-offset="630" max-vertical-offset="2055">
-          <caret line="66" column="60" selection-start-line="66" selection-start-column="60" selection-end-line="66" selection-end-column="60" />
+        <state vertical-scroll-proportion="-6.521739" vertical-offset="0" max-vertical-offset="345">
+          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes/auth.js">
+    <entry file="file://$PROJECT_DIR$/public/templates/model/account/list.hjs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0714285" vertical-offset="360" max-vertical-offset="6165">
-          <caret line="29" column="48" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+        <state vertical-scroll-proportion="-5.869565" vertical-offset="0" max-vertical-offset="345">
+          <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/routes/admin/settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31967214" vertical-offset="0" max-vertical-offset="610">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.1621623" vertical-offset="994" max-vertical-offset="2100">
+          <caret line="79" column="21" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/njax_config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31413612" vertical-offset="0" max-vertical-offset="3570">
-          <caret line="12" column="35" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="35" />
+        <state vertical-scroll-proportion="-1.2162162" vertical-offset="0" max-vertical-offset="3570">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/routes/admin/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/builder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8770492" vertical-offset="95" max-vertical-offset="825">
+          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
           <folding />
         </state>
       </provider>

@@ -3,13 +3,67 @@
  */
 //TODO: Move this to NJax-UTIL in Bower
 var njaxServices = angular.module('njax');
+njaxServices.factory('NJaxSocket', ['$q', 'NJaxBootstrap', function($q, NJaxBootstrap){
+	var socket = io('http://localhost:3030');
+
+
+	var NJaxSocket = {
+		_requests:{},
+		init:function(){
+
+
+		},
+		$query:function(model_name, query, page){
+			console.log("!!!!QUERYING!!!!", query);
+			return NJaxSocket.$request('$query', {
+				model:model_name,
+				query:query,
+				page:page
+			});
+		},
+		$request:function(event, data){
+			var request_id = new Date().getTime() + '-' + Math.floor(Math.random() * 1000);
+			var deferred = $q.defer();
+			NJaxSocket._requests[request_id] = deferred;
+			data._request_id = request_id;
+			socket.emit('$query', data);
+			return deferred.promise;
+		},
+		onResponse:function(data){
+			if(!data._request_id){
+				throw new Error("No request_id in response body");
+			}
+			if(!NJaxSocket._requests[data._request_id]){
+				throw new Error("No promise matching request_id:" + data._request_id);
+			}
+			NJaxSocket._requests[data._request_id].resolve(data);
+			delete(NJaxSocket._requests[data._request_id]);
+		}
+	}
+
+
+	socket.on('greeting', function(data){
+		//Emit credentials
+		console.log('NJaxBootstrap', NJaxBootstrap);
+		socket.emit('update_credentials', {
+			//What are the credentials
+			access_token:NJaxBootstrap.access_token
+		})
+	})
+	socket.on('response', NJaxSocket.onResponse);
+
+
+
+	return NJaxSocket;
+}])
 njaxServices.factory(
 	'NJaxBuilder',
 	[
+		'NJaxSocket',
+		function (NJaxSocket) {
 
-		function(){
 			return {
-				build: function ( NJaxConfig) {
+				build: function (NJaxConfig) {
 
 					var Models = {};
 
@@ -20,21 +74,32 @@ njaxServices.factory(
 
 						//njaxServices.factory(model.capitalName, function () {
 
-							var njaxResource = (function () {
-								return function (data) {
-									this._model = model;
-									return this;
-								}
-							})();
-							njaxResource.$query = function (query) {
-								console.log("!!!!QUERYING!!!!", query);
+						var njaxResource = (function () {
+							return function (data) {
+								this._model = model;
+								this.data = data;
+								return this;
 							}
-							njaxResource.prototype.$save = function () {
+						})();
 
-							}
-							njaxResource.prototype.$archive = function () {
+						njaxResource.$query = function (query) {
+							return NJaxSocket.$query(model.capitalName, query, 0)
+						}
+						njaxResource.prototype.$save = function () {
 
-							}
+							this._socket.emit('$save', this.data);
+						}
+						njaxResource.prototype.$archive = function () {
+
+
+						}
+						njaxResource.prototype.connect = function () {
+
+							this._socket = NJaxSocket.join(this.uri);
+
+
+							return this._socket;
+						}
 						//	return njaxResource;
 						Models[model.capitalName] = njaxResource;
 						//});
@@ -47,3 +112,5 @@ njaxServices.factory(
 		}
 	]
 );
+
+

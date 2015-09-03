@@ -2,76 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d098d82-e198-4695-aa05-4a38ddf4f0b7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/builder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/templates/admin/install.hjs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/templates/model/account/list.hjs" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_accessToken_edit_form.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_accessToken_list_single.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_account_edit_form.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_account_list_single.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_application_edit_form.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_application_list_single.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_event_edit_form.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_event_list_single.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/Event_detail.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/Event_edit.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/Event_list.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_Event_edit_form.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_Event_list_single.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_accessToken_edit_form.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_accessToken_list_single.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_account_edit_form.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_account_list_single.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_application_edit_form.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_application_list_single.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_requestCode_edit_form.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/_requestCode_list_single.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/accessToken_detail.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/accessToken_edit.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/accessToken_list.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/account_detail.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/account_edit.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/account_list.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/application_detail.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/application_edit.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/application_list.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/requestCode_detail.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/requestCode_edit.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_njax/requestCode_list.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_requestCode_edit_form.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_requestCode_list_single.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_subscription_edit_form.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_subscription_list_single.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_tag_edit_form.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/_tag_list_single.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/accessToken_detail.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/accessToken_edit.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/accessToken_list.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/account_detail.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/account_edit.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/account_list.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/application_detail.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/application_edit.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/application_list.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/event_detail.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/event_edit.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/event_list.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/requestCode_detail.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/requestCode_edit.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/requestCode_edit_form.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/requestCode_list.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/subscription_detail.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/subscription_edit.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/subscription_list.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/tag_detail.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/tag_edit.hjs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/templates/model/tag_list.hjs" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/api.js" afterPath="$PROJECT_DIR$/lib/modules/api.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/index.js" afterPath="$PROJECT_DIR$/lib/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/admin/index.js" afterPath="$PROJECT_DIR$/lib/routes/admin/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/njax_config.js" afterPath="$PROJECT_DIR$/njax_config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes/admin/settings.js" afterPath="$PROJECT_DIR$/lib/routes/admin/settings.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/builder.js" afterPath="$PROJECT_DIR$/public/js/builder.js" />
     </list>
     <ignored path="njax.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -108,8 +39,8 @@
       <file leaf-file-name="builder.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/builder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8770492" vertical-offset="95" max-vertical-offset="825">
-              <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.17213115" vertical-offset="1170" max-vertical-offset="1830">
+              <caret line="85" column="35" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -396,9 +327,9 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3294979" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3294979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -640,10 +571,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/index.js">
+    <entry file="file://$PROJECT_DIR$/lib/routes/admin/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.1621623" vertical-offset="994" max-vertical-offset="2100">
-          <caret line="79" column="21" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -656,18 +587,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes/admin/index.js">
+    <entry file="file://$PROJECT_DIR$/lib/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+        <state vertical-scroll-proportion="-5.1621623" vertical-offset="994" max-vertical-offset="2100">
+          <caret line="79" column="21" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/builder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8770492" vertical-offset="95" max-vertical-offset="825">
-          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.17213115" vertical-offset="1170" max-vertical-offset="1830">
+          <caret line="85" column="35" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
           <folding />
         </state>
       </provider>

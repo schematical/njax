@@ -2,7 +2,7 @@
  This will build the assets from njax_config.js into working angular files
  */
 //TODO: Move this to NJax-UTIL in Bower
-var njaxServices = angular.module('njax');
+var njaxServices = angular.module('njax', []);
 njaxServices.factory('NJaxSocket', ['$q', 'NJaxBootstrap', function($q, NJaxBootstrap){
 	var socket = io('http://localhost:3030');
 
@@ -14,11 +14,16 @@ njaxServices.factory('NJaxSocket', ['$q', 'NJaxBootstrap', function($q, NJaxBoot
 
 		},
 		$query:function(model_name, query, page){
-			console.log("!!!!QUERYING!!!!", query);
 			return NJaxSocket.$request('$query', {
 				model:model_name,
 				query:query,
 				page:page
+			});
+		},
+		$save:function(model_name, model_data){
+			return NJaxSocket.$request('$save', {
+				model:model_name,
+				data:model_data
 			});
 		},
 		$request:function(event, data){
@@ -56,61 +61,81 @@ njaxServices.factory('NJaxSocket', ['$q', 'NJaxBootstrap', function($q, NJaxBoot
 
 	return NJaxSocket;
 }])
-njaxServices.factory(
-	'NJaxBuilder',
-	[
-		'NJaxSocket',
-		function (NJaxSocket) {
-
-			return {
-				build: function (NJaxConfig) {
-
-					var Models = {};
 
 
-					for (var model_name in NJaxConfig.models) {
+window.NJax = {};
+window.NJax.Builder = {
+	build:function(njax_config){
+		njax_config = njax_config || window.njax_config;
+		for (var model_name in njax_config.models) {
 
-						var model = NJaxConfig.models[model_name];
-
-						//njaxServices.factory(model.capitalName, function () {
-
-						var njaxResource = (function () {
-							return function (data) {
-								this._model = model;
-								this.data = data;
-								return this;
-							}
-						})();
-
-						njaxResource.$query = function (query) {
-							return NJaxSocket.$query(model.capitalName, query, 0)
-						}
-						njaxResource.prototype.$save = function () {
-
-							this._socket.emit('$save', this.data);
-						}
-						njaxResource.prototype.$archive = function () {
-
-
-						}
-						njaxResource.prototype.connect = function () {
-
-							this._socket = NJaxSocket.join(this.uri);
-
-
-							return this._socket;
-						}
-						//	return njaxResource;
-						Models[model.capitalName] = njaxResource;
-						//});
-
-					}
-					return Models;
-				}
-			}
-
+			var model = njax_config.models[model_name];
+			NJax.Builder.buildResource(NJax, model);
+			NJax.Builder.buildDirective(model);
 		}
-	]
-);
+	},
+	buildResource:function(NJax, model){
 
+		njaxServices.factory(
+			model.capitalName,
+			[
+				'NJaxSocket',
+				function(NJaxSocket){
+				var njaxResource = (function () {
+					return function (data) {
+						this._model = model;
+						this.data = data;
+						return this;
+					}
+				})();
+
+				njaxResource.$query = function (query) {
+					return NJaxSocket.$query(model.capitalName, query, 0);
+				}
+				njaxResource.prototype.$save = function () {
+					return NJaxSocket.$save(model.capitalName, this.data);
+				}
+				njaxResource.prototype.$archive = function () {
+
+
+				}
+				njaxResource.prototype.connect = function () {
+
+					this._socket = NJaxSocket.join(this.uri);
+
+
+					return this._socket;
+				}
+				return njaxResource;
+
+			}
+		]);
+
+
+	},
+	buildDirective:function(model){
+
+		var directiveName = model.name + 'List';
+		console.log(directiveName);
+		njaxServices.directive.apply(
+			null, [
+				directiveName,
+				function() {
+					return {
+						replace: true,
+						scope: {
+							//application: '=njaxApplicationWidget'
+						},
+						//templateUrl: '/templates/directives/adamMap.html',
+
+						template: '<div>Template A</div>',
+						link: function (scope, element, attrs) {
+
+						}
+					}
+				}
+			]
+		);
+	}
+}
 

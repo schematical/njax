@@ -28,6 +28,13 @@ njaxServices.factory('NJaxSocket', ['$q', 'NJaxBootstrap', function($q, NJaxBoot
 				data:model_data
 			});
 		},
+		$archive:function(model_name, model_id){
+
+			return NJaxSocket.$request('$archive', {
+				model:model_name,
+				data:{ _id: model_id }
+			});
+		},
 		$connect:function(uri, callback){
 			//NOTE WE COULD TEST IF THE FIRST PARAM IS AN OBJECT
 			//If it is a string assume it is a uri.
@@ -111,6 +118,7 @@ window.NJax.Builder = {
 						this._model = model;
 						this.data = data || {};
 						var _this = this;
+
 						for(var key in model.fields){
 							(function(_key) {
 								Object.defineProperty(
@@ -128,12 +136,39 @@ window.NJax.Builder = {
 							})(key);
 
 						}
+						Object.defineProperty(
+							_this,
+							'_is_njax',
+							{
+								get: function () {
+									return true;
+								}
+							}
+						);
+						Object.defineProperty(
+							_this,
+							'_id',
+							{
+								get: function () {
+									return _this.data._id;
+								}
+							}
+						);
 						return this;
 					}
 				})();
 
 				njaxResource.$query = function (query) {
-					return NJaxSocket.$query(model.capitalName, query, 0);
+
+					var deferred = $q.defer();
+					NJaxSocket.$query(model.capitalName, query, 0).then(function(data){
+						for(var i in data.response){
+							data.response[i] = new njaxResource(data.response[i]);
+						}
+						deferred.resolve(data);
+						return data;
+					});
+					return deferred.promise;
 				}
 				njaxResource.prototype.$save = function () {
 					var _this = this;
@@ -146,7 +181,14 @@ window.NJax.Builder = {
 					return deferred.promise;
 				}
 				njaxResource.prototype.$archive = function () {
+					var _this = this;
+					var deferred = $q.defer();
 
+					NJaxSocket.$archive(model.capitalName, this._id).then(function(data){
+						//_this.data = data.response;
+						deferred.resolve(this);
+					})
+					return deferred.promise;
 
 				}
 				njaxResource.prototype.connect = function () {
@@ -175,7 +217,8 @@ window.NJax.Builder = {
 				[
 					'ngTableParams',
 					'NJaxSocket',
-					function(ngTableParams, NJaxSocket) {
+					model.capitalName,
+					function(ngTableParams, NJaxSocket, Model) {
 						return {
 							replace: true,
 							scope: {
@@ -216,6 +259,14 @@ window.NJax.Builder = {
 
 											}
 										break;
+										case('archive'):
+											for(var i in scope.collection){
+												if(scope.collection[i]._id == event.data._id){
+													scope.collection.splice(i, 1);
+												}
+
+											}
+										break;
 									}
 									scope.$digest();
 
@@ -236,7 +287,16 @@ window.NJax.Builder = {
 											);
 										}
 									}
-								)
+								);
+
+								scope.archiveSelected = function($event){
+
+									for(var i in scope.collection){
+										if(scope.collection[i]._selected) {
+											scope.collection[i].$archive()
+										}
+									}
+								}
 							}
 						}
 					}

@@ -9,6 +9,7 @@ njaxServices.factory('NJaxSocket', ['$q', 'NJaxBootstrap', function($q, NJaxBoot
 
 	var NJaxSocket = {
 		_requests:{},
+		_subscriptions:{},
 		init:function(){
 
 
@@ -25,6 +26,17 @@ njaxServices.factory('NJaxSocket', ['$q', 'NJaxBootstrap', function($q, NJaxBoot
 			return NJaxSocket.$request('$save', {
 				model:model_name,
 				data:model_data
+			});
+		},
+		$connect:function(uri, callback){
+			//NOTE WE COULD TEST IF THE FIRST PARAM IS AN OBJECT
+			//If it is a string assume it is a uri.
+			// If it is an object then its a more specific query
+			NJaxSocket._subscriptions[uri] = callback;
+			return NJaxSocket.$request('$connect', {
+				uri: uri
+				/*model:model_name,
+				id:id*/
 			});
 		},
 		$request:function(event, data){
@@ -45,6 +57,15 @@ njaxServices.factory('NJaxSocket', ['$q', 'NJaxBootstrap', function($q, NJaxBoot
 			}
 			NJaxSocket._requests[data._request_id].resolve(data);
 			delete(NJaxSocket._requests[data._request_id]);
+		},
+		onEvent:function(data){
+			//console.log('OnEvnet Fired', data);
+			for(var key in NJaxSocket._subscriptions){
+				if(data.entity_uri.substr(0, key.length) == key){
+					NJaxSocket._subscriptions[key](data);
+				}
+			}
+
 		}
 	}
 
@@ -58,6 +79,7 @@ njaxServices.factory('NJaxSocket', ['$q', 'NJaxBootstrap', function($q, NJaxBoot
 		})
 	})
 	socket.on('response', NJaxSocket.onResponse);
+	socket.on('event', NJaxSocket.onEvent);
 
 
 
@@ -129,10 +151,10 @@ window.NJax.Builder = {
 				}
 				njaxResource.prototype.connect = function () {
 
-					this._socket = NJaxSocket.join(this.uri);
-
-
-					return this._socket;
+					NJaxSocket.$connect(this.uri).then(function(data){
+						_this.data = data.response;
+						deferred.resolve(this);
+					})
 				}
 				return njaxResource;
 
@@ -152,7 +174,8 @@ window.NJax.Builder = {
 				directiveName,
 				[
 					'ngTableParams',
-					function(ngTableParams) {
+					'NJaxSocket',
+					function(ngTableParams, NJaxSocket) {
 						return {
 							replace: true,
 							scope: {
@@ -165,6 +188,41 @@ window.NJax.Builder = {
 								if(!scope.collection){
 									scope.collection = [];
 								}
+
+								//Find the parent
+								var parent = null;
+								if(model.parent) {
+									parent = window.njax_bootstrap[model.parent];
+
+									if (!parent) throw new Error("Cannot find parent: " + model.parent);
+								}
+								//Get the parent URI
+								var uri = (parent && parent.uri) || '';
+								uri += model.uri_prefix;
+								console.log("about to $connect:", uri);
+								NJaxSocket.$connect(uri, function(event){
+									console.log("onEvent:", event);
+									switch(event.event){
+										case('create'):
+											scope.collection.push(event.data);
+										break;
+										case('update'):
+											for(var i in scope.collection){
+												if(scope.collection[i]._id == event.data._id){
+													for(var key in event.data){
+														scope.collection[i][key] = event.data[key];
+													}
+												}
+
+											}
+										break;
+									}
+									scope.$digest();
+
+								}).then(function(data){
+									//I Dont think anything will happen here
+								});
+
 								scope.tableParams = new ngTableParams(
 									{
 										page: 1,            // show first page

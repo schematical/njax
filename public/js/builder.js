@@ -315,46 +315,56 @@ window.NJax.Builder = {
 		$stateProvider.state('home', {
 			url: '',
 			templateUrl: '/templates/home.html',
-			controller:function($scope, wwTube){
+			controller:function($scope){
 				console.log("Home Hit");
 			}
 		});
 		for(var key in  window.njax_config.models) {
-			var _model = window.njax_config.models[key];
-
-			$stateProvider.state(_model.name + '_list', {
-				url: _model.uri_prefix,//TODO: Add Parent,
-				views: {
-					body: {
-						templateUrl: '/templates/model/' + _model.name + '/list.html',
-						controller: [ '$scope', _model.capitalName, function ($scope, Model) {
-							console.log("In the controller");
-
-							Model.$query().then(function(data){
-								console.log("Query Success: ", data)
-								$scope.locations = data.response;
-							})
-
-						}]
-					}
-				}
-
-			})
-
-			$stateProvider.state(_model.name + '_detail', {
-				url: _model.uri_prefix + '/:' + _model.name,
-				views: {
-					body: {
-						templateUrl: '/templates/model/' + _model.name + '/detail.html'
-					}
-				},
-				controller: function ($scope, $stateParams, Stores) {
-
-					console.log("Location Detail Hit");
 
 
-				}
-			})
+				(function(_model) {
+					$stateProvider.state(_model.name + '_list', {
+						url: _model.uri_prefix,//TODO: Add Parent,
+						views: {
+							body: {
+								templateUrl: '/templates/model/' + _model.name + '/list.html',
+								controller: ['$scope', _model.capitalName, function ($scope, Model) {
+
+									Model.$query().then(function (data) {
+
+										$scope[_model.name + 's'] = data.response;
+									})
+
+								}]
+							}
+						}
+
+					})
+
+					$stateProvider.state(_model.name + '_detail', {
+						url: _model.uri_prefix + '/:' + _model.name,
+						views: {
+							body: {
+								templateUrl: '/templates/model/' + _model.name + '/detail.html',
+								controller: ['$scope', '$stateParams', _model.capitalName, function ($scope, $stateParams, Model) {
+
+									console.log(_model.name + " Detail Hit");
+
+									Model.$query({_id: $stateParams[_model.name]}).then(function (data) {
+
+										if (data.response.length > 0) {
+											console.log("Query Success: ", data)
+											$scope[_model.name] = data.response[0];
+										}
+
+									})
+
+								}]
+							}
+						}
+
+					})
+				})( window.njax_config.models[key]);
 
 		}
 
@@ -485,6 +495,7 @@ window.NJax.Builder = {
 
 							//template: '<div>Template A</div>',
 							link: function (scope, element, attrs) {
+
 								if(!scope[model.name]){
 									scope[model.name] = new Model();
 								}

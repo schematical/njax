@@ -314,9 +314,13 @@ window.NJax.Builder = {
 	buildRoutes:function($urlRouterProvider, $stateProvider){
 		$stateProvider.state('home', {
 			url: '',
-			templateUrl: '/templates/home.html',
-			controller:function($scope){
-				console.log("Home Hit");
+			views: {
+				body: {
+					templateUrl: '/templates/home.html',
+					controller: function ($scope) {
+						console.log("Home Hit");
+					}
+				}
 			}
 		});
 		for(var key in  window.njax_config.models) {

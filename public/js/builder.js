@@ -73,6 +73,85 @@ njaxServices.factory('NJaxSocket', ['$q', 'NJaxBootstrap', function($q, NJaxBoot
 				}
 			}
 
+		},
+		util:{
+			/*serialize:function(obj, prefix) {
+				var str = [];
+				for(var p in obj) {
+					if (obj.hasOwnProperty(p)) {
+						var k = prefix ? prefix + "[" + p + "]" : p, v = obj[p];
+						str.push(typeof v == "object" ?
+							serialize(v, k) ://THIS SERIALIZE
+						encodeURIComponent(k) + "=" + encodeURIComponent(v));
+					}
+				}
+				return str.join("&");
+			},
+			deserialize:function(str){
+				var obj = {};
+				var parts = str.split("&");
+				for(var i in parts){
+					var part = parts[i];
+					var _parts = part.split("=");
+					var key = decodeURIComponent(_parts[0]);
+
+					var value = decodeURIComponent(_parts[1]);
+					obj[key] = [value];
+				}
+				return obj;
+			}*/
+			parseKeyValue: function(/**string*/keyValue) {
+				var obj = {};
+				forEach((keyValue || "").split('&'), function(keyValue) {
+					var splitPoint, key, val;
+					if (keyValue) {
+						key = keyValue = keyValue.replace(/\+/g,'%20');
+						splitPoint = keyValue.indexOf('=');
+						if (splitPoint !== -1) {
+							key = keyValue.substring(0, splitPoint);
+							val = keyValue.substring(splitPoint + 1);
+						}
+						key = decodeURIComponent(key);
+						if (isDefined(key)) {
+							val = isDefined(val) ? decodeURIComponent(val) : true;
+							if (!hasOwnProperty.call(obj, key)) {
+								obj[key] = val;
+							} else if (isArray(obj[key])) {
+								obj[key].push(val);
+							} else {
+								obj[key] = [obj[key],val];
+							}
+						}
+					}
+				});
+				return obj;
+			},
+
+			toKeyValue: function (obj) {
+				function encodeUriQuery(val, pctEncodeSpaces) {
+					return encodeURIComponent(val).
+						replace(/%40/gi, '@').
+						replace(/%3A/gi, ':').
+						replace(/%24/g, '$').
+						replace(/%2C/gi, ',').
+						replace(/%3B/gi, ';').
+						replace(/%20/g, (pctEncodeSpaces ? '%20' : '+'));
+				}
+
+				var parts = [];
+				forEach(obj, function(value, key) {
+					if (isArray(value)) {
+						forEach(value, function(arrayValue) {
+							parts.push(encodeUriQuery(key, true) +
+							(arrayValue === true ? '' : '=' + encodeUriQuery(arrayValue, true)));
+						});
+					} else {
+						parts.push(encodeUriQuery(key, true) +
+						(value === true ? '' : '=' + encodeUriQuery(value, true)));
+					}
+				});
+				return parts.length ? parts.join('&') : '';
+			}
 		}
 	}
 
@@ -154,6 +233,33 @@ window.NJax.Builder = {
 								}
 							}
 						);
+						Object.defineProperty(
+							_this,
+							'uri',
+							{
+								get: function () {
+									return _this.data.uri;
+								}
+							}
+						);
+						Object.defineProperty(
+							_this,
+							'url',
+							{
+								get: function () {
+									return _this.data.url;
+								}
+							}
+						);
+						Object.defineProperty(
+							_this,
+							'app_url',
+							{
+								get: function () {
+									return _this.data.app_url;
+								}
+							}
+						);
 						return this;
 					}
 				})();
@@ -205,6 +311,55 @@ window.NJax.Builder = {
 
 
 	},
+	buildRoutes:function($urlRouterProvider, $stateProvider){
+		$stateProvider.state('home', {
+			url: '',
+			templateUrl: '/templates/home.html',
+			controller:function($scope, wwTube){
+				console.log("Home Hit");
+			}
+		});
+		for(var key in  window.njax_config.models) {
+			var _model = window.njax_config.models[key];
+
+			$stateProvider.state(_model.name + '_list', {
+				url: _model.uri_prefix,//TODO: Add Parent,
+				views: {
+					body: {
+						templateUrl: '/templates/model/' + _model.name + '/list.html',
+						controller: [ '$scope', _model.capitalName, function ($scope, Model) {
+							console.log("In the controller");
+
+							Model.$query().then(function(data){
+								console.log("Query Success: ", data)
+								$scope.locations = data.response;
+							})
+
+						}]
+					}
+				}
+
+			})
+
+			$stateProvider.state(_model.name + '_detail', {
+				url: _model.uri_prefix + '/:' + _model.name,
+				views: {
+					body: {
+						templateUrl: '/templates/model/' + _model.name + '/detail.html'
+					}
+				},
+				controller: function ($scope, $stateParams, Stores) {
+
+					console.log("Location Detail Hit");
+
+
+				}
+			})
+
+		}
+
+		$urlRouterProvider.otherwise('');
+	},
 	buildDirective:function(model){
 
 		var directiveName = model.name + 'List';
@@ -215,10 +370,11 @@ window.NJax.Builder = {
 			null, [
 				directiveName,
 				[
+					'$location',
 					'ngTableParams',
 					'NJaxSocket',
 					model.capitalName,
-					function(ngTableParams, NJaxSocket, Model) {
+					function($location, ngTableParams, NJaxSocket, Model) {
 						return {
 							replace: true,
 							scope: {
@@ -296,6 +452,12 @@ window.NJax.Builder = {
 											scope.collection[i].$archive()
 										}
 									}
+								}
+								scope.selectInstance = function($event, instance){
+									$event.preventDefault();
+									$location.path(instance.uri);
+									//window.history.pushState({"html":"<h1>","pageTitle":'dramboui'}, 'Title', '/page2.php');
+									console.log("Hit");
 								}
 							}
 						}

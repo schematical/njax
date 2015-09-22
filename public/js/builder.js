@@ -313,7 +313,7 @@ window.NJax.Builder = {
 	},
 	buildRoutes:function($urlRouterProvider, $stateProvider){
 		$stateProvider.state('home', {
-			url: '',
+			url: '/',
 			views: {
 				body: {
 					templateUrl: '/templates/home.html',
@@ -372,7 +372,7 @@ window.NJax.Builder = {
 
 		}
 
-		$urlRouterProvider.otherwise('');
+		$urlRouterProvider.otherwise('/');
 	},
 	buildDirective:function(model){
 

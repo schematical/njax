@@ -1,5 +1,5 @@
 
-angular.module('njax.directives', ['njax.services'])
+angular.module('njax')/*.directives', ['njax.services'])*/
     .directive('njaxIframe', [
 		'NJaxBootstrap',
 		function(NJaxBootstrap) {
@@ -68,9 +68,7 @@ angular.module('njax.directives', ['njax.services'])
                 target.on('keyup', updateFromTarget);
                 element.on('keyup', function(event){
                     var namespace = element.val()
-                    namespace = namespace.toLowerCase();
-                    namespace = namespace.replace(/[^\w\s]/gi, '');
-                    namespace = namespace.replace(/ /g,"-");
+                    namespace = getNamespace(namespace);
                     if(element.val() != namespace){
                         element.val(namespace);
 

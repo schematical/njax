@@ -1,9 +1,9 @@
-angular.module('njax.services', [])
+angular.module('njax')/*.services', [])*/
 	.constant('getNamespace', function (str) {
 		var namespace = str;
 		namespace = namespace.toLowerCase();
 		namespace = namespace.replace(/[^\w\s]/gi, '');
-		namespace = namespace.replace(/ /g,"_");
+		namespace = namespace.replace(/ /g,"-");
 		return namespace;
 	})
 	.service('NJaxAuth', ['$cookies', 'NJaxBootstrap', 'AccountService', function($cookies, NJaxBootstrap, AccountService){

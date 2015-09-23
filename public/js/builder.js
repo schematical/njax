@@ -346,6 +346,7 @@ window.NJax.Builder = {
 			njaxServices.factory(
 				model.capitalName,
 				[
+					'n' + model.capitalName,
 					function (Model) {
 						return Model;
 					}

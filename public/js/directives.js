@@ -1002,9 +1002,9 @@ angular.module('njax')/*.directives', ['njax.services'])*/
 								document.cookie = "access_token=" + data.access_token + "; " + expires + ";domain=" + NJaxBootstrap.cookie.domain + ";path=/";
 							}
 							if ($scope.onRegisterFinish) {
-								$scope.onRegisterFinish(data);
+								$scope.onRegisterFinish({user:data });
 							}
-							$scope.$emit('njax.register.success', data);
+							$scope.$emit('njax.register.success',{user:data });
 
 
 						})

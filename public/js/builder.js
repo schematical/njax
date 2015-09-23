@@ -424,72 +424,7 @@ window.NJax.Builder = {
 			views: {
 				body: {
 					templateUrl: '/templates/register.html',
-					controller: ['$scope', '$q', 'NJaxBootstrap', 'Account', function ($scope, $q, NJaxBootstrap, Account) {
-
-						$scope.validate = function () {
-							$scope.error = null;
-
-							var deferred = $q.defer();
-							if (!$scope.password || $scope.password.length < 8) {
-								deferred.reject(new Error("Password must be at least 8 characters"));
-							} else if ($scope.password != $scope.password_confirm) {
-								deferred.reject(new Error("Passwords do not match"));
-							} else if (!$scope.name) {
-								deferred.reject(new Error("Please enter a name"));
-							} else if (!$scope.namespace || $scope.namespace.length < 4) {
-								deferred.reject(new Error("Please enter a username"));
-							} else {
-
-								Account.namespace_available({namespace: $scope.namespace}).then(function (data) {
-									return deferred.resolve(true);
-								}, function(err){
-									return deferred.reject(new Error("This username has already been taken"));
-								});
-							}
-
-
-							return deferred.promise;
-						}
-						$scope.register = function ($event) {
-							$event.preventDefault();
-							$scope.validate().then(function (result) {
-								Account.register({
-									name: $scope.name,
-									username: $scope.email,
-									namespace: $scope.namespace,
-									password: $scope.password,
-									password_confirm: $scope.password_confirm
-								}).then(function (response) {
-										if (!response.data) {
-											return $scope.error = new Error("An unknown error occurred");
-										}
-									var data = response.data;
-										if (data.error) {
-											return $scope.error = data.error;
-										}
-										if (data.access_token) {
-											var d = new Date();
-											d.setTime(d.getTime() + (90 * 24 * 60 * 60 * 1000));
-											var expires = "expires=" + d.toUTCString();
-											document.cookie = "access_token=" + data.access_token + "; " + expires + ";domain=" + NJaxBootstrap.cookie.domain + ";path=/";
-										}
-										if ($scope.onRegisterFinish) {
-											$scope.onRegisterFinish(data);
-										}
-										$scope.$emit('njax.register.success', data);
-
-
-									})
-								//$event.target.submit();
-							}, function (err) {
-
-								$scope.error = err;
-
-							})
-
-						}
-
-					}]
+					controller: 'RegisterPageCtl'
 				}
 			}
 

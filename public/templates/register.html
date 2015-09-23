@@ -1,34 +1,5 @@
 </div>
-    <form role="form" method="post" ng-submit="register($event);"><!--action="/register?redirect={{ redirect_url }}" -->
-
-        <h1>Create Your Account</h1>
-
-        <div ng-if="error" class='alert alert-danger'>
-            {{ error.message }}
-        </div>
-
-        <div class="form-group">
-            <label for="username">Email address</label>
-            <input type="email"  name="email" class="form-control" id="email" placeholder="Enter email"  ng-model="email" >
-        </div>
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text"  name="name" class="form-control" id="name" placeholder="Enter Name"  ng-model="name" >
-        </div>
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text"  name="namespace" class="form-control" id="namespace" placeholder="Enter username"  ng-model="namespace" njax-namespace="name">
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name='password' id="password" placeholder="Password"  ng-model="password" >
-        </div>
-        <div class="form-group">
-            <label for="password_confirm">Password</label>
-            <input type="password" class="form-control" id="password_confirm" placeholder="Confirm Password" name='password_confirm' ng-model="password_confirm" >
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+    <njax-register-form on-register-finish="onRegisterFinish();"></njax-register-form>
 
 
     <!-- Text Under Box -->

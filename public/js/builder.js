@@ -181,12 +181,38 @@ window.NJax.Builder = {
 	},
 	build: function (njax_config) {
 		njax_config = njax_config || window.njax_config;
+		NJax.Builder.extendDefaultResources();
 		for (var model_name in njax_config.models) {
 
 			var model = njax_config.models[model_name];
 			NJax.Builder.buildResource(NJax, model);
 			NJax.Builder.buildDirective(model);
 		}
+	},
+	extendDefaultResources: function () {
+
+		NJax.Builder.extend(
+			'Account',
+			['nAccount', '$q', '$http', 'NJaxSocket', 'NJaxBootstrap', function(nAccount, $q, $http, NJaxSocket, NJaxBootstrap) {
+				/** Static function **/
+				nAccount.namespace_available = function (namespace) {
+					var deferred = $q.defer();
+					nAccount.$query({namespace:namespace}).then(function(data){
+						if(data.response.length == 0){
+							return deferred.resolve();
+						}
+						return deferred.reject(new Error("There is already an account with this namespace"));
+					})
+					return deferred.promise;
+				}
+				nAccount.register = function (data) {
+					var deferred = $q.defer();
+					return $http.post(NJaxBootstrap.core_api_url + '/register', data);
+				}
+				return nAccount;
+			}
+			]
+		)
 	},
 	buildResource: function (NJax, model) {
 
@@ -433,10 +459,11 @@ window.NJax.Builder = {
 									namespace: $scope.namespace,
 									password: $scope.password,
 									password_confirm: $scope.password_confirm
-								}).then(function (data) {
-										if (!data) {
+								}).then(function (response) {
+										if (!response.data) {
 											return $scope.error = new Error("An unknown error occurred");
 										}
+									var data = response.data;
 										if (data.error) {
 											return $scope.error = data.error;
 										}

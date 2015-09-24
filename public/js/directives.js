@@ -1021,3 +1021,21 @@ angular.module('njax')/*.directives', ['njax.services'])*/
 
 	}]
 )
+.directive(
+	'njaxBreadcrumbs',
+	[ '$q', 'NJaxBootstrap', 'Account', function ( $q, NJaxBootstrap, Account) {
+		return {
+			replace: true,
+			scope: {
+				'breadcrumbs': '=breadcrumbs'
+				//'onRegisterFinish': '&onRegisterFinish'
+			},
+			templateUrl: (NJaxBootstrap.core_asset_url || NJaxBootstrap.core_www_url) + '/templates/directives/njaxBreadcrumbs.html',
+			link: function ($scope, element, attrs) {
+				for(var i in $scope.lineage){
+
+				}
+			}
+		}
+	}]
+)

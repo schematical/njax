@@ -220,8 +220,9 @@ window.NJax.Builder = {
 			'n' + model.capitalName,
 			[
 				'$q',
+				'$injector',
 				'NJaxSocket',
-				function ($q, NJaxSocket) {
+				function ($q, $injector, NJaxSocket) {
 					var njaxResource = (function () {
 						return function (data) {
 							this._model = model;
@@ -260,6 +261,15 @@ window.NJax.Builder = {
 								{
 									get: function () {
 										return _this.data._id;
+									}
+								}
+							);
+							Object.defineProperty(
+								_this,
+								'_parent_uri',
+								{
+									get: function () {
+										return _this.data._parent_uri;
 									}
 								}
 							);
@@ -305,6 +315,27 @@ window.NJax.Builder = {
 							return data;
 						});
 						return deferred.promise;
+					}
+					if(model.parent){
+
+						njaxResource.prototype.parent = function () {
+							var _this = this;
+							var deferred = $q.defer();
+							var parent = window.njax_config.models[model.fields[model.parent].ref];
+							var Parent = $injector.get(parent.capitalName);
+							Parent.$query({
+								_id: _this[model.parent]
+							}).then(function (data) {
+								var parent_instance = null;
+								if(data.response.length == 1){
+									parent_instance = data.response[0];
+								}
+								deferred.resolve(parent_instance);
+								return parent_instance;
+							});
+
+							return deferred.promise;
+						}
 					}
 					njaxResource.prototype.$save = function () {
 						var _this = this;
@@ -372,12 +403,46 @@ window.NJax.Builder = {
 
 
 			(function (_model) {
+
+
+				//BUILD PARENT URL
+				var has_no_parent = false;
+
+				var uri_parts = [];
+				var _focus_model = _model;
+				var lineage = [];
+				var danger = 0;
+				while(!has_no_parent && danger < 15){
+					danger += 1;
+					lineage.push(_focus_model);
+
+					if(_focus_model.parent){
+						has_no_parent = false;
+						_focus_model = window.njax_config.models[_focus_model.fields[_focus_model.parent].ref];
+					}else{
+						has_no_parent = true;
+					}
+
+
+				}
+				lineage.reverse();
+				var uri_prefix = '';
+				for(var i in lineage){
+					uri_prefix += lineage[i].uri_prefix;
+					if(lineage[i].name != _model.name) {
+						uri_prefix += '/:' + lineage[i].name;
+					}
+				}
+
+
+
 				$stateProvider.state(_model.name + '_list', {
-					url: _model.uri_prefix,//TODO: Add Parent,
+					url:uri_prefix,
 					views: {
 						body: {
 							templateUrl: '/templates/model/' + _model.name + '/list.html',
 							controller: ['$scope', _model.capitalName, function ($scope, Model) {
+
 
 								Model.$query().then(function (data) {
 
@@ -388,23 +453,47 @@ window.NJax.Builder = {
 						}
 					}
 
-				})
+				});
+
+
 
 				$stateProvider.state(_model.name + '_detail', {
-					url: _model.uri_prefix + '/:' + _model.name,
+					url: uri_prefix + '/:' + _model.name,
 					views: {
 						body: {
 							templateUrl: '/templates/model/' + _model.name + '/detail.html',
 							controller: ['$scope', '$stateParams', _model.capitalName, function ($scope, $stateParams, Model) {
 
-								console.log(_model.name + " Detail Hit");
+								$scope.lineage = lineage;
+
+								$scope.breadcrumbs = [];
+
 
 								Model.$query({_id: $stateParams[_model.name]}).then(function (data) {
 
 									if (data.response.length > 0) {
 										console.log("Query Success: ", data)
-										$scope[_model.name] = data.response[0];
+										$scope[_model.name] = instance =  data.response[0];
+										var addToBreadcrumbs = function (instance) {
+
+											$scope.breadcrumbs.push({
+												url:'//' + instance.url,
+												name: instance.name
+											})
+											$scope.breadcrumbs.push({
+												url:(instance._parent_uri || '')+ instance._model.uri_prefix,
+												name: instance._model.capitalName + 's'
+											});
+											if(instance.parent) {
+												instance.parent().then(addToBreadcrumbs)
+											}else{
+												$scope.breadcrumbs.reverse();
+											}
+											console.log($scope.breadcrumbs);
+										}
+
 									}
+									addToBreadcrumbs(instance);
 
 								})
 

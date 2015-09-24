@@ -66,7 +66,7 @@ njaxServices.factory('NJaxSocket', ['$q', 'NJaxBootstrap', function ($q, NJaxBoo
 			delete(NJaxSocket._requests[data._request_id]);
 		},
 		onEvent: function (data) {
-			//console.log('OnEvnet Fired', data);
+
 			for (var key in NJaxSocket._subscriptions) {
 				if (data.entity_uri.substr(0, key.length) == key) {
 					NJaxSocket._subscriptions[key](data);
@@ -158,7 +158,7 @@ njaxServices.factory('NJaxSocket', ['$q', 'NJaxBootstrap', function ($q, NJaxBoo
 
 	socket.on('greeting', function (data) {
 		//Emit credentials
-		console.log('NJaxBootstrap', NJaxBootstrap);
+
 		socket.emit('update_credentials', {
 			//What are the credentials
 			access_token: NJaxBootstrap.access_token
@@ -239,7 +239,14 @@ window.NJax.Builder = {
 												return _this.data[_key] = val;
 											},
 											get: function () {
-												return _this.data[_key];
+												switch (model.fields[_key].type){
+													case("date"):
+														return new Date(_this.data[_key]);
+													break;
+													default:
+														return _this.data[_key];
+												}
+
 											}
 										}
 									);
@@ -403,7 +410,7 @@ window.NJax.Builder = {
 
 
 			(function (_model) {
-console.log(_model.parent);
+
 				var parent = null;
 				if(_model.parent){
 					parent = window.njax_config.models[_model.fields[_model.parent].ref];
@@ -456,7 +463,7 @@ console.log(_model.parent);
 						}else{
 							$scope.breadcrumbs.reverse();
 						}
-						console.log($scope.breadcrumbs);
+
 					}
 				}
 
@@ -517,6 +524,9 @@ console.log(_model.parent);
 									if (data.response.length > 0) {
 										console.log("Query Success: ", data)
 										$scope[_model.name] = instance =  data.response[0];
+									/*	setTimeout(function(){
+											$scope.$digest();
+										}, 1000)*/
 									}
 									addToBreadcrumbs($scope)(instance);
 
@@ -602,7 +612,7 @@ console.log(_model.parent);
 									$event.preventDefault();
 									$location.path(instance.uri);
 									//window.history.pushState({"html":"<h1>","pageTitle":'dramboui'}, 'Title', '/page2.php');
-									console.log("Hit");
+									console.log("Instance Selected");
 								}
 
 								//Find the parent
@@ -683,6 +693,9 @@ console.log(_model.parent);
 								if (!scope[model.name]) {
 									scope[model.name] = new Model();
 								}
+								/*scope.$parent.$watch(model.name, function(){
+									console.log('title:', scope.title);
+								});*/
 								scope.save = function ($event) {
 									$event.preventDefault();
 									console.log("Save!")

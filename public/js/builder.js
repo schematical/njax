@@ -403,8 +403,11 @@ window.NJax.Builder = {
 
 
 			(function (_model) {
-
-
+console.log(_model.parent);
+				var parent = null;
+				if(_model.parent){
+					parent = window.njax_config.models[_model.fields[_model.parent].ref];
+				}
 				//BUILD PARENT URL
 				var has_no_parent = false;
 
@@ -434,20 +437,60 @@ window.NJax.Builder = {
 					}
 				}
 
+				var addToBreadcrumbs = function($scope){
+					if(!$scope.breadcrumbs){
+						$scope.breadcrumbs = [];
+					}
+					return function (instance) {
 
+						$scope.breadcrumbs.push({
+							url:'//' + instance.url,
+							name: instance.name
+						})
+						$scope.breadcrumbs.push({
+							url:(instance._parent_uri || '')+ instance._model.uri_prefix,
+							name: instance._model.capitalName + 's'
+						});
+						if(instance.parent) {
+							instance.parent().then(addToBreadcrumbs($scope))
+						}else{
+							$scope.breadcrumbs.reverse();
+						}
+						console.log($scope.breadcrumbs);
+					}
+				}
 
 				$stateProvider.state(_model.name + '_list', {
 					url:uri_prefix,
 					views: {
 						body: {
 							templateUrl: '/templates/model/' + _model.name + '/list.html',
-							controller: ['$scope', _model.capitalName, function ($scope, Model) {
+							controller: ['$scope', '$stateParams', '$injector',  _model.capitalName, function ($scope, $stateParams, $injector, Model) {
+								$scope.query = function(query){
+									Model.$query(query).then(function (data) {
+										$scope[_model.name + 's'] = data.response;
+									});
+								}
+								if(_model.parent) {
+									var Parent = $injector.get(parent.capitalName);
+
+									Parent.$query({ _id: $stateParams[parent.name] }).then(function(data){
+										var instance = null;
+										if(data.response.length == 1){
+											instance = data.response[0];
+										}
+										$scope.parent = instance;
+										addToBreadcrumbs($scope)(instance);
+										var query = {}
+										query[_model.parent] = instance._id;
+										$scope.query(query);
+									});
+								}else{
+									$scope.query({});
+								}
 
 
-								Model.$query().then(function (data) {
 
-									$scope[_model.name + 's'] = data.response;
-								})
 
 							}]
 						}
@@ -474,26 +517,8 @@ window.NJax.Builder = {
 									if (data.response.length > 0) {
 										console.log("Query Success: ", data)
 										$scope[_model.name] = instance =  data.response[0];
-										var addToBreadcrumbs = function (instance) {
-
-											$scope.breadcrumbs.push({
-												url:'//' + instance.url,
-												name: instance.name
-											})
-											$scope.breadcrumbs.push({
-												url:(instance._parent_uri || '')+ instance._model.uri_prefix,
-												name: instance._model.capitalName + 's'
-											});
-											if(instance.parent) {
-												instance.parent().then(addToBreadcrumbs)
-											}else{
-												$scope.breadcrumbs.reverse();
-											}
-											console.log($scope.breadcrumbs);
-										}
-
 									}
-									addToBreadcrumbs(instance);
+									addToBreadcrumbs($scope)(instance);
 
 								})
 
@@ -538,6 +563,7 @@ window.NJax.Builder = {
 						return {
 							replace: true,
 							scope: {
+								parent: '=parent',
 								collection: '=collection'
 							},
 							templateUrl: '/templates/model/' + model.name + '/_table.html',
@@ -548,47 +574,6 @@ window.NJax.Builder = {
 									scope.collection = [];
 								}
 
-								//Find the parent
-								var parent = null;
-								if (model.parent) {
-									parent = window.njax_bootstrap[model.parent];
-
-									if (!parent) throw new Error("Cannot find parent: " + model.parent);
-								}
-								//Get the parent URI
-								var uri = (parent && parent.uri) || '';
-								uri += model.uri_prefix;
-								console.log("about to $connect:", uri);
-								NJaxSocket.$connect(uri, function (event) {
-									console.log("onEvent:", event);
-									switch (event.event) {
-										case('create'):
-											scope.collection.push(event.data);
-											break;
-										case('update'):
-											for (var i in scope.collection) {
-												if (scope.collection[i]._id == event.data._id) {
-													for (var key in event.data) {
-														scope.collection[i][key] = event.data[key];
-													}
-												}
-
-											}
-											break;
-										case('archive'):
-											for (var i in scope.collection) {
-												if (scope.collection[i]._id == event.data._id) {
-													scope.collection.splice(i, 1);
-												}
-
-											}
-											break;
-									}
-									scope.$digest();
-
-								}).then(function (data) {
-									//I Dont think anything will happen here
-								});
 
 								scope.tableParams = new ngTableParams(
 									{
@@ -619,6 +604,55 @@ window.NJax.Builder = {
 									//window.history.pushState({"html":"<h1>","pageTitle":'dramboui'}, 'Title', '/page2.php');
 									console.log("Hit");
 								}
+
+								//Find the parent
+
+								if (model.parent) {
+									if(!scope.parent) {
+
+										scope.parent = window.njax_bootstrap[model.parent] || null;
+
+										//if (!$scope.parent) throw new Error("Cannot find parent: " + model.parent);
+									}
+								}
+								if (!model.parent || scope.parent) {
+									//Get the parent URI
+									var uri = (scope.parent && scope.parent.uri) || '';
+									uri += model.uri_prefix;
+									console.log("about to $connect:", uri);
+									NJaxSocket.$connect(uri, function (event) {
+										console.log("onEvent:", event);
+										switch (event.event) {
+											case('create'):
+												scope.collection.push(event.data);
+												break;
+											case('update'):
+												for (var i in scope.collection) {
+													if (scope.collection[i]._id == event.data._id) {
+														for (var key in event.data) {
+															scope.collection[i][key] = event.data[key];
+														}
+													}
+
+												}
+												break;
+											case('archive'):
+												for (var i in scope.collection) {
+													if (scope.collection[i]._id == event.data._id) {
+														scope.collection.splice(i, 1);
+													}
+
+												}
+												break;
+										}
+										scope.$digest();
+
+									}).then(function (data) {
+										//I Dont think anything will happen here
+									});
+								}
+
+
 							}
 						}
 					}

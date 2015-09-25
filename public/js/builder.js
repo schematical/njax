@@ -241,7 +241,14 @@ window.NJax.Builder = {
 											get: function () {
 												switch (model.fields[_key].type){
 													case("date"):
-														return new Date(_this.data[_key]);
+														if(_this.data[_key]) {
+															if(!(_this.data[_key] instanceof Date)){
+																_this.data[_key] = new Date(_this.data[_key]);
+															}
+															return _this.data[_key];
+														}else{
+															return null;
+														}
 													break;
 													default:
 														return _this.data[_key];
@@ -415,34 +422,7 @@ window.NJax.Builder = {
 				if(_model.parent){
 					parent = window.njax_config.models[_model.fields[_model.parent].ref];
 				}
-				//BUILD PARENT URL
-				var has_no_parent = false;
 
-				var uri_parts = [];
-				var _focus_model = _model;
-				var lineage = [];
-				var danger = 0;
-				while(!has_no_parent && danger < 15){
-					danger += 1;
-					lineage.push(_focus_model);
-
-					if(_focus_model.parent){
-						has_no_parent = false;
-						_focus_model = window.njax_config.models[_focus_model.fields[_focus_model.parent].ref];
-					}else{
-						has_no_parent = true;
-					}
-
-
-				}
-				lineage.reverse();
-				var uri_prefix = '';
-				for(var i in lineage){
-					uri_prefix += lineage[i].uri_prefix;
-					if(lineage[i].name != _model.name) {
-						uri_prefix += '/:' + lineage[i].name;
-					}
-				}
 
 				var addToBreadcrumbs = function($scope){
 					if(!$scope.breadcrumbs){
@@ -468,7 +448,7 @@ window.NJax.Builder = {
 				}
 
 				$stateProvider.state(_model.name + '_list', {
-					url:uri_prefix,
+					url:_model.full_url_prefix,
 					views: {
 						body: {
 							templateUrl: '/templates/model/' + _model.name + '/list.html',
@@ -508,13 +488,13 @@ window.NJax.Builder = {
 
 
 				$stateProvider.state(_model.name + '_detail', {
-					url: uri_prefix + '/:' + _model.name,
+					url: _model.full_url_prefix + '/:' + _model.name,
 					views: {
 						body: {
 							templateUrl: '/templates/model/' + _model.name + '/detail.html',
 							controller: ['$scope', '$stateParams', _model.capitalName, function ($scope, $stateParams, Model) {
 
-								$scope.lineage = lineage;
+
 
 								$scope.breadcrumbs = [];
 
@@ -693,9 +673,11 @@ window.NJax.Builder = {
 								if (!scope[model.name]) {
 									scope[model.name] = new Model();
 								}
-								/*scope.$parent.$watch(model.name, function(){
-									console.log('title:', scope.title);
-								});*/
+								scope.$parent.$watch(model.name + '._id', function( newVal){
+									console.log(model.name + ':',  newVal);
+									scope[model.name] = scope.$parent[model.name];
+
+								});
 								scope.save = function ($event) {
 									$event.preventDefault();
 									console.log("Save!")

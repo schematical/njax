@@ -3,6 +3,10 @@
  */
 //TODO: Move this to NJax-UTIL in Bower
 var njaxServices = angular.module('njax', ['ngTable']);
+njaxServices.run(['$http', function($http){
+	$http.defaults.headers.common.access_token = window.njax_bootstrap.access_token;
+
+}])
 njaxServices.factory('NJaxSocket', ['$q', 'NJaxBootstrap', function ($q, NJaxBootstrap) {
 	var socket = io('http://localhost:3030');
 
@@ -307,10 +311,10 @@ window.NJax.Builder = {
 							);
 							Object.defineProperty(
 								_this,
-								'app_url',
+								'api_url',
 								{
 									get: function () {
-										return _this.data.app_url;
+										return _this.data.api_url;
 									}
 								}
 							);
@@ -401,12 +405,11 @@ window.NJax.Builder = {
 						return deferred.promise;
 
 					}
-					njaxResource.prototype.connect = function () {
+					njaxResource.prototype.connect = function (cb) {
+						var deferred = $q.defer();
+						var _this = this;
+						return NJaxSocket.$connect(this.uri,cb);
 
-						NJaxSocket.$connect(this.uri).then(function (data) {
-							_this.data = data.response;
-							deferred.resolve(this);
-						})
 					}
 
 					return njaxResource;

@@ -1,49 +1,25 @@
-var subscriptionServices = angular.module('core100.subscription.service', ['ngResource']);
-/*subscriptionServices.factory(
-    'SubscriptionService',
-    [
-        '$resource',
-        function($resource){
-            return $resource('/:account/subscriptions/:subscription_id',
-            	{
-					'account':'@account',
-            		'subscription_id':'@_id'
-            	},
-            	{
-					query: {
-						method:'GET',
-						params:{
-
-						},
-						isArray:true
-					}
-            	}
-            );
-        }
-    ]
-);*/
-subscriptionServices.factory(
-	'SubscriptionService',
+NJax.Builder.extend(
+	'Subscription',
 	[
 		'$http',
 		'NJaxBootstrap',
-		function($http, NJaxBootstrap){
-			return {
-				//url:NJaxBootstrap.core_api_url  + '/:account/subscriptions/:subscription_id'
-				queryEntity:function(target, type){
-					if(!target.api_url){
-						throw new Error("Invalid Target passed in");
-					}
-					var url = NJaxBootstrap.core_api_url + '/subscriptions';
-					url += '?entity_url=' + target.api_url;
-					if(type){
-						url += '&type=' + scope.type;
-					}
+		'nSubscription',
+		function($http, NJaxBootstrap, nSubscription){
 
-					return $http.get(url);
+			nSubscription.queryEntity = function(target, type){
+				if(!target.api_url){
+					throw new Error("Invalid Target passed in");
+				}
+				var url = NJaxBootstrap.core_api_url + '/subscriptions';
+				url += '?entity_url=' + target.api_url;
+				if(type){
+					url += '&type=' + scope.type;
+				}
 
-				},
-				queryByAccount:function(account, type){
+				return $http.get(url);
+
+			};
+			nSubscription.queryByAccount = function(account, type){
 					if(!account.api_url){
 						throw new Error("Invalid Account passed in");
 					}
@@ -53,31 +29,31 @@ subscriptionServices.factory(
 					}
 
 					return $http.get(url);
-				},
-				add:function(target,type, user){
-					if(user){
-						throw new Error("We have not buit this")
-					}
-					return $http.post(
-						'//' + target.api_url + '/subscriptions',
-						{
-							type: type
-						});
-				},
-				remove:function(target, type, user){
-					if(user){
-						throw new Error("We have not buit this")
-					}
-					if(target._njax_type == 'Subscription'){
-						return $http.delete(
-							/*'//' +*/ NJaxBootstrap.core_api_url + '/subscriptions/' + target._id
-						);
-					}
-					console.error('target:', target);
-					throw new Error("Invalid Target to delete");
-				}
-
 			};
+			nSubscription.add = function(target,type, user){
+				if(user){
+					throw new Error("We have not buit this")
+				}
+				return $http.post(
+					'//' + target.api_url + '/subscriptions',
+					{
+						type: type
+					});
+			};
+			nSubscription.remove = function(target, type, user){
+				if(user){
+					throw new Error("We have not buit this")
+				}
+				if(target._njax_type == 'Subscription'){
+					return $http.delete(
+						/*'//' +*/ NJaxBootstrap.core_api_url + '/subscriptions/' + target._id
+					);
+				}
+				console.error('target:', target);
+				throw new Error("Invalid Target to delete");
+			}
+			return nSubscription;
+
 		}
 	]
 );

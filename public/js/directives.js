@@ -387,8 +387,8 @@ angular.module('njax')/*.directives', ['njax.services'])*/
 		'$http',
 		'$rootScope',
 		'NJaxBootstrap',
-		'SubscriptionService',
-		function ($q, $http, $rootScope, NJaxBootstrap, SubscriptionService) {
+		'Subscription',
+		function ($q, $http, $rootScope, NJaxBootstrap, Subscription) {
 			return {
 				replace: true,
 				scope: {
@@ -414,7 +414,7 @@ angular.module('njax')/*.directives', ['njax.services'])*/
 							//TODO: Log them in?
 							return console.error("Need to be user to subscribe");
 						}
-						SubscriptionService.add(target).success(function (response) {
+						Subscription.add(target).success(function (response) {
 							scope.subscriptions.push(response);
 							scope.count += 1;
 							scope.is_subscribed = true;
@@ -429,7 +429,7 @@ angular.module('njax')/*.directives', ['njax.services'])*/
 						})
 					}
 					scope.promptUnSubscribe = function () {
-						if (!scope.beforeUnSubscribe) {
+						if (!attrs.beforeUnSubscribe || !scope.beforeUnSubscribe ) {
 							return scope.removeSubscription();
 						}
 						return scope.beforeUnSubscribe(scope.removeSubscription);
@@ -442,7 +442,7 @@ angular.module('njax')/*.directives', ['njax.services'])*/
 						scope.count -= 1;
 						var promisses = [];
 						for (var i in scope.subscriptions) {
-							promisses.push(SubscriptionService.remove(scope.subscriptions[i]).success(function (response) {
+							promisses.push(Subscription.remove(scope.subscriptions[i]).success(function (response) {
 								$rootScope.$broadcast('njax.subscription.remove.local', response);//scope.subscriptions[i])
 
 								if (scope.onUnSubscribe) {
@@ -467,7 +467,7 @@ angular.module('njax')/*.directives', ['njax.services'])*/
 						 })*/
 					}
 
-					SubscriptionService.queryEntity(scope.target, scope.type).success(function (subscriptions) {
+					Subscription.queryEntity(scope.target, scope.type).success(function (subscriptions) {
 
 
 						scope.loading = false;
@@ -738,8 +738,8 @@ angular.module('njax')/*.directives', ['njax.services'])*/
 		'$http',
 		'$rootScope',
 		'NJaxBootstrap',
-		'SubscriptionService',
-		function ($http, $rootScope, NJaxBootstrap, SubscriptionService) {
+		'Subscription',
+		function ($http, $rootScope, NJaxBootstrap, Subscription) {
 			return {
 				replace: true,
 				scope: {
@@ -749,7 +749,7 @@ angular.module('njax')/*.directives', ['njax.services'])*/
 				//templateUrl: '/templates/directives/njaxComments.html',
 				link: function (scope, element, attrs) {
 
-					SubscriptionService.queryEntity(scope.target, scope.type).success(function (response) {
+					Subscription.queryEntity(scope.target, scope.type).success(function (response) {
 
 
 						scope.posting = false;
@@ -809,18 +809,20 @@ angular.module('njax')/*.directives', ['njax.services'])*/
 		'$http',
 		'$rootScope',
 		'NJaxBootstrap',
-		'SubscriptionService',
-		function ($http, $rootScope, NJaxBootstrap, SubscriptionService) {
+		'Subscription',
+		function ($http, $rootScope, NJaxBootstrap, Subscription) {
 			return {
 				replace: true,
 				scope: {
 					'target': '=target',
 					'type': '@type'
 				},
-				templateUrl: (NJaxBootstrap.core_asset_url || NJaxBootstrap.core_www_url) + '/templates/directives/njaxSubscriptionAccountList.html',
+				//templateUrl: (NJaxBootstrap.core_asset_url || NJaxBootstrap.core_www_url) + '/templates/directives/njaxSubscriptionAccountList.html',
+				transclude: true,
+				template: '<div ng-transclude> </div>',
 				link: function (scope, element, attrs) {
 
-					SubscriptionService.queryEntity(scope.target, scope.type).success(function (response) {
+					Subscription.queryEntity(scope.target, scope.type).success(function (response) {
 
 
 						scope.posting = false;
@@ -857,8 +859,8 @@ angular.module('njax')/*.directives', ['njax.services'])*/
 		'$http',
 		'$rootScope',
 		'NJaxBootstrap',
-		'SubscriptionService',
-		function ($q, $http, $rootScope, NJaxBootstrap, SubscriptionService) {
+		'Subscription',
+		function ($q, $http, $rootScope, NJaxBootstrap, Subscription) {
 			return {
 				replace: true,
 				scope: {
@@ -871,7 +873,7 @@ angular.module('njax')/*.directives', ['njax.services'])*/
 				link: function (scope, element, attrs) {
 					scope.load = function () {
 						scope.loading = false;
-						return SubscriptionService.queryByAccount(scope.account, scope.type).success(function (response) {
+						return Subscription.queryByAccount(scope.account, scope.type).success(function (response) {
 							scope.count = response.length;
 							var subscriptions = response;
 							var promises = [];

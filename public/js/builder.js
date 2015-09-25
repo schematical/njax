@@ -351,6 +351,35 @@ window.NJax.Builder = {
 							return deferred.promise;
 						}
 					}
+					njaxResource.prototype.isOwner = function(user_id){
+						var deferred = $q.defer();
+						if(!user_id){
+							throw new Error("Must test against a valid user");
+						}
+						if(user_id._id){
+							user_id = user_id._id;
+						}
+
+
+						//Check lineage
+						var checkIfIsOwner =  function (instance) {
+							if(!instance){
+								return deferred.reject(new Error("Could not find parent"));
+							}
+							if(instance.owner){
+								return deferred.resolve((instance.owner == user_id));
+
+							}
+							if(!instance.parent){
+								return deferred.resolve(false);
+							}
+							return instance.parent().then(checkIfIsOwner)
+						}
+
+						checkIfIsOwner(this);
+						return deferred.promise;
+
+					}
 					njaxResource.prototype.$save = function () {
 						var _this = this;
 						var deferred = $q.defer();
@@ -427,8 +456,13 @@ window.NJax.Builder = {
 				var addToBreadcrumbs = function($scope){
 					if(!$scope.breadcrumbs){
 						$scope.breadcrumbs = [];
+
 					}
+
+
 					return function (instance) {
+						$scope[instance._model.name] = instance;
+						if(instance)
 
 						$scope.breadcrumbs.push({
 							url:'//' + instance.url,
@@ -499,14 +533,11 @@ window.NJax.Builder = {
 								$scope.breadcrumbs = [];
 
 
+
 								Model.$query({_id: $stateParams[_model.name]}).then(function (data) {
 
 									if (data.response.length > 0) {
-										console.log("Query Success: ", data)
 										$scope[_model.name] = instance =  data.response[0];
-									/*	setTimeout(function(){
-											$scope.$digest();
-										}, 1000)*/
 									}
 									addToBreadcrumbs($scope)(instance);
 

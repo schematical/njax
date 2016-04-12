@@ -970,7 +970,7 @@ angular.module('njax')/*.directives', ['njax.services'])*/
 						deferred.reject(new Error("Please enter a username"));
 					} else {
 
-						Account.namespace_available({namespace: $scope.namespace}).then(function (data) {
+						Account.namespace_available( $scope.namespace).then(function (data) {
 							return deferred.resolve(true);
 						}, function (err) {
 							return deferred.reject(new Error("This username has already been taken"));

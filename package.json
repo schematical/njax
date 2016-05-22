@@ -1,6 +1,6 @@
 {
   "name": "njax",
-  "version": "0.2.13",
+  "version": "0.2.16",
   "private": false,
   "scripts": {
     "start": "node app.js"
@@ -20,7 +20,7 @@
     "passport-local-mongoose": "0.3.0",
     "passport-local": "0.1.6",
     "request": "*",
-    "njax-util": "0.0.52"
+    "njax-server-util": "0.2.02"
   },
   "description": "NJax - ==== //IF YOU ARE READING THIS THIS IS JUST AN OUTLINE FOR AN INTRO PARAGRAPH -> WELCOME TO MY PROCESS",
   "main": "index.js",
